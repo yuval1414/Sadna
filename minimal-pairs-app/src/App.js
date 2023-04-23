@@ -48,25 +48,37 @@ const App = () => {
   const images = [
     { src: Train, alt: 'Image 1', description: 'train' },
     { src: Rakefet, alt: 'Image 2', description: 'rakefet' },
+    { src: Monkey, alt: 'Image 1', description: 'monkey' },
+    { src: Drum, alt: 'Image 2', description: 'drum' },
   ];
-  const [selectedImage, setSelectedImage] = React.useState(null);
+  const [selectedImages, setSelectedImages] = React.useState([]);
+
+  const selectRandomImages = () => {
+    const shuffledImages = images.sort(() => 0.5 - Math.random());
+    const selected = shuffledImages.slice(0, 2);
+    setSelectedImages(selected);
+  };
+
+  React.useEffect(() => {
+    selectRandomImages();
+  }, []);
 
   const handleImageClick = (image) => {
-    setSelectedImage(image);
+    selectRandomImages();
   };
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" mt={4}>
       <header>
-      <Typography variant="h4" gutterBottom>
-        Choose the right image
-      </Typography>
+        <Typography variant="h4" gutterBottom>
+          Choose the right image
+        </Typography>
       </header>
       <Box display="flex" justifyContent="center" mt={4}>
-        {images.map((image) => (
+        {selectedImages.map((image) => (
           <Box key={image.alt} mr={2}>
             <Button onClick={() => handleImageClick(image)}>
-              <img src={image.src} alt={image.alt} width={300} height={200} />
+              <img src={process.env.PUBLIC_URL + image.src} alt={image.alt} width={300} height={200} />
             </Button>
             <Typography variant="subtitle1" align="center">
               {image.description}
@@ -74,7 +86,7 @@ const App = () => {
           </Box>
         ))}
       </Box>
-      {selectedImage && (
+      {/* {selectedImage && (
         <Box mt={4}>
           <Typography variant="subtitle1" gutterBottom>
             You have selected:
@@ -84,7 +96,7 @@ const App = () => {
             {selectedImage.description}
           </Typography>
         </Box>
-      )}
+      )} */}
     </Box>
   );
 };
