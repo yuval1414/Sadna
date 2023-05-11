@@ -108,16 +108,47 @@ import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem } from 
 import MenuIcon from '@mui/icons-material/Menu';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 //import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
-import Monkey from './images/1_1.jpg'; // !
+import Replay from '@mui/icons-material/ReplayRounded';
+import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
+
+import Drum from './images/1_1.jpg'; // !
+import Monkey from './images/1_0.jpg'; // !
+import Rakefet from './images/2_1.jpg'; // !
+import Train from './images/2_0.jpg'; // !
+import bg from './images/bg.jpg'; // !
+
+const images = [
+  {
+    image1: {
+      src: Train, description: 'רכבת'
+    },
+    image2: {
+      src: Rakefet, description: 'רקפת'
+    }
+  },
+  {
+    image1: {
+      src: Monkey, description: 'קוף'
+    },
+    image2: {
+      src: Drum, description: 'תוף'
+    },
+  }
+];
+let dupImages = [...images];
+const selectRandomImages = () => { // !
+  if(dupImages.length === 0)
+  {
+    dupImages = [...images];
+  }
+  const shuffledImages = dupImages.sort(() => 0.5 - Math.random());
+  const selected = shuffledImages.pop();
+  return selected;
+};
+
+const randomImages = selectRandomImages();
 
 function App() {
-  const images = [
-    { src: Monkey, alt: 'Image 1', description: 'monkey' },
-  ];
-  
-  const [currentPair, setCurrentPair] = useState(1);
-  const [correctImage, setCorrectImage] = useState(0); // correctImage = 0 WHY DO I NEED THIS?
-
   const imageStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
@@ -152,44 +183,19 @@ function App() {
     }
   };
 
-  const handleNextClick = () => {
-    setCurrentPair(currentPair + 1);
-    setCorrectImage(Math.round(Math.random()));
-  };
-
   const handleListenAgainClick = () => {
     alert('listen again');
   };
 
-  const [selectedImages, setSelectedImages] = React.useState([]); // !
-
-  const selectRandomImages = () => { // !
-    const shuffledImages = images.sort(() => 0.5 - Math.random());
-    const selected = shuffledImages.slice(0, 2);
-    setSelectedImages(selected);
+  const [selectedImages, setSelectedImages] = React.useState(randomImages); // !
+  
+  const handleNextClick = () => {
+    setSelectedImages(selectRandomImages());
   };
 
-  React.useEffect(() => { // !
-    selectRandomImages();
-  }, []);
- 
   return (
-    <div style={{ backgroundImage: `url(./images/bg.jpeg)`, height: '100vh', backgroundSize: 'cover' }}>
-      <div style={{ maxWidth: '800px', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {/* <AppBar position="static" color="warning">
-          <Toolbar variant="dense">
-            <div style={{ display: 'flex', justifyContent: 'center', width: '100%', border: '1px solid black' }}>
-              <Typography variant="h6" color="inherit" component="div" >
-                My App Name
-              </Typography>
-              <div style={{ display: 'flex', justifyContent: 'right', border: '1px solid black' }}>
-                <IconButton edge="end" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                  <MenuIcon color="inherit" />
-                </IconButton>
-              </div>
-            </div>
-          </Toolbar>
-        </AppBar> */}
+    <div style={{ backgroundImage: `url(${bg})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <AppBar position="static" color="info">
           <Toolbar variant="dense">
             <IconButton color="inherit" onClick={handleSoundClick}>
@@ -221,17 +227,17 @@ function App() {
             </Menu>
           </Toolbar>
         </AppBar>
-        <header>
+        <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant="h4" gutterBottom>
             Choose the right image
           </Typography>
-        </header>
+        
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
           <div>
             <Button onClick={() => handleImageClick}>
               <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img
-                  src={process.env.PUBLIC_URL + `./images/${currentPair}_0.jpg`} // ???
+                  src={selectedImages.image1?.src} // ???
                   alt="Left"
                   data-image="0"
                   style={imageStyle}
@@ -242,35 +248,45 @@ function App() {
               </div>
             </Button>
             <Typography variant="subtitle1" align="center">
-              {"image1"}
+              {selectedImages.image1?.description}
             </Typography>
           </div>
           <div>
             <Button onClick={() => handleImageClick}>
               <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img
-                  src={process.env.PUBLIC_URL + `./images/${currentPair}_1.jpg`}
+                  src={selectedImages.image2?.src}
                   alt="Right"
                   data-image="1"
                   style={imageStyle}
                   onClick={handleImageClick}
-                  //object-fit="contain"
                   id="right"
                 />
               </div>
             </Button>
             <Typography variant="subtitle1" align="center">
-              {"image2"}
+              {selectedImages.image2?.description}
             </Typography>
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
-          <button onClick={handleListenAgainClick}>Listen Again</button>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <IconButton color="inherit" onClick={handleListenAgainClick}>
+            <Typography align="center">
+              השמע שוב
+            </Typography>
+              <Replay />  
+            </IconButton>
+          </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginTop: '20px' }}>
-          <button onClick={handleNextClick}>Next Pair</button>
+        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
+          <IconButton color="inherit" onClick={handleNextClick}>
+            <Next /> Next
+          </IconButton>
         </div>
+
       </div>
+    </div>
     </div>
   );
 }
