@@ -12,7 +12,7 @@ import Drum from './../images/1_1.jpg';
 import Monkey from './../images/1_0.jpg'; 
 import Rakefet from './../images/2_1.jpg'; 
 import Train from './../images/2_0.jpg'; 
-import bg from './../images/bg.jpg'; 
+import bg6 from './../images/bg6.jpg'; 
 
 const images = [
   {
@@ -91,7 +91,7 @@ function ExercisePage() {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${bg})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div style={{ backgroundImage: `url(${bg6})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <AppBar position="static" color="info">
           <Toolbar variant="dense">
