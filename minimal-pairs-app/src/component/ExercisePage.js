@@ -1,6 +1,7 @@
 
 // 2ND ATTEMPT
 import React, { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import VolumeUp from '@mui/icons-material/VolumeUp';
@@ -45,7 +46,7 @@ const selectRandomImages = () => { // !
 
 const randomImages = selectRandomImages();
 
-function ExercisePage() {
+function ExercisePage() {  // START OF THE RUN
   const imageStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
@@ -68,7 +69,15 @@ function ExercisePage() {
 
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
-  }; // ----------------------------------------------
+  };
+  
+
+  
+  // ----------------------------------------------
+const navigate = useNavigate();
+  const navigateHome = () => {
+   navigate('/');
+  };
 
   function handleImageClick(event) {
     //const clickedImage = event.target.getAttribute('data-image'); // 0 or 1, can help identify the clicked image, can be use later
@@ -103,7 +112,7 @@ function ExercisePage() {
               open={Boolean(soundAnchorEl)}
               onClose={handleSoundClose}
             >
-              <MenuItem onClick={handleSoundClose}>Man</MenuItem>
+              <MenuItem onClick={handleSoundClose} >Man</MenuItem>
               <MenuItem onClick={handleSoundClose}>Woman</MenuItem>
               <MenuItem onClick={handleSoundClose}>Both</MenuItem>
               <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
@@ -117,7 +126,7 @@ function ExercisePage() {
               open={Boolean(menuAnchorEl)}
               onClose={handleMenuClose}
             >
-              <MenuItem onClick={handleMenuClose}>Home</MenuItem>
+              <MenuItem onClick={navigateHome} >Home</MenuItem>
               <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
               <MenuItem onClick={handleMenuClose}>Games</MenuItem>
               <MenuItem onClick={handleMenuClose}>Help</MenuItem>
