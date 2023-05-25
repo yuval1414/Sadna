@@ -9,11 +9,11 @@ import VolumeUp from '@mui/icons-material/VolumeUp';
 import Replay from '@mui/icons-material/ReplayRounded';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
-import Drum from './../images/1_1.jpg'; 
-import Monkey from './../images/1_0.jpg'; 
-import Rakefet from './../images/2_1.jpg'; 
-import Train from './../images/2_0.jpg'; 
-import bg6 from './../images/bg6.jpg'; 
+import Drum from './../images/1_1.jpg';
+import Monkey from './../images/1_0.jpg';
+import Rakefet from './../images/2_1.jpg';
+import Train from './../images/2_0.jpg';
+import bg6 from './../images/bg6.jpg';
 
 const images = [
   {
@@ -35,8 +35,7 @@ const images = [
 ];
 let dupImages = [...images];
 const selectRandomImages = () => { // !
-  if(dupImages.length === 0)
-  {
+  if (dupImages.length === 0) {
     dupImages = [...images];
   }
   const shuffledImages = dupImages.sort(() => 0.5 - Math.random());
@@ -70,13 +69,13 @@ function ExercisePage() {  // START OF THE RUN
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
   };
-  
 
-  
+
+
   // ----------------------------------------------
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const navigateHome = () => {
-   navigate('/');
+    navigate('/');
   };
 
   function handleImageClick(event) {
@@ -94,106 +93,108 @@ const navigate = useNavigate();
   };
 
   const [selectedImages, setSelectedImages] = React.useState(randomImages); // !
-  
+
   const handleNextClick = () => {
     setSelectedImages(selectRandomImages());
   };
 
   return (
-    <div style={{ backgroundImage: `url(${bg6})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <AppBar position="static" color="info">
-          <Toolbar variant="dense">
-            <IconButton color="inherit" onClick={handleSoundClick}>
-              <VolumeUp />
-            </IconButton>
-            <Menu
-              anchorEl={soundAnchorEl}
-              open={Boolean(soundAnchorEl)}
-              onClose={handleSoundClose}
-            >
-              <MenuItem onClick={handleSoundClose} >Man</MenuItem>
-              <MenuItem onClick={handleSoundClose}>Woman</MenuItem>
-              <MenuItem onClick={handleSoundClose}>Both</MenuItem>
-              <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
-            </Menu>
-            <div style={{ flexGrow: 1, textAlign: 'center' }}>MY-APP-NAME</div>
-            <IconButton color="inherit" onClick={handleMenuClick}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={menuAnchorEl}
-              open={Boolean(menuAnchorEl)}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={navigateHome} >Home</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Games</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Help</MenuItem>
-            </Menu>
-          </Toolbar>
-        </AppBar>
-        <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant="h4" gutterBottom>
-            Choose the right image
-          </Typography>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
-          <div>
-            <Button onClick={() => handleImageClick}>
-              <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img
-                  src={selectedImages.image1?.src} // ???
-                  alt="Left"
-                  data-image="0"
-                  style={imageStyle}
-                  onClick={handleImageClick}
-                />
-                {/* {selectedImages.map((image) => (
-                  <img src={process.env.PUBLIC_URL + Monkey} alt={"Left"} data-image="0" style={imageStyle} onClick={handleImageClick} />))} */}
-              </div>
-            </Button>
-            <Typography variant="subtitle1" align="center">
-              {selectedImages.image1?.description}
-            </Typography>
-          </div>
-          <div>
-            <Button onClick={() => handleImageClick}>
-              <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img
-                  src={selectedImages.image2?.src}
-                  alt="Right"
-                  data-image="1"
-                  style={imageStyle}
-                  onClick={handleImageClick}
-                  id="right"
-                />
-              </div>
-            </Button>
-            <Typography variant="subtitle1" align="center">
-              {selectedImages.image2?.description}
-            </Typography>
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <IconButton color="inherit" onClick={handleListenAgainClick}>
-            <Typography align="center">
-              השמע שוב
-            </Typography>
-              <Replay />  
-            </IconButton>
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
-          <IconButton color="inherit" onClick={handleNextClick}>
-            <Next /> Next
+    <body style={{ backgroundImage: `url(${bg6})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div>
+        <Toolbar variant="dense">
+          <IconButton color="inherit" onClick={handleSoundClick}>
+            <VolumeUp />
           </IconButton>
-        </div>
+          <Menu
+            anchorEl={soundAnchorEl}
+            open={Boolean(soundAnchorEl)}
+            onClose={handleSoundClose}
+          >
+            <MenuItem onClick={handleSoundClose} >Man</MenuItem>
+            <MenuItem onClick={handleSoundClose}>Woman</MenuItem>
+            <MenuItem onClick={handleSoundClose}>Both</MenuItem>
+            <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
+          </Menu>
+          <div style={{ flexGrow: 1, textAlign: 'center' }}>EXERCISE</div>
+          <IconButton color="inherit" onClick={handleMenuClick}>
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            anchorEl={menuAnchorEl}
+            open={Boolean(menuAnchorEl)}
+            onClose={handleMenuClose}
+          >
+            <MenuItem onClick={navigateHome} >Home</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Games</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+          </Menu>
+        </Toolbar>
+        <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          {/* <AppBar position="static" color="transparent"> */}
+          {/* </AppBar> */}
+          <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography variant="h4" gutterBottom>
+              Choose the right image
+            </Typography>
 
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
+              <div>
+                <Button onClick={() => handleImageClick}>
+                  <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src={selectedImages.image1?.src} // ???
+                      alt="Left"
+                      data-image="0"
+                      style={imageStyle}
+                      onClick={handleImageClick}
+                    />
+                    {/* {selectedImages.map((image) => (
+                  <img src={process.env.PUBLIC_URL + Monkey} alt={"Left"} data-image="0" style={imageStyle} onClick={handleImageClick} />))} */}
+                  </div>
+                </Button>
+                <Typography variant="subtitle1" align="center">
+                  {selectedImages.image1?.description}
+                </Typography>
+              </div>
+              <div>
+                <Button onClick={() => handleImageClick}>
+                  <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src={selectedImages.image2?.src}
+                      alt="Right"
+                      data-image="1"
+                      style={imageStyle}
+                      onClick={handleImageClick}
+                      id="right"
+                    />
+                  </div>
+                </Button>
+                <Typography variant="subtitle1" align="center">
+                  {selectedImages.image2?.description}
+                </Typography>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <IconButton color="inherit" onClick={handleListenAgainClick}>
+                  <Typography align="center">
+                    השמע שוב
+                  </Typography>
+                  <Replay />
+                </IconButton>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
+              <IconButton color="inherit" onClick={handleNextClick}>
+                <Next /> Next
+              </IconButton>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
+    </body>
   );
 }
 
