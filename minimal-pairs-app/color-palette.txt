@@ -1,0 +1,12 @@
+#1C4755 dark-blue-green
+#00A087 green
+#EFC458 yellow
+#F66747 red-orange
+#C2E3F3 light-blue
+#FFFFFF white
+
+#FFD6C3 light-skin-color
+#FAAA84 darker-skin-color
+
+text-font: Marykate (en)
+           Poppins (he)
