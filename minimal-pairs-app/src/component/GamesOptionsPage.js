@@ -2,7 +2,7 @@
 // 2ND ATTEMPT
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem , List} from '@mui/material';
+import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, List } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
@@ -114,11 +114,11 @@ function GamesOptionsPage() {  // START OF THE RUN
 
             <div id="iconButton" className={classes.background}>
               <div className={classes.iconButton} align="center">
-              <List >
-                <IconButton color="inherit" onClick={null} >
-                  game1
-                </IconButton>
-                </List> 
+                <List >
+                  <IconButton color="inherit" onClick={null} >
+                    game1
+                  </IconButton>
+                </List>
               </div>
             </div>
           </div>
