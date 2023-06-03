@@ -77,6 +77,12 @@ function ExercisePage() {  // START OF THE RUN
   const navigateHome = () => {
     navigate('/');
   };
+  const navigateGames = () => {
+    navigate('/GamesOptionsPage');
+  };
+  const navigateExerciseOptions = () => {
+    navigate('/ExerciseOptionsPage');
+  };
 
   function handleImageClick(event) {
     //const clickedImage = event.target.getAttribute('data-image'); // 0 or 1, can help identify the clicked image, can be use later
@@ -125,8 +131,8 @@ function ExercisePage() {  // START OF THE RUN
             onClose={handleMenuClose}
           >
             <MenuItem onClick={navigateHome} >Home</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Games</MenuItem>
+            <MenuItem onClick={navigateExerciseOptions}>Exercise</MenuItem>
+            <MenuItem onClick={navigateGames}>Games</MenuItem>
             <MenuItem onClick={handleMenuClose}>Help</MenuItem>
           </Menu>
         </Toolbar>
@@ -143,14 +149,12 @@ function ExercisePage() {  // START OF THE RUN
                 <Button onClick={() => handleImageClick}>
                   <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
-                      src={selectedImages.image1?.src} // ???
+                      src={selectedImages.image1?.src}
                       alt="Left"
                       data-image="0"
                       style={imageStyle}
                       onClick={handleImageClick}
                     />
-                    {/* {selectedImages.map((image) => (
-                  <img src={process.env.PUBLIC_URL + Monkey} alt={"Left"} data-image="0" style={imageStyle} onClick={handleImageClick} />))} */}
                   </div>
                 </Button>
                 <Typography variant="subtitle1" align="center">

@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { IconButton, Typography, Replay, Button, Container } from '@mui/material';
+import { IconButton, Typography, Replay, Button, Container, Toolbar } from '@mui/material';
 import homePage from './../images/home-page.jpg';
+import gamesIcon from './../buttons/gamesBtn.png';
+import exerciseIcon from './../buttons/exercisesBtn.png';
+import helpIcon from './../buttons/helpBtn.png';
+import infoIcon from './../buttons/infoBtn.png';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,16 +33,21 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
   },
   iconButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
     position: 'absolute',
-    top: '80%',
-    left: '6%',
+    padding: '5%',
+    gap: '16%',
+    top: '70%',
+    left: '29%',
     zIndex: 1,
   },
 }));
 
 function Home() {
   const classes = useStyles();
-  
+
   useEffect(() => {
     const handleResize = () => {
       // Adjust the positions of the title and button when the window is resized
@@ -47,8 +56,6 @@ function Home() {
       // Set the positions based on the new window dimensions
       // title.style.top = '20px';
       // title.style.left = '20px';
-
-      
     };
     window.addEventListener('resize', handleResize);
 
@@ -60,23 +67,38 @@ function Home() {
 
   const navigate = useNavigate();
   const navigateExercise = () => {
-    navigate('/exercisePage');
+    navigate('/ExerciseOptionsPage');
+  };
+  const navigateGamesOptions = () => {
+    navigate('/GamesOptionsPage');
   };
   return (
 
-    //<body>
-      <div id="container" className={classes.container}>
+    <body>
+      <div id="container" className={classes.container} >
         <div id="background" className={classes.background}>
-          <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
-            <Typography align="center">
-              Exercise
-            </Typography>
-
-          </IconButton>
+        <Toolbar variant="dense">
+            <IconButton color="inherit" onClick={null}>
+            <img src={infoIcon} style={{ width: 35, height: 35 }} /> 
+            </IconButton>
+              </Toolbar>
+          <div className={classes.background} align="center" >
+            <div className={classes.iconButton}>
+              <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
+                <img src={helpIcon} style={{ width: 50, height: 50 }} />
+              </IconButton>
+              <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
+                <img src={exerciseIcon} style={{ width: 50, height: 50 }} />
+              </IconButton>
+              <IconButton id="iconButton" className={classes.iconButton} onClick={navigateGamesOptions} >
+                <img src={gamesIcon} style={{ width: 50, height: 50 }} />
+              </IconButton>
+            </div>
+          </div>
         </div>
       </div>
 
-    //</body>
+    </body>
   )
 }
 

@@ -5,32 +5,28 @@ import React, { useState } from 'react';
 //import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
 //import MenuIcon from '@mui/icons-material/Menu';
 //import VolumeUp from '@mui/icons-material/VolumeUp';
-import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
 //import Replay from '@mui/icons-material/ReplayRounded';
 //import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
-import ExercisePage from './component/ExercisePage';
 import Home from './component/Home';
+import ExercisePage from './component/ExercisePage';
+import GamesOptionsPage from './component/GamesOptionsPage';
+import ExerciseOptionsPage from './component/ExerciseOptionsPage';
 //import Contact from './component/Contact';
 
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <div className="App">
-        <div>
-        <Routes>
-          <Route exact path="/" element={<Home/>}>
-          </Route>
-          <Route path="/ExercisePage" element={<ExercisePage/>} >
-          </Route>
-          {/* <Route path="/contact" component={contact}>
-          </Route> */}
-        </Routes>
-        </div>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
+        <Route path="/ExercisePage" element={<ExercisePage />} />
+        <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} >
+        </Route>
+      </Routes>
     </Router>
   );
 }
 
-export default App;
