@@ -9,11 +9,13 @@ import VolumeUp from '@mui/icons-material/VolumeUp';
 import Replay from '@mui/icons-material/ReplayRounded';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
-import Drum from './../images/1_1.jpg';
-import Monkey from './../images/1_0.jpg';
-import Rakefet from './../images/2_1.jpg';
-import Train from './../images/2_0.jpg';
-import bg6 from './../images/bg6.jpg';
+import Drum from './../images/wordImages/drum.png';
+import Monkey from './../images/wordImages/monkey.png';
+import Rakefet from './../images/wordImages/cyclamen.png';
+import Train from './../images/wordImages/train.png';
+import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
+import exerciseText from './../images/pagesBg/exerciseText.png';
+import imgBg from './../images/buttons/imgBg.png';
 
 const images = [
   {
@@ -105,7 +107,7 @@ function ExercisePage() {  // START OF THE RUN
   };
 
   return (
-    <body style={{ backgroundImage: `url(${bg6})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <body style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div>
         <Toolbar variant="dense">
           <IconButton color="inherit" onClick={handleSoundClick}>
@@ -121,7 +123,7 @@ function ExercisePage() {  // START OF THE RUN
             <MenuItem onClick={handleSoundClose}>Both</MenuItem>
             <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
           </Menu>
-          <div style={{ flexGrow: 1, textAlign: 'center' }}>EXERCISE</div>
+          <div style={{ flexGrow: 1, textAlign: 'center' }} ></div>
           <IconButton color="inherit" onClick={handleMenuClick}>
             <MenuIcon />
           </IconButton>
@@ -137,17 +139,15 @@ function ExercisePage() {  // START OF THE RUN
           </Menu>
         </Toolbar>
         <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          {/* <AppBar position="static" color="transparent"> */}
-          {/* </AppBar> */}
           <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography variant="h4" gutterBottom>
-              Choose the right image
+            <Typography>
+              בחרו את התמונה הנכונה
             </Typography>
-
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
+            {/* <img src={exerciseText} style={{ display: 'flex', width: '100%' }} /> */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', width: '100%' }}>
               <div>
                 <Button onClick={() => handleImageClick}>
-                  <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ backgroundImage: `url(${imgBg})` , backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={selectedImages.image1?.src}
                       alt="Left"
@@ -163,7 +163,7 @@ function ExercisePage() {  // START OF THE RUN
               </div>
               <div>
                 <Button onClick={() => handleImageClick}>
-                  <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={selectedImages.image2?.src}
                       alt="Right"
