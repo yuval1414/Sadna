@@ -8,6 +8,7 @@ import VolumeUp from '@mui/icons-material/VolumeUp';
 //import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
 import Replay from '@mui/icons-material/ReplayRounded';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
+import Previous from '@mui/icons-material/ArrowForwardTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
 import Drum from './../images/wordImages/drum.png';
 import Monkey from './../images/wordImages/monkey.png';
@@ -49,8 +50,8 @@ const randomImages = selectRandomImages();
 
 function ExercisePage() {  // START OF THE RUN
   const imageStyle = {
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: '70%',
+    maxHeight: '70%',
   };
 
   const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
@@ -103,6 +104,9 @@ function ExercisePage() {  // START OF THE RUN
   const [selectedImages, setSelectedImages] = React.useState(randomImages); // !
 
   const handleNextClick = () => {
+    setSelectedImages(selectRandomImages());
+  };
+  const handlePreviousClick = () => {
     setSelectedImages(selectRandomImages());
   };
 
@@ -189,12 +193,17 @@ function ExercisePage() {  // START OF THE RUN
                 </IconButton>
               </div>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'left', width: '100%', marginLeft: '20px' }}>
               <IconButton color="inherit" onClick={handleNextClick}>
-                <Next /> Next
+                <Next /> הבא
+              </IconButton>
+            
+            <div style={{ display: 'flex', justifyContent: 'right',  width: '100%', marginLeft: '100px' }}>
+              <IconButton color="inherit" onClick={handleNextClick}>
+              הקודם <Previous /> 
               </IconButton>
             </div>
-
+            </div>
           </div>
         </div>
       </div>
