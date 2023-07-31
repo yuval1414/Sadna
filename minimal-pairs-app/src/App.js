@@ -104,6 +104,7 @@ export default ImageGuessingGame;*/
 
 // 2ND ATTEMPT
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import VolumeUp from '@mui/icons-material/VolumeUp';
@@ -193,6 +194,10 @@ function App() {
     setSelectedImages(selectRandomImages());
   };
 
+  const handleOptionClick = (path) => { // relete to home page
+    //history.push(path);
+  };
+
   return (
     <div style={{ backgroundImage: `url(${bg})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -229,64 +234,132 @@ function App() {
         </AppBar>
         <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant="h4" gutterBottom>
-            Choose the right image
+            Choose the correct image
           </Typography>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
-          <div>
-            <Button onClick={() => handleImageClick}>
-              <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img
-                  src={selectedImages.image1?.src} // ???
-                  alt="Left"
-                  data-image="0"
-                  style={imageStyle}
-                  onClick={handleImageClick}
-                />
-                {/* {selectedImages.map((image) => (
-                  <img src={process.env.PUBLIC_URL + Monkey} alt={"Left"} data-image="0" style={imageStyle} onClick={handleImageClick} />))} */}
-              </div>
-            </Button>
-            <Typography variant="subtitle1" align="center">
-              {selectedImages.image1?.description}
-            </Typography>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', width: '100%' }}>
+            <div>
+              <Button onClick={() => handleImageClick}>
+                <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src={selectedImages.image1?.src} // ???
+                    alt="Left"
+                    data-image="0"
+                    style={imageStyle}
+                    onClick={handleImageClick}
+                  />
+                  {/* {selectedImages.map((image) => (
+                    <img src={process.env.PUBLIC_URL + Monkey} alt={"Left"} data-image="0" style={imageStyle} onClick={handleImageClick} />))} */}
+                </div>
+              </Button>
+              <Typography variant="subtitle1" align="center">
+                {selectedImages.image1?.description}
+              </Typography>
+            </div>
+            <div>
+              <Button onClick={() => handleImageClick}>
+                <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src={selectedImages.image2?.src}
+                    alt="Right"
+                    data-image="1"
+                    style={imageStyle}
+                    onClick={handleImageClick}
+                    id="right"
+                  />
+                </div>
+              </Button>
+              <Typography variant="subtitle1" align="center">
+                {selectedImages.image2?.description}
+              </Typography>
+            </div>
           </div>
-          <div>
-            <Button onClick={() => handleImageClick}>
-              <div style={{ border: '1px solid black', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img
-                  src={selectedImages.image2?.src}
-                  alt="Right"
-                  data-image="1"
-                  style={imageStyle}
-                  onClick={handleImageClick}
-                  id="right"
-                />
-              </div>
-            </Button>
-            <Typography variant="subtitle1" align="center">
-              {selectedImages.image2?.description}
-            </Typography>
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <IconButton color="inherit" onClick={handleListenAgainClick}>
-            <Typography align="center">
-              השמע שוב
-            </Typography>
-              <Replay />  
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <IconButton color="inherit" onClick={handleListenAgainClick}>
+              <Typography align="center">
+                השמע שוב
+              </Typography>
+                <Replay />  
+              </IconButton>
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
+            <IconButton color="inherit" onClick={handleNextClick}>
+              <Next /> Next
             </IconButton>
           </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginLeft: '20px' }}>
-          <IconButton color="inherit" onClick={handleNextClick}>
-            <Next /> Next
-          </IconButton>
-        </div>
 
+            {/* -------------------------HOME PAGE----------------------- */}
+            <Typography variant="h4" gutterBottom>
+              MY-APP (home page)
+            </Typography>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/exercises')}
+              sx={{ mb: 2 }}
+            >
+              Exercises
+            </Button>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/games')}
+              sx={{ mb: 2 }}
+            >
+              Games
+            </Button>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/help')}
+            >
+              Help
+            </Button>
+            {/* -------------------------HOME PAGE----------------------- */}
+
+            {/* -------------------------EXERCISE OPTIONS PAGE----------------------- */}
+            <Typography variant="h4" gutterBottom>
+              MY-APP (exercise options page)
+            </Typography>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/exercises')}
+              sx={{ mb: 2 }}
+            >
+              Exercises
+            </Button>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/games')}
+              sx={{ mb: 2 }}
+            >
+              Games
+            </Button>
+            <Button
+              variant="contained"
+              color="info"
+              size="large"
+              fullWidth
+              onClick={() => handleOptionClick('/help')}
+            >
+              Help
+            </Button>
+            {/* ------------------------------------------------ */}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
