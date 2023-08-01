@@ -6,20 +6,20 @@ const theme = createTheme({
       main: '#1C4755',
     },
     secondary: {
-      main: '#00A087',
+      main: '#F66747',
     },
     // Additional colors
     text1: {
       main: '#1C4755', // dark-blue-green
     },
     text2: {
-      main: '#00A087', // green
+      main: '#F66747', // red-orange
     },
     text3: {
       main: '#EFC458', // yellow
     },
     text4: {
-      main: '#F66747', // red-orange
+      main: '#00A087', // green
     },
     text5: {
       main: '#C2E3F3', // light-blue
