@@ -152,7 +152,7 @@ function ExercisePage() {  // START OF THE RUN
         <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-            <Typography fontSize={'170%'}>
+            <Typography fontSize={'170%'} fontWeight = "bold">
               הקשיבו ובחרו את התמונה הנכונה
             </Typography>
 
@@ -160,7 +160,7 @@ function ExercisePage() {  // START OF THE RUN
             <div style={{ display: 'flex', justifyContent: 'center', gap: '9%' }}>
               <div>
                 <Button onClick={() => handleImageClick}>
-                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={selectedImages.image1?.src}
                       alt="Left"
@@ -172,14 +172,14 @@ function ExercisePage() {  // START OF THE RUN
 
                 </Button>
                 <div>
-                  <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%' }}>
+                  <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%'}}>
                     {selectedImages.image1?.description}
                   </Typography>
                 </div>
               </div>
               <div>
                 <Button onClick={() => handleImageClick}>
-                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                       src={selectedImages.image2?.src}
                       alt="Right"
@@ -190,12 +190,12 @@ function ExercisePage() {  // START OF THE RUN
                     />
                   </div>
                 </Button>
-                <Typography variant="subtitle1" align="center">
+                <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%' }}>
                   {selectedImages.image2?.description}
                 </Typography>
               </div>
             </div>
-            <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '13%' }}>
+            <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
               <Grid container spacing={2} alignItems="center">
                 <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                   <IconButton color="inherit" onClick={handleNextClick}>

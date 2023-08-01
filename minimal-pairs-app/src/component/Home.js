@@ -38,9 +38,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end',
     position: 'absolute',
     padding: '5%',
-    gap: '16%',
-    top: '70%',
+    gap: '13%',
+    top: '74%',
     zIndex: 1,
+    scale: '98%'
   },
 }));
 
@@ -84,13 +85,13 @@ function Home() {
           <div className={classes.background} align="center" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <div className={classes.iconButton}>
               <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
-                <img src={helpIcon} style={{ width: 50, height: 50 }} />
+                <img src={helpIcon} />
               </IconButton>
               <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
-                <img src={exerciseIcon} style={{ width: 50, height: 50 }} />
+                <img src={exerciseIcon} />
               </IconButton>
               <IconButton id="iconButton" className={classes.iconButton} onClick={navigateGamesOptions} >
-                <img src={gamesIcon} style={{ width: 50, height: 50 }} />
+                <img src={gamesIcon} />
               </IconButton>
             </div>
           </div>
