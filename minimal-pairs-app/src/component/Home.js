@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { IconButton, Typography, Replay, Button, Container, Toolbar } from '@mui/material';
 import homePage from './../images/pagesBg/homePage.png';
+import homePageBg from './../images/pagesBg/homePageBg.png';
+import homePageSquare from './../images/pagesBg/homePageSquare.png';
 import gamesIcon from './../images/buttons/gamesBtn.png';
 import exerciseIcon from './../images/buttons/exercisesBtn.png';
 import helpIcon from './../images/buttons/helpBtn.png';
