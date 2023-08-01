@@ -15,7 +15,6 @@ import Monkey from './../images/wordImages/monkey.png';
 import Rakefet from './../images/wordImages/cyclamen.png';
 import Train from './../images/wordImages/train.png';
 import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
-import exerciseText from './../images/pagesBg/exerciseText.png';
 import imgBg from './../images/buttons/imgBg.png';
 import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';

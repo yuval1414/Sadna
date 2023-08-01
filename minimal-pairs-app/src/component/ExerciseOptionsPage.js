@@ -6,7 +6,7 @@ import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Select
 import MenuIcon from '@mui/icons-material/Menu';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
-import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsLeftPage.png';
+import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
