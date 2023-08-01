@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { IconButton, Typography, Replay, Button, Container, Toolbar } from '@mui/material';
-import homePage from './../images/home-page.jpg';
-import gamesIcon from './../buttons/gamesBtn.png';
-import exerciseIcon from './../buttons/exercisesBtn.png';
-import helpIcon from './../buttons/helpBtn.png';
-import infoIcon from './../buttons/infoBtn.png';
+import homePage from './../images/pagesBg/homePage.png';
+import gamesIcon from './../images/buttons/gamesBtn.png';
+import exerciseIcon from './../images/buttons/exercisesBtn.png';
+import helpIcon from './../images/buttons/helpBtn.png';
+import infoIcon from './../images/buttons/infoBtn.png';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '5%',
     gap: '16%',
     top: '70%',
-    left: '29%',
     zIndex: 1,
   },
 }));
@@ -78,11 +77,11 @@ function Home() {
       <div id="container" className={classes.container} >
         <div id="background" className={classes.background}>
         <Toolbar variant="dense">
-            <IconButton color="inherit" onClick={null}>
+            <IconButton color="inherit" onClick={null} alignt= "left">
             <img src={infoIcon} style={{ width: 35, height: 35 }} /> 
             </IconButton>
               </Toolbar>
-          <div className={classes.background} align="center" >
+          <div className={classes.background} align="center" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <div className={classes.iconButton}>
               <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
                 <img src={helpIcon} style={{ width: 50, height: 50 }} />
