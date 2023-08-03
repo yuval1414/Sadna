@@ -4,6 +4,7 @@ import React, { useState, useEffect, Component } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Select, NativeSelect, FormControl, InputLabel, FormControlLabel } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 
 import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
@@ -104,11 +105,14 @@ function GamesOptionsPage() {  // START OF THE RUN
     const handleLetterChoice = (event) => {
         setLettersChoice(event.target.value);
     };
+
+    const options = ["ב-ק", "ת-ק", "ק-מ"];
+
     return (
         <div id="container" className={classes.container}>
             <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
-                    <Toolbar variant="dense">
+                    <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
                         <IconButton style={{ color: "inherit", margin: 'initial', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={handleMenuClick}>
                             <MenuIcon />
                         </IconButton>
@@ -127,14 +131,33 @@ function GamesOptionsPage() {  // START OF THE RUN
                     <div>
                         <div id="select" className={classes.select}>
                             <FormControl>
-                                < InputLabel variant="standard" id="demo-simple-select-label">אותיות</InputLabel>
+                                < InputLabel variant="standard" style={{
+                                    zIndex: 1, color: 'white',
+                                    width: '100%',
+                                    zIndex: 1,
+                                    pointerEvents: 'none',
+                                    transformOrigin: 'top right',
+                                }} id="demo-simple-select-label">אותיות</InputLabel>
                                 <Select
+                                    sx={{
+                                        boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: 0 }, "& .MuiSvgIcon-root": {
+                                            right: "unset",
+                                            left: "7px",
+                                        }
+                                    }}
                                     value={lettersChoice}
-                                    onChange={setLettersChoice}
+                                    onChange={handleLetterChoice}
+                                    IconComponent={(props) => (
+                                        <ArrowDropDownIcon {...props} style={{ fontSize: '60px', color: 'white' }} />
+                                    )}
+                                    style={{
+                                        backgroundColor: 'rgb(0 160 135)',
+                                        color: 'white',
+                                        width: '301px',
+                                        borderRadius: '50px',
+                                    }}
                                 >
-                                    <MenuItem value={"ב-ק"}>ב-ק</MenuItem>
-                                    <MenuItem value={"ת-ק"}>ת-ק</MenuItem>
-                                    <MenuItem value={"ק-מ"}>ק-מ</MenuItem>
+                                    {options.map((option) => <MenuItem style={{ justifyContent: 'center' }} value={option}>{option}</MenuItem>)}
                                 </Select>
                             </FormControl>
                         </div>

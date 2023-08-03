@@ -120,9 +120,11 @@ function ExercisePage() {  // START OF THE RUN
     <body style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div>
         <Toolbar variant="dense">
-          <IconButton color="inherit" onClick={handleSoundClick}>
-            <VolumeUp />
-          </IconButton>
+          <div style={{ flexGrow: 1 }}>
+            <IconButton color="inherit" onClick={handleSoundClick}>
+              <VolumeUp />
+            </IconButton>
+          </div>
           <Menu
             anchorEl={soundAnchorEl}
             open={Boolean(soundAnchorEl)}
@@ -133,7 +135,7 @@ function ExercisePage() {  // START OF THE RUN
             <MenuItem onClick={handleSoundClose}>Both</MenuItem>
             <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
           </Menu>
-          <div style={{ flexGrow: 1, textAlign: 'center' }} />
+
           <IconButton color="inherit" onClick={handleMenuClick}>
             <MenuIcon style={{ maxWidth: '100%', display: 'flex' }} />
           </IconButton>
@@ -152,7 +154,7 @@ function ExercisePage() {  // START OF THE RUN
         <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-            <Typography fontSize={'170%'} fontWeight = "bold">
+            <Typography fontSize={'170%'} fontWeight="bold">
               הקשיבו ובחרו את התמונה הנכונה
             </Typography>
 
@@ -172,7 +174,7 @@ function ExercisePage() {  // START OF THE RUN
 
                 </Button>
                 <div>
-                  <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%'}}>
+                  <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%' }}>
                     {selectedImages.image1?.description}
                   </Typography>
                 </div>
