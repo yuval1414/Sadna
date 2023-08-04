@@ -4,9 +4,13 @@
 #F66747 red-orange
 #C2E3F3 light-blue
 #FFFFFF white
+#000000 black
 
 #FFD6C3 light-skin-color
 #FAAA84 darker-skin-color
 
 text-font: Marykate (en)
-           Poppins (he)
+           Assistant (he) : Extra Light / Light / (regular) / Semi Bold / Bold / Extra Bold
+
+link to download Assistant font: https://www.hebrewfont.net/
+(open link and search for "Assistant")
