@@ -3,6 +3,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Select, NativeSelect, FormControl, InputLabel, FormControlLabel } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 function GamesOptionsPage() {  // START OF THE RUN
     const classes = useStyles();
+    const theme = useTheme();
 
     useEffect(() => {
         const handleResize = () => {
@@ -132,7 +134,7 @@ function GamesOptionsPage() {  // START OF THE RUN
                         <div id="select" className={classes.select}>
                             <FormControl>
                                 < InputLabel variant="standard" style={{
-                                    zIndex: 1, color: 'white',
+                                    zIndex: 1, color: theme.palette.white,
                                     width: '100%',
                                     zIndex: 1,
                                     pointerEvents: 'none',
@@ -148,11 +150,11 @@ function GamesOptionsPage() {  // START OF THE RUN
                                     value={lettersChoice}
                                     onChange={handleLetterChoice}
                                     IconComponent={(props) => (
-                                        <ArrowDropDownIcon {...props} style={{ fontSize: '60px', color: 'white' }} />
+                                        <ArrowDropDownIcon {...props} style={{ fontSize: '50px', color: theme.palette.white }} />
                                     )}
                                     style={{
-                                        backgroundColor: 'rgb(0 160 135)',
-                                        color: 'white',
+                                        backgroundColor: theme.palette.green,
+                                        color: theme.palette.white,
                                         width: '301px',
                                         borderRadius: '50px',
                                     }}
@@ -164,7 +166,7 @@ function GamesOptionsPage() {  // START OF THE RUN
                         <div id="iconButton" className={classes.background}>
                             <div className={classes.iconButton} align="center">
                                 <IconButton color="inherit" onClick={navigateExercise} >
-                                    <Next /> start exercise
+                                    <Next /> התחל תרגול
                                 </IconButton>
                             </div>
                         </div>

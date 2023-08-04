@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, List } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function GamesOptionsPage() {  // START OF THE RUN
   const classes = useStyles();
+  const theme = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -115,7 +117,7 @@ function GamesOptionsPage() {  // START OF THE RUN
               <div className={classes.iconButton} align="center">
                 <List >
                   <IconButton color="inherit" onClick={null} >
-                    game1
+                    משחק1
                   </IconButton>
                 </List>
               </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Grid } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 //import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
@@ -52,6 +53,7 @@ const selectRandomImages = () => { // !
 const randomImages = selectRandomImages();
 
 function ExercisePage() {  // START OF THE RUN
+  const theme = useTheme();
   const imageStyle = {
     maxWidth: '60%',
     maxHeight: '60%',
@@ -154,7 +156,7 @@ function ExercisePage() {  // START OF THE RUN
         <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-            <Typography fontSize={'170%'} fontWeight="bold">
+            <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
               הקשיבו ובחרו את התמונה הנכונה
             </Typography>
 
