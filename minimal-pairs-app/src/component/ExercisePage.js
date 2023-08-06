@@ -59,7 +59,29 @@ function ExercisePage() {  // START OF THE RUN
     maxHeight: '60%',
   };
 
-  const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
+  // --------------------NAVIGATE--------------------------
+  const navigate = useNavigate();
+  const navigateHome = () => {
+    navigate('/');
+  };
+  const navigateAbout = () => {
+    navigate('/AboutPage');
+  };
+  const navigateHelp = () => {
+    navigate('/HelpPage');
+  };
+  const navigateExercise = () => {
+    navigate('/ExerciseOptionsPage');
+  };
+  const navigateGamesOptions = () => {
+    navigate('/GamesOptionsPage');
+  };
+  const navigateExerciseOptions = () => {
+    navigate('/ExerciseOptionsPage');
+  }
+
+  // -------------HANDLERS----------------
+  const [soundAnchorEl, setSoundAnchorEl] = useState(null); 
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
 
   const handleSoundClick = (event) => {
@@ -78,20 +100,6 @@ function ExercisePage() {  // START OF THE RUN
     setMenuAnchorEl(null);
   };
 
-
-
-  // ----------------------------------------------
-  const navigate = useNavigate();
-  const navigateHome = () => {
-    navigate('/');
-  };
-  const navigateGames = () => {
-    navigate('/GamesOptionsPage');
-  };
-  const navigateExerciseOptions = () => {
-    navigate('/ExerciseOptionsPage');
-  };
-
   function handleImageClick(event) {
     //const clickedImage = event.target.getAttribute('data-image'); // 0 or 1, can help identify the clicked image, can be use later
     if (event.target.id === 'right') {
@@ -106,8 +114,6 @@ function ExercisePage() {  // START OF THE RUN
 
     alert('listen again');
   };
-
-
 
   const [selectedImages, setSelectedImages] = React.useState(randomImages); // !
 
@@ -146,10 +152,11 @@ function ExercisePage() {  // START OF THE RUN
             open={Boolean(menuAnchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={navigateHome} >Home</MenuItem>
-            <MenuItem onClick={navigateExerciseOptions}>Exercise</MenuItem>
-            <MenuItem onClick={navigateGames}>Games</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+            <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
+              <MenuItem onClick={navigateExerciseOptions} style={{ justifyContent: 'center' }}>תרגול</MenuItem>
+              <MenuItem onClick={navigateGamesOptions} style={{ justifyContent: 'center' }}>משחקים</MenuItem>
+              <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
+              <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
           </Menu>
 
         </Toolbar>
@@ -184,7 +191,7 @@ function ExercisePage() {  // START OF THE RUN
               <div>
                 <Button onClick={() => handleImageClick}>
                   <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img
+                    <img 
                       src={selectedImages.image2?.src}
                       alt="Right"
                       data-image="1"

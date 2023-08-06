@@ -7,9 +7,10 @@ import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
+import { makeStyles } from '@mui/styles';
 
 import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
-import { makeStyles } from '@mui/styles';
+import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -74,12 +75,19 @@ function GamesOptionsPage() {  // START OF THE RUN
     const navigateHome = () => {
         navigate('/');
     };
-    const navigateGames = () => {
-        navigate('/GamesOptionsPage');
+    const navigateAbout = () => {
+        navigate('/AboutPage');
+    };
+    const navigateHelp = () => {
+        navigate('/HelpPage');
     };
     const navigateExercise = () => {
         navigate('/ExercisePage');
     };
+    const navigateGamesOptions = () => {
+        navigate('/GamesOptionsPage');
+    };
+
     //---------------HANDLERS-------------------
 
     const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
@@ -123,10 +131,10 @@ function GamesOptionsPage() {  // START OF THE RUN
                             open={Boolean(menuAnchorEl)}
                             onClose={handleMenuClose}
                         >
-                            <MenuItem onClick={navigateHome} >Home</MenuItem>
-                            <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
-                            <MenuItem onClick={navigateGames}>Games</MenuItem>
-                            <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+                            <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
+                            <MenuItem onClick={navigateGamesOptions} style={{ justifyContent: 'center' }}>משחקים</MenuItem>
+                            <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
+                            <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
                         </Menu>
                     </Toolbar>
                     {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}> */}
@@ -164,9 +172,10 @@ function GamesOptionsPage() {  // START OF THE RUN
                             </FormControl>
                         </div>
                         <div id="iconButton" className={classes.background}>
-                            <div className={classes.iconButton} align="center">
+                            <div className={classes.iconButton} align="center" 
+                            style={{position: 'absolute', top: '75%', left: '20%', zIndex: 1}}>
                                 <IconButton color="inherit" onClick={navigateExercise} >
-                                    <Next /> התחל תרגול
+                                    <img src={leftArrowBtn}></img>
                                 </IconButton>
                             </div>
                         </div>

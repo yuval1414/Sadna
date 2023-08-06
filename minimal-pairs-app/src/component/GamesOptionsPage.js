@@ -65,7 +65,15 @@ function GamesOptionsPage() {  // START OF THE RUN
   const navigateHome = () => {
     navigate('/');
   };
-
+  const navigateAbout = () => {
+    navigate('/AboutPage');
+  };
+  const navigateHelp = () => {
+    navigate('/HelpPage');
+  };
+  const navigateExercise = () => {
+    navigate('/ExerciseOptionsPage');
+  };
   const navigateExerciseOptions = () => {
     navigate('/ExerciseOptionsPage');
   }
@@ -93,7 +101,7 @@ function GamesOptionsPage() {  // START OF THE RUN
     <div id="container" className={classes.container}>
       <div id="background" className={classes.background}>
         <div className={classes.background} align="center">
-          <Toolbar variant="dense">
+          <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
             <IconButton color="inherit" onClick={handleMenuClick}>
               <MenuIcon />
             </IconButton>
@@ -102,10 +110,10 @@ function GamesOptionsPage() {  // START OF THE RUN
               open={Boolean(menuAnchorEl)}
               onClose={handleMenuClose}
             >
-              <MenuItem onClick={navigateHome} >Home</MenuItem>
-              <MenuItem onClick={navigateExerciseOptions}>Exercise</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Games</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+              <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
+              <MenuItem onClick={navigateExerciseOptions} style={{ justifyContent: 'center' }}>תרגול</MenuItem>
+              <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
+              <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
             </Menu>
           </Toolbar>
           <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -117,7 +125,7 @@ function GamesOptionsPage() {  // START OF THE RUN
               <div className={classes.iconButton} align="center">
                 <List >
                   <IconButton color="inherit" onClick={null} >
-                    משחק1
+                    משחקים
                   </IconButton>
                 </List>
               </div>
