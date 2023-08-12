@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider } from "@mui/material";
 import './index.css';
 import App from './App';
+import theme from './theme';
 import reportWebVitals from './reportWebVitals';
 
 
