@@ -1,12 +1,9 @@
-
-// 2ND ATTEMPT
 import React, { useEffect } from 'react';
-import { IconButton, List } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
 
 import ImagePlaceHolder from './ImagePlaceHolder';
-import imgBg from './../images/buttons/imgBg.png';
 import gamePuzzle from './../images/buttons/game_puzzle.png';
 import gameHitTheMole from './../images/buttons/game_hitTheMole.png';
 import gameMemoryGame from './../images/buttons/game_memoryGame.png';
@@ -72,34 +69,6 @@ function GamesOptionsPage() {  // START OF THE RUN
     <div id="container" className={classes.container}>
       <div id="background" className={classes.background}>
         <div className={classes.background} align="center">
-          <Toolbar variant="dense">
-            <IconButton color="inherit" onClick={handleMenuClick}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={menuAnchorEl}
-              open={Boolean(menuAnchorEl)}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={navigateHome} >Home</MenuItem>
-              <MenuItem onClick={navigateExerciseOptions}>Exercise</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Games</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Help</MenuItem>
-            </Menu>
-          </Toolbar>
-          {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-
-            <div id="iconButton" className={classes.background}>
-              <div className={classes.iconButton} align="center">
-                <List >
-                  <IconButton color="inherit" onClick={null} >
-                    משחקים
-                  </IconButton>
-                </List>
-              </div>
-            </div>
-          </div> */}
 
           <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
