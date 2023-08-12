@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    zIndex: -1,
   },
   mainMenu: {
     position: 'relative',
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   iconButtonImage:{
     '&:hover': {
       filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
-      backgroundColor: 'transparent !important',
+      backgroundColor: 'transparent',
     },
   }
   }));
