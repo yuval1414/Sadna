@@ -7,9 +7,10 @@ import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
+import { makeStyles } from '@mui/styles';
 
 import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
-import { makeStyles } from '@mui/styles';
+import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -71,38 +72,15 @@ function GamesOptionsPage() {  // START OF THE RUN
     }, []);
     //---------------NAVIGATE-------------------
     const navigate = useNavigate();
-    const navigateHome = () => {
-        navigate('/');
-    };
-    const navigateGames = () => {
-        navigate('/GamesOptionsPage');
-    };
     const navigateExercise = () => {
         navigate('/ExercisePage');
     };
+
     //---------------HANDLERS-------------------
 
-    const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
-    const [menuAnchorEl, setMenuAnchorEl] = useState(null);
     const [lettersChoice, setLettersChoice] = useState(null);
     //const [graphicsQuality, setGraphicsQuality] = useState('medium');
     //const [language, setLanguage] = useState('en');
-
-    const handleSoundClick = (event) => {
-        setSoundAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClick = (event) => {
-        setMenuAnchorEl(event.currentTarget);
-    };
-
-    const handleSoundClose = () => {
-        setSoundAnchorEl(null);
-    };
-
-    const handleMenuClose = () => {
-        setMenuAnchorEl(null);
-    };
 
     const handleLetterChoice = (event) => {
         setLettersChoice(event.target.value);
@@ -114,21 +92,6 @@ function GamesOptionsPage() {  // START OF THE RUN
         <div id="container" className={classes.container}>
             <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
-                    <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
-                        <IconButton style={{ color: "inherit", margin: 'initial', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={handleMenuClick}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            anchorEl={menuAnchorEl}
-                            open={Boolean(menuAnchorEl)}
-                            onClose={handleMenuClose}
-                        >
-                            <MenuItem onClick={navigateHome} >Home</MenuItem>
-                            <MenuItem onClick={handleMenuClose}>Exercise</MenuItem>
-                            <MenuItem onClick={navigateGames}>Games</MenuItem>
-                            <MenuItem onClick={handleMenuClose}>Help</MenuItem>
-                        </Menu>
-                    </Toolbar>
                     {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}> */}
                     <div>
                         <div id="select" className={classes.select}>
@@ -164,9 +127,10 @@ function GamesOptionsPage() {  // START OF THE RUN
                             </FormControl>
                         </div>
                         <div id="iconButton" className={classes.background}>
-                            <div className={classes.iconButton} align="center">
+                            <div className={classes.iconButton} align="center" 
+                            style={{position: 'absolute', top: '75%', left: '20%', zIndex: 1}}>
                                 <IconButton color="inherit" onClick={navigateExercise} >
-                                    <Next /> התחל תרגול
+                                    <img src={leftArrowBtn}></img>
                                 </IconButton>
                             </div>
                         </div>

@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { IconButton, Typography, Replay, Button, Container, Toolbar, Grid } from '@mui/material';
-import homePage from './../images/pagesBg/homePage.png';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@mui/material';
 import homePageBg from './../images/pagesBg/homePageBg.png';
 import homePageSquare from './../images/pagesBg/homePageSquare.png';
 import gamesIcon from './../images/buttons/gamesBtn.png';
 import exerciseIcon from './../images/buttons/exercisesBtn.png';
 import helpIcon from './../images/buttons/helpBtn.png';
-import infoIcon from './../images/buttons/infoBtn.png';
 import { makeStyles } from '@mui/styles';
+import { PAGES } from './Toolbar';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -72,12 +71,18 @@ const useStyles = makeStyles((theme) => ({
     bottom: '0',
     left: '0',
     right: '0',
-
   },
-}));
+  iconButtonImage:{
+    '&:hover': {
+      filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
+      backgroundColor: 'transparent !important',
+    },
+  }
+  }));
 
 function Home() {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -96,33 +101,21 @@ function Home() {
     };
   }, []);
 
-  const navigate = useNavigate();
-  const navigateExercise = () => {
-    navigate('/ExerciseOptionsPage');
-  };
-  const navigateGamesOptions = () => {
-    navigate('/GamesOptionsPage');
-  };
   return (
 
     <div className={classes.background} >
-      <div style={{ height: '10%' }}>
-        <IconButton color="inherit" onClick={null} alignt="left" >
-          <img src={infoIcon} style={{ width: '70%', height: '70%' }} />
-        </IconButton>
-      </div>
       <div style={{ height: '90%' }}>
         <div className={classes.mainMenu}>
           <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
           {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
           <div className={classes.iconButton} >
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
               <img src={helpIcon} />
             </IconButton>
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
               <img src={exerciseIcon} />
             </IconButton>
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateGamesOptions} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
               <img src={gamesIcon} />
             </IconButton>
           </div>

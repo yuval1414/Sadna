@@ -1,11 +1,8 @@
 
 // 2ND ATTEMPT
-import React, { useState, useEffect } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, List } from '@mui/material';
+import React, { useEffect } from 'react';
+import { IconButton, List } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
 
 import ImagePlaceHolder from './ImagePlaceHolder';
@@ -70,34 +67,6 @@ function GamesOptionsPage() {  // START OF THE RUN
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  //---------------NAVIGATE-------------------
-  const navigate = useNavigate();
-  const navigateHome = () => {
-    navigate('/');
-  };
-
-  const navigateExerciseOptions = () => {
-    navigate('/ExerciseOptionsPage');
-  }
-  //---------------HANDLERS-------------------
-  const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
-  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-
-  const handleSoundClick = (event) => {
-    setSoundAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (event) => {
-    setMenuAnchorEl(event.currentTarget);
-  };
-
-  const handleSoundClose = () => {
-    setSoundAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchorEl(null);
-  };
 
   return (
     <div id="container" className={classes.container}>
@@ -125,7 +94,7 @@ function GamesOptionsPage() {  // START OF THE RUN
               <div className={classes.iconButton} align="center">
                 <List >
                   <IconButton color="inherit" onClick={null} >
-                    משחק1
+                    משחקים
                   </IconButton>
                 </List>
               </div>

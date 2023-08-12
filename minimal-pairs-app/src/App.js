@@ -13,6 +13,9 @@ import Home from './component/Home';
 import ExercisePage from './component/ExercisePage';
 import GamesOptionsPage from './component/GamesOptionsPage';
 import ExerciseOptionsPage from './component/ExerciseOptionsPage';
+import HelpPage from './component/HelpPage';
+import AboutPage from './component/AboutPage';
+import Toolbar from './component/Toolbar';
 //import Contact from './component/Contact';
 
 //mine:
@@ -25,15 +28,25 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+      <Toolbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
           <Route path="/ExercisePage" element={<ExercisePage />} />
-          <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} >
-          </Route>
+          <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} />
+          <Route path="/HelpPage" element={<HelpPage />} />
+          <Route path="/AboutPage" element={<AboutPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
+    // const pagesWithRamkol = [1,2,3]
+    // const isPageRamkol = () => {
+    //   return [1,2,3].includes(currentPage)
+    // }
+    // <menu></menu>
+    // {isPageRamkol && (
+    //   <ramkol></ramkol>
+    //   )}
   );
 }
 
