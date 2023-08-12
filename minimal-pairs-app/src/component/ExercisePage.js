@@ -1,15 +1,9 @@
 
 // 2ND ATTEMPT
-import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import React from 'react';
 import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import VolumeUp from '@mui/icons-material/VolumeUp';
 //import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
-import Replay from '@mui/icons-material/ReplayRounded';
-import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
-import Previous from '@mui/icons-material/ArrowForwardTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import replaySound from './../images/buttons/replaySoundBtn.png';
 import Drum from './../images/wordImages/drum.png';
 import Monkey from './../images/wordImages/monkey.png';
@@ -21,6 +15,25 @@ import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import menuBtn from './../images/buttons/menuBtn.png';
 import soundBtn from './../images/buttons/soundBtn.png';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(() => ({
+  imageButton: {
+    '&:hover': {
+      filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
+      backgroundColor: 'transparent !important',
+    }
+  },
+  descriptionTypography:{
+    display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
+    WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
+    //'-webkit-text-stroke: 1px font-size: x-large -webkit-text-stroke-color: rgb(36 71 88)'
+  },
+  selectedImage:{
+    backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', 
+    width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' 
+  }
+}));
 
 const images = [
   {
@@ -54,50 +67,10 @@ const randomImages = selectRandomImages();
 
 function ExercisePage() {  // START OF THE RUN
   const theme = useTheme();
+  const classes = useStyles();
   const imageStyle = {
     maxWidth: '60%',
     maxHeight: '60%',
-  };
-
-  // --------------------NAVIGATE--------------------------
-  const navigate = useNavigate();
-  const navigateHome = () => {
-    navigate('/');
-  };
-  const navigateAbout = () => {
-    navigate('/AboutPage');
-  };
-  const navigateHelp = () => {
-    navigate('/HelpPage');
-  };
-  const navigateExercise = () => {
-    navigate('/ExerciseOptionsPage');
-  };
-  const navigateGamesOptions = () => {
-    navigate('/GamesOptionsPage');
-  };
-  const navigateExerciseOptions = () => {
-    navigate('/ExerciseOptionsPage');
-  }
-
-  // -------------HANDLERS----------------
-  const [soundAnchorEl, setSoundAnchorEl] = useState(null); 
-  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-
-  const handleSoundClick = (event) => {
-    setSoundAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (event) => {
-    setMenuAnchorEl(event.currentTarget);
-  };
-
-  const handleSoundClose = () => {
-    setSoundAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchorEl(null);
   };
 
   function handleImageClick(event) {
@@ -125,43 +98,10 @@ function ExercisePage() {  // START OF THE RUN
   };
 
   return (
-    <body style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div>
-        <Toolbar variant="dense">
-          <div style={{ flexGrow: 1 }}>
-            <IconButton color="inherit" onClick={handleSoundClick}>
-              <VolumeUp />
-            </IconButton>
-          </div>
-          <Menu
-            anchorEl={soundAnchorEl}
-            open={Boolean(soundAnchorEl)}
-            onClose={handleSoundClose}
-          >
-            <MenuItem onClick={handleSoundClose} >Man</MenuItem>
-            <MenuItem onClick={handleSoundClose}>Woman</MenuItem>
-            <MenuItem onClick={handleSoundClose}>Both</MenuItem>
-            <MenuItem onClick={handleSoundClose}>No sound</MenuItem>
-          </Menu>
-
-          <IconButton color="inherit" onClick={handleMenuClick}>
-            <MenuIcon style={{ maxWidth: '100%', display: 'flex' }} />
-          </IconButton>
-          <Menu
-            anchorEl={menuAnchorEl}
-            open={Boolean(menuAnchorEl)}
-            onClose={handleMenuClose}
-          >
-            <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
-              <MenuItem onClick={navigateExerciseOptions} style={{ justifyContent: 'center' }}>תרגול</MenuItem>
-              <MenuItem onClick={navigateGamesOptions} style={{ justifyContent: 'center' }}>משחקים</MenuItem>
-              <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
-              <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
-          </Menu>
-
-        </Toolbar>
         <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
             <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
               הקשיבו ובחרו את התמונה הנכונה
@@ -170,8 +110,8 @@ function ExercisePage() {  // START OF THE RUN
             {/* <img src={exerciseText} style={{ display: 'flex', width: '100%' }} /> */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '9%' }}>
               <div>
-                <Button onClick={() => handleImageClick}>
-                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Button className={classes.imageButton} onClick={() => handleImageClick}>
+                  <div className={classes.selectedImage}>
                     <img
                       src={selectedImages.image1?.src}
                       alt="Left"
@@ -183,14 +123,14 @@ function ExercisePage() {  // START OF THE RUN
 
                 </Button>
                 <div>
-                  <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%' }}>
+                  <Typography variant="subtitle1" className={classes.descriptionTypography}>
                     {selectedImages.image1?.description}
                   </Typography>
                 </div>
               </div>
               <div>
-                <Button onClick={() => handleImageClick}>
-                  <div style={{ backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Button className={classes.imageButton} onClick={() => handleImageClick}>
+                  <div className={classes.selectedImage}>
                     <img 
                       src={selectedImages.image2?.src}
                       alt="Right"
@@ -201,7 +141,7 @@ function ExercisePage() {  // START OF THE RUN
                     />
                   </div>
                 </Button>
-                <Typography variant="subtitle1" style={{ display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%' }}>
+                <Typography variant="subtitle1" className={classes.descriptionTypography}>
                   {selectedImages.image2?.description}
                 </Typography>
               </div>
@@ -229,7 +169,7 @@ function ExercisePage() {  // START OF THE RUN
           </div>
         </div>
       </div>
-    </body >
+    </div>
   );
 }
 

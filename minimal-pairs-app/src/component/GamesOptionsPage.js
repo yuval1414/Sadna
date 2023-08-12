@@ -1,11 +1,8 @@
 
 // 2ND ATTEMPT
-import React, { useState, useEffect } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, List } from '@mui/material';
+import React, { useEffect } from 'react';
+import { IconButton, List } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
 import { makeStyles } from '@mui/styles';
 
@@ -60,62 +57,11 @@ function GamesOptionsPage() {  // START OF THE RUN
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  //---------------NAVIGATE-------------------
-  const navigate = useNavigate();
-  const navigateHome = () => {
-    navigate('/');
-  };
-  const navigateAbout = () => {
-    navigate('/AboutPage');
-  };
-  const navigateHelp = () => {
-    navigate('/HelpPage');
-  };
-  const navigateExercise = () => {
-    navigate('/ExerciseOptionsPage');
-  };
-  const navigateExerciseOptions = () => {
-    navigate('/ExerciseOptionsPage');
-  }
-  //---------------HANDLERS-------------------
-  const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
-  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-
-  const handleSoundClick = (event) => {
-    setSoundAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (event) => {
-    setMenuAnchorEl(event.currentTarget);
-  };
-
-  const handleSoundClose = () => {
-    setSoundAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchorEl(null);
-  };
 
   return (
     <div id="container" className={classes.container}>
       <div id="background" className={classes.background}>
         <div className={classes.background} align="center">
-          <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
-            <IconButton color="inherit" onClick={handleMenuClick}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={menuAnchorEl}
-              open={Boolean(menuAnchorEl)}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
-              <MenuItem onClick={navigateExerciseOptions} style={{ justifyContent: 'center' }}>תרגול</MenuItem>
-              <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
-              <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
-            </Menu>
-          </Toolbar>
           <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             {/* <AppBar position="static" color="transparent"> */}
             {/* </AppBar> */}

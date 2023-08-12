@@ -15,12 +15,14 @@ import GamesOptionsPage from './component/GamesOptionsPage';
 import ExerciseOptionsPage from './component/ExerciseOptionsPage';
 import HelpPage from './component/HelpPage';
 import AboutPage from './component/AboutPage';
+import Toolbar from './component/Toolbar';
 //import Contact from './component/Contact';
 
 
 export default function App() {
   return (
     <Router>
+      <Toolbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
@@ -30,6 +32,14 @@ export default function App() {
         <Route path="/AboutPage" element={<AboutPage />} />
       </Routes>
     </Router>
+    // const pagesWithRamkol = [1,2,3]
+    // const isPageRamkol = () => {
+    //   return [1,2,3].includes(currentPage)
+    // }
+    // <menu></menu>
+    // {isPageRamkol && (
+    //   <ramkol></ramkol>
+    //   )}
   );
 }
 

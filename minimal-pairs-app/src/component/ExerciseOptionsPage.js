@@ -72,45 +72,15 @@ function GamesOptionsPage() {  // START OF THE RUN
     }, []);
     //---------------NAVIGATE-------------------
     const navigate = useNavigate();
-    const navigateHome = () => {
-        navigate('/');
-    };
-    const navigateAbout = () => {
-        navigate('/AboutPage');
-    };
-    const navigateHelp = () => {
-        navigate('/HelpPage');
-    };
     const navigateExercise = () => {
         navigate('/ExercisePage');
-    };
-    const navigateGamesOptions = () => {
-        navigate('/GamesOptionsPage');
     };
 
     //---------------HANDLERS-------------------
 
-    const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
-    const [menuAnchorEl, setMenuAnchorEl] = useState(null);
     const [lettersChoice, setLettersChoice] = useState(null);
     //const [graphicsQuality, setGraphicsQuality] = useState('medium');
     //const [language, setLanguage] = useState('en');
-
-    const handleSoundClick = (event) => {
-        setSoundAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClick = (event) => {
-        setMenuAnchorEl(event.currentTarget);
-    };
-
-    const handleSoundClose = () => {
-        setSoundAnchorEl(null);
-    };
-
-    const handleMenuClose = () => {
-        setMenuAnchorEl(null);
-    };
 
     const handleLetterChoice = (event) => {
         setLettersChoice(event.target.value);
@@ -122,21 +92,6 @@ function GamesOptionsPage() {  // START OF THE RUN
         <div id="container" className={classes.container}>
             <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
-                    <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
-                        <IconButton style={{ color: "inherit", margin: 'initial', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={handleMenuClick}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            anchorEl={menuAnchorEl}
-                            open={Boolean(menuAnchorEl)}
-                            onClose={handleMenuClose}
-                        >
-                            <MenuItem onClick={navigateHome} style={{ justifyContent: 'center' }}>ראשי</MenuItem>
-                            <MenuItem onClick={navigateGamesOptions} style={{ justifyContent: 'center' }}>משחקים</MenuItem>
-                            <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
-                            <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
-                        </Menu>
-                    </Toolbar>
                     {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}> */}
                     <div>
                         <div id="select" className={classes.select}>

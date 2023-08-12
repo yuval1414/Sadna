@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, List } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@mui/material';
 import homePageBg from './../images/pagesBg/homePageBg.png';
 import homePageSquare from './../images/pagesBg/homePageSquare.png';
 import gamesIcon from './../images/buttons/gamesBtn.png';
 import exerciseIcon from './../images/buttons/exercisesBtn.png';
 import helpIcon from './../images/buttons/helpBtn.png';
-import MenuIcon from '@mui/icons-material/Menu';
-import infoIcon from './../images/buttons/infoBtn.png';
 import { makeStyles } from '@mui/styles';
+import { PAGES } from './Toolbar';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -72,12 +71,18 @@ const useStyles = makeStyles((theme) => ({
     bottom: '0',
     left: '0',
     right: '0',
-
   },
-}));
+  iconButtonImage:{
+    '&:hover': {
+      filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
+      backgroundColor: 'transparent !important',
+    },
+  }
+  }));
 
 function Home() {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -96,75 +101,21 @@ function Home() {
     };
   }, []);
 
-  //---------------NAVIGATE-------------------
-  const navigate = useNavigate();
-  const navigateAbout = () => {
-    navigate('/AboutPage');
-  };
-  const navigateHelp = () => {
-    navigate('/HelpPage');
-  };
-  const navigateExercise = () => {
-    navigate('/ExerciseOptionsPage');
-  };
-  const navigateGamesOptions = () => {
-    navigate('/GamesOptionsPage');
-  };
-  const navigateExerciseOptions = () => {
-    navigate('/ExerciseOptionsPage');
-  }
-  //---------------HANDLERS-------------------
-  const [soundAnchorEl, setSoundAnchorEl] = useState(null); // -----------------------------
-  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-
-  const handleSoundClick = (event) => {
-    setSoundAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (event) => {
-    setMenuAnchorEl(event.currentTarget);
-  };
-
-  const handleSoundClose = () => {
-    setSoundAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchorEl(null);
-  };
-
   return (
 
     <div className={classes.background} >
-      <div style={{ height: '10%' }}>
-      <Toolbar style={{ justifyContent: 'flex-end' }} variant="dense">
-            <IconButton color="inherit" onClick={handleMenuClick}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={menuAnchorEl}
-              open={Boolean(menuAnchorEl)}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={navigateExerciseOptions} style={{ justifyContent: 'center' }}>תרגול</MenuItem>
-              <MenuItem onClick={navigateGamesOptions} style={{ justifyContent: 'center' }}>משחקים</MenuItem>
-              <MenuItem onClick={navigateHelp} style={{ justifyContent: 'center' }}>עזרה</MenuItem>
-              <MenuItem onClick={navigateAbout} style={{ justifyContent: 'center' }}>אודות</MenuItem>
-            </Menu>
-          </Toolbar>
-      </div>
       <div style={{ height: '90%' }}>
         <div className={classes.mainMenu}>
           <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
           {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
           <div className={classes.iconButton} >
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateHelp} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
               <img src={helpIcon} />
             </IconButton>
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateExercise} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
               <img src={exerciseIcon} />
             </IconButton>
-            <IconButton id="iconButton" className={classes.iconButton} onClick={navigateGamesOptions} >
+            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
               <img src={gamesIcon} />
             </IconButton>
           </div>
