@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ /* @font-face {
+   font-family: "AssistantExtraBold";
+   src: local("AssistantExtraBold"),
+    url("./fonts/Assistant-Extra-Bold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "AssistantBold";
+    src: local("AssistantBold"),
+     url("./fonts/Assistant-Bold.ttf") format("truetype");
+   }
+
+  @font-face {
+    font-family: "AssistantSemiBold";
+    src: local("AssistantSemiBold"),
+     url("./fonts/Assistant-Semi-Bold") format("truetype");
+   } */
+
+   /* @font-face {
+     font-family: "AssistantRegular";
+     src: local("AssistantRegular"),
+      url("./fonts/Assistant-Regular.ttf") format("truetype");
+    } */
+
+   /* @font-face {
+     font-family: "AssistantLight";
+     src: local("AssistantLight"),
+      url("./fonts/Assistant-Light") format("truetype");
+    }
+
+    @font-face {
+      font-family: "AssistantExtraLight";
+      src: local("AssistantExtraLight"),
+       url("./fonts/Assistant-Extra-Light") format("truetype");
+     } */

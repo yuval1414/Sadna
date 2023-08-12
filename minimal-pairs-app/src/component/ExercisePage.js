@@ -15,6 +15,7 @@ import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import menuBtn from './../images/buttons/menuBtn.png';
 import soundBtn from './../images/buttons/soundBtn.png';
+import ImagePlaceHolder from './ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
@@ -109,7 +110,7 @@ function ExercisePage() {  // START OF THE RUN
 
             {/* <img src={exerciseText} style={{ display: 'flex', width: '100%' }} /> */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '9%' }}>
-              <div>
+              {/* <div>
                 <Button className={classes.imageButton} onClick={() => handleImageClick}>
                   <div className={classes.selectedImage}>
                     <img
@@ -144,7 +145,19 @@ function ExercisePage() {  // START OF THE RUN
                 <Typography variant="subtitle1" className={classes.descriptionTypography}>
                   {selectedImages.image2?.description}
                 </Typography>
-              </div>
+              </div> */}
+              <ImagePlaceHolder
+                innerImage={selectedImages.image1?.src}
+                textColor={theme.palette.yellow}
+                imageText={selectedImages.image1?.description}
+                handleClick={handleImageClick}
+              />
+              <ImagePlaceHolder
+                innerImage={selectedImages.image2?.src}
+                textColor={theme.palette.yellow}
+                imageText={selectedImages.image2?.description}
+                handleClick={handleImageClick}
+              />
             </div>
             <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
               <Grid container spacing={2} alignItems="center">
