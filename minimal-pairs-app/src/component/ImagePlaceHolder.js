@@ -37,7 +37,7 @@ function ImagePlaceHolder({
   const classes = useStyles();
 
   return (
-    <Button className={classes.imageButton} onClick={handleClick} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Button disableRipple className={classes.imageButton} onClick={handleClick} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <img src={imgWhiteBg} style={{ width: '80%',  position: 'absolute' }}></img>
       <img
         src={innerImage}
