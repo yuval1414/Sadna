@@ -7,6 +7,16 @@ import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
+
+import ImagePlaceHolder from './ImagePlaceHolder';
+import imgBg from './../images/buttons/imgBg.png';
+import gamePuzzle from './../images/buttons/game_puzzle.png';
+import gameHitTheMole from './../images/buttons/game_hitTheMole.png';
+import gameMemoryGame from './../images/buttons/game_memoryGame.png';
+import gameSnakeAndLadders from './../images/buttons/game_snakeAndLadders.png';
+import gameTicTacToe from './../images/buttons/game_ticTacToe.png';
+import gameRexy from './../images/buttons/game_rexy.png';
+
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -108,9 +118,7 @@ function GamesOptionsPage() {  // START OF THE RUN
               <MenuItem onClick={handleMenuClose}>Help</MenuItem>
             </Menu>
           </Toolbar>
-          <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {/* <AppBar position="static" color="transparent"> */}
-            {/* </AppBar> */}
+          {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
 
             <div id="iconButton" className={classes.background}>
@@ -121,6 +129,77 @@ function GamesOptionsPage() {  // START OF THE RUN
                   </IconButton>
                 </List>
               </div>
+            </div>
+          </div> */}
+
+          <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+              <Typography fontSize={'450%'} fontWeight="bold" color={theme.palette.darkBlue}>
+                משחקים
+              </Typography>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '20px', justifyContent: 'center', marginTop: '10px' }}>
+                {/* First Row */}
+                <ImagePlaceHolder
+                  innerImage={gamePuzzle}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"פאזל"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameHitTheMole}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"הכה בחפרפרת"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameMemoryGame}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"משחק הזיכרון"}
+                  //handleClick={}
+                />
+
+                {/* Second Row */}
+                <ImagePlaceHolder
+                  innerImage={gameSnakeAndLadders}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"סולמות ונחשים"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameTicTacToe}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"איקס עיגול"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameRexy}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"טפלו ברקסי"}
+                  //handleClick={}
+                />
+              </div>
+
+              {/* <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
+                <Grid container spacing={2} alignItems="center">
+                  <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                    <IconButton color="inherit" onClick={handleNextClick}>
+                      <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                    <IconButton color="inherit" onClick={handleListenAgainClick}>
+                      <img src={replaySound} style={{ width: '100%', height: '100%' }} />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                    <IconButton color="inherit" onClick={handleNextClick}>
+                      <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
+                    </IconButton>
+                  </Grid>
+                </Grid>
+              </Grid> */}
             </div>
           </div>
         </div>

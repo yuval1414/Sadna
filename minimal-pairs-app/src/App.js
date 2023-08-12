@@ -15,18 +15,25 @@ import GamesOptionsPage from './component/GamesOptionsPage';
 import ExerciseOptionsPage from './component/ExerciseOptionsPage';
 //import Contact from './component/Contact';
 
+//mine:
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+//import './fonts/Assistant-Regular.ttf';
+
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
-        <Route path="/ExercisePage" element={<ExercisePage />} />
-        <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} >
-        </Route>
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
+          <Route path="/ExercisePage" element={<ExercisePage />} />
+          <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} >
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
