@@ -1,16 +1,18 @@
 
 // 2ND ATTEMPT
 import React, { useState, useEffect, Component } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Button, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Select, NativeSelect, FormControl, InputLabel, FormControlLabel } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { IconButton, MenuItem, Select, FormControl, InputLabel, Typography as MuiTypography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import { makeStyles } from '@mui/styles';
-
+import { SettingDropDown } from './SettingDropDown';
+import optionsWhiteBg from './../images/pagesBg/exerciseSettingsWhiteRectangle.png';
 import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
+import InfoIcon from '@mui/icons-material/Info';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -18,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
     },
     background: {
         position: 'fixed',
-        top: 0,
-        left: 0,
         width: '100%',
         height: '100%',
         backgroundImage: `url(${exerciseOptionsPage})`,
@@ -44,13 +44,34 @@ const useStyles = makeStyles((theme) => ({
     },
     select: {
         position: 'absolute',
-        top: '6%',
-        left: '56%',
+        top: '65px',
+        paddingRight: '148px',
+        right: '0px',
         zIndex: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
+    typography: {
+        fontSize: 'xx-large', fontWeight: 'bold', color: 'coral',
+        alignItems: 'flex-end', justifyContent: 'flex-end',
+        paddingTop: '20px',
+    },
+    optionBg: {
+        height: '550px',
+        width: '500px',
+        display: 'flex',
+        paddingRight: '100px',
+        top:'55px',
+        position: 'absolute',
+        right: '0px',
+    },
+    optionsWrapper: {
+        position: 'relative',
+    }
 }));
 
-function GamesOptionsPage() {  // START OF THE RUN
+function ExerciseOptionsPage() {  // START OF THE RUN
     const classes = useStyles();
     const theme = useTheme();
 
@@ -86,53 +107,39 @@ function GamesOptionsPage() {  // START OF THE RUN
         setLettersChoice(event.target.value);
     };
 
-    const options = ["ב-ק", "ת-ק", "ק-מ"];
+    const excInfoPageHandler= (event) => {
+        //open or close the 'info excercise page';
+        console.log("open or close the 'info excercise page'");
+    };
+
+    const category = ["מקום חיתוך", "אופן חיתוך", "קוליות"];
+    const letters = ["ב-ק", "ת-ק", "ק-מ"];
+    const order = ["רגיל", "רנדומלי"];
+    const voice = ["גבר", "אישה"];
 
     return (
         <div id="container" className={classes.container}>
             <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
-                    {/* <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}> */}
-                    <div>
+                    <div className={classes.optionsWrapper}>
+                        <img src={optionsWhiteBg} className={classes.optionBg} />
                         <div id="select" className={classes.select}>
-                            <FormControl>
-                                < InputLabel variant="standard" style={{
-                                    zIndex: 1, color: theme.palette.white,
-                                    width: '100%',
-                                    zIndex: 1,
-                                    pointerEvents: 'none',
-                                    transformOrigin: 'top right',
-                                }} id="demo-simple-select-label">אותיות</InputLabel>
-                                <Select
-                                    sx={{
-                                        boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: 0 }, "& .MuiSvgIcon-root": {
-                                            right: "unset",
-                                            left: "7px",
-                                        }
-                                    }}
-                                    value={lettersChoice}
-                                    onChange={handleLetterChoice}
-                                    IconComponent={(props) => (
-                                        <ArrowDropDownIcon {...props} style={{ fontSize: '50px', color: theme.palette.white }} />
-                                    )}
-                                    style={{
-                                        backgroundColor: theme.palette.green,
-                                        color: theme.palette.white,
-                                        width: '301px',
-                                        borderRadius: '50px',
-                                    }}
-                                >
-                                    {options.map((option) => <MenuItem style={{ justifyContent: 'center' }} value={option}>{option}</MenuItem>)}
-                                </Select>
-                            </FormControl>
+                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: 'black', cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
+                            <SettingDropDown title="סוג תרגול" options={letters} />
+                            <MuiTypography className={classes.typography} >אותיות</MuiTypography>
+                            <SettingDropDown title="אותיות" options={letters} />
+                            <MuiTypography className={classes.typography} >קול</MuiTypography>
+                            <SettingDropDown title="קול" options={voice} />
+                            <MuiTypography className={classes.typography} >סדר הופעת מילים</MuiTypography>
+                            <SettingDropDown title="סדר הופעת מילים" options={order} />
                         </div>
-                        <div id="iconButton" className={classes.background}>
-                            <div className={classes.iconButton} align="center" 
-                            style={{position: 'absolute', top: '75%', left: '20%', zIndex: 1}}>
-                                <IconButton color="inherit" onClick={navigateExercise} >
-                                    <img src={leftArrowBtn}></img>
-                                </IconButton>
-                            </div>
+                    </div>
+                    <div id="iconButton">
+                        <div className={classes.iconButton} align="center"
+                            style={{ position: 'absolute', top: '75%', left: '20%', zIndex: 1 }}>
+                            <IconButton color="inherit" onClick={navigateExercise} >
+                                <img src={leftArrowBtn}></img>
+                            </IconButton>
                         </div>
                     </div>
                 </div>
@@ -142,4 +149,4 @@ function GamesOptionsPage() {  // START OF THE RUN
     );
 }
 
-export default GamesOptionsPage;
+export default ExerciseOptionsPage;
