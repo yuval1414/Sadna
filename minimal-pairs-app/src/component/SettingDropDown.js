@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 1,
         pointerEvents: 'none',
         transformOrigin: 'top right',
-        color: '#fff !important',
+        color: '#fff',
     },
 
 }));

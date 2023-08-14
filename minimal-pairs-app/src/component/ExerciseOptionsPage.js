@@ -14,11 +14,11 @@ import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 import InfoIcon from '@mui/icons-material/Info';
+import InfoDialog from './InfoDialog';
 
 const useStyles = makeStyles((theme) => ({
-
     background: {
-        position: 'fixed',
+        position: 'absolute',
         width: '100%',
         height: '100%',
         backgroundImage: `url(${PageBg})`,
@@ -37,19 +37,19 @@ const useStyles = makeStyles((theme) => ({
     },
     iconButton: {
         position: 'absolute',
-        top: '80%',
-        left: '15%',
+        top: '230px',
+        left: '27%',
         zIndex: 1,
     },
     select: {
         position: 'absolute',
-        top: '65px',
+        top: '7%',
         paddingRight: '148px',
-        right: '0px',
+        right: '10%',
         zIndex: 4,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        align: 'center',
     },
     typography: {
         fontSize: 'xx-large', fontWeight: 'bold', color: 'coral',
@@ -61,13 +61,10 @@ const useStyles = makeStyles((theme) => ({
         width: '500px',
         display: 'flex',
         paddingRight: '100px',
-        top:'55px',
+        top: '7%',
         position: 'absolute',
-        right: '0px',
+        right: '10%',
     },
-    optionsWrapper: {
-        position: 'relative',
-    }
 }));
 
 function ExerciseOptionsPage() {  // START OF THE RUN
@@ -106,7 +103,7 @@ function ExerciseOptionsPage() {  // START OF THE RUN
         setLettersChoice(event.target.value);
     };
 
-    const excInfoPageHandler= (event) => {
+    const excInfoPageHandler = (event) => {
         //open or close the 'info excercise page';
         console.log("open or close the 'info excercise page'");
     };
@@ -117,38 +114,38 @@ function ExerciseOptionsPage() {  // START OF THE RUN
     const voice = ["גבר", "אישה"];
 
     return (
-                <div className={classes.background} align="center">
-                    <div className={classes.optionsWrapper}>
-                        <img src={optionsWhiteBg} className={classes.optionBg} />
-                        <div id="select" className={classes.select}>
-                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: 'black', cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
-                            <SettingDropDown title="סוג תרגול" options={category} />
-                            <MuiTypography className={classes.typography} >אותיות</MuiTypography>
-                            <SettingDropDown title="אותיות" options={letters} />
-                            <MuiTypography className={classes.typography} >קול</MuiTypography>
-                            <SettingDropDown title="קול" options={voice} />
-                            <MuiTypography className={classes.typography} >סדר הופעת מילים</MuiTypography>
-                            <SettingDropDown title="סדר הופעת מילים" options={order} />
-                        </div>
-                    </div>
+        <body>
+            <div className={classes.background} align="center">
+                <img src={optionsWhiteBg} className={classes.optionBg} />
+                <div id="select" className={classes.select}>
+                    <MuiTypography className={classes.typography} > 
+                    <InfoDialog> <InfoIcon style={{ color: theme.palette.darkBlue, cursor: 'pointer' }} />  </InfoDialog>
+                        סוג תרגול</MuiTypography>
+                    <SettingDropDown title="סוג תרגול" options={category} />
+                    <MuiTypography className={classes.typography} >אותיות</MuiTypography>
+                    <SettingDropDown title="אותיות" options={letters} />
+                    <MuiTypography className={classes.typography} >קול</MuiTypography>
+                    <SettingDropDown title="קול" options={voice} />
+                    <MuiTypography className={classes.typography} >סדר הופעת מילים</MuiTypography>
+                    <SettingDropDown title="סדר הופעת מילים" options={order} />
+                </div>
+                <div className={classes.iconButton} align="center"
+                    style={{ position: 'absolute', top: '27%', left: '15%', zIndex: 1 }}>
+                    <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
+                        הגדרות
+                    </Typography>
+                    <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
+                        תרגול
+                    </Typography>
                     <div className={classes.iconButton} align="center"
-                        style={{ position: 'absolute', top: '20%', left: '15%', zIndex: 1 }}>
-                        <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
-                            הגדרות
-                        </Typography>
-                        <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
-                            תרגול
-                        </Typography>
-                        <div id="iconButton">
-                            <div className={classes.iconButton} align="center"
-                                style={{ position: 'absolute', top: '110%', left: '27%', zIndex: 1 }}>
-                                <IconButton color="inherit" onClick={navigateExercise} >
-                                    <img src={leftArrowBtn}></img>
-                                </IconButton>
-                            </div>
-                        </div>
+                    >
+                        <IconButton color="inherit" onClick={navigateExercise} >
+                            <img src={leftArrowBtn}></img>
+                        </IconButton>
                     </div>
                 </div>
+            </div>
+        </body>
     );
 }
 
