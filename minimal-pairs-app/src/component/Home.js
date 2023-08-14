@@ -88,7 +88,6 @@ function Home() {
   useEffect(() => {
     const handleResize = () => {
       // Adjust the positions of the title and button when the window is resized
-      //const title = document.getElementById('title');
       const iconButton = document.getElementById('iconButton');
       // Set the positions based on the new window dimensions
       // title.style.top = '20px';
