@@ -66,60 +66,60 @@ function GamesOptionsPage() {  // START OF THE RUN
   }, []);
 
   return (
-    <div id="background" className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-        משחקים
-      </Typography>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', columnGap: '5px', rowGap: '20px', justifyContent: 'center', height: '85%', width: '85%' }}>
-        {/* First Row */}
-        <ImagePlaceHolder
-          innerImage={gamePuzzle}
-          textColor={theme.palette.darkBlue}
-          imageText={"פאזל"}
-        //handleClick={}
-        />
-        <ImagePlaceHolder
-          innerImage={gameHitTheMole}
-          textColor={theme.palette.darkBlue}
-          imageText={"הכה בחפרפרת"}
-        //handleClick={}
-        />
-        <ImagePlaceHolder
-          innerImage={gameMemoryGame}
-          textColor={theme.palette.darkBlue}
-          imageText={"משחק הזיכרון"}
-        //handleClick={}
-        />
+    <div id="container" className={classes.container}>
+      <div id="background" className={classes.background}>
+        <div className={classes.background} align="center">
 
-        {/* Second Row */}
-        <ImagePlaceHolder
-          innerImage={gameSnakeAndLadders}
-          textColor={theme.palette.darkBlue}
-          imageText={"סולמות ונחשים"}
-        //handleClick={}
-        />
-        <ImagePlaceHolder
-          innerImage={gameTicTacToe}
-          textColor={theme.palette.darkBlue}
-          imageText={"איקס עיגול"}
-        //handleClick={}
-        />
-        <ImagePlaceHolder
-          innerImage={gameRexy}
-          textColor={theme.palette.darkBlue}
-          imageText={"טפלו ברקסי"}
-        //handleClick={}
-        />
-      </div>
-    </div>
-  );
-}
+          <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-export default GamesOptionsPage;
+              <Typography fontSize={'450%'} fontWeight="bold" color={theme.palette.darkBlue}>
+                משחקים
+              </Typography>
 
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '20px', justifyContent: 'center', marginTop: '10px' }}>
+                {/* First Row */}
+                <ImagePlaceHolder
+                  innerImage={gamePuzzle}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"פאזל"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameHitTheMole}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"הכה בחפרפרת"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameMemoryGame}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"משחק הזיכרון"}
+                  //handleClick={}
+                />
 
+                {/* Second Row */}
+                <ImagePlaceHolder
+                  innerImage={gameSnakeAndLadders}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"סולמות ונחשים"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameTicTacToe}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"איקס עיגול"}
+                  //handleClick={}
+                />
+                <ImagePlaceHolder
+                  innerImage={gameRexy}
+                  textColor={theme.palette.darkBlue}
+                  imageText={"טפלו ברקסי"}
+                  //handleClick={}
+                />
+              </div>
 
-{/* <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
+              {/* <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
                 <Grid container spacing={2} alignItems="center">
                   <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
                     <IconButton color="inherit" onClick={handleNextClick}>
@@ -138,3 +138,13 @@ export default GamesOptionsPage;
                   </Grid>
                 </Grid>
               </Grid> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  );
+}
+
+export default GamesOptionsPage;

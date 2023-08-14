@@ -17,7 +17,6 @@ import menuBtn from './../images/buttons/menuBtn.png';
 import soundBtn from './../images/buttons/soundBtn.png';
 import ImagePlaceHolder from './ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
-import {downloadImageFromStorage, getAllMinimalPairs} from './../Firebase.js';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -26,14 +25,14 @@ const useStyles = makeStyles(() => ({
       backgroundColor: 'transparent !important',
     }
   },
-  descriptionTypography: {
+  descriptionTypography:{
     display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
     WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
     //'-webkit-text-stroke: 1px font-size: x-large -webkit-text-stroke-color: rgb(36 71 88)'
   },
-  selectedImage: {
-    backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
-    width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center'
+  selectedImage:{
+    backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', 
+    width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center' 
   }
 }));
 
@@ -55,11 +54,6 @@ const images = [
     },
   }
 ];
-
-async function getImageFromStorage() {
-  images[0].image1.src = await downloadImageFromStorage("Images/flowers.jpeg"); 
- }
-
 let dupImages = [...images];
 const selectRandomImages = () => { // !
   if (dupImages.length === 0) {
@@ -72,7 +66,7 @@ const selectRandomImages = () => { // !
 
 const randomImages = selectRandomImages();
 
-export default function ExercisePage() {  // START OF THE RUN
+function ExercisePage() {  // START OF THE RUN
   const theme = useTheme();
   const classes = useStyles();
   const imageStyle = {
@@ -104,50 +98,92 @@ export default function ExercisePage() {  // START OF THE RUN
     setSelectedImages(selectRandomImages());
   };
 
-
-  getImageFromStorage();
-  getAllMinimalPairs();
   return (
     <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-        <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '90%', width: '80%' }}>
+      <div>
+        <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-          <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
-            הקשיבו ובחרו את התמונה הנכונה
-          </Typography>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', justifyContent: 'center', height: '100%', width: '70%' }}>
-            <ImagePlaceHolder
-              innerImage={selectedImages.image1?.src}
-              textColor={theme.palette.yellow}
-              imageText={selectedImages.image1?.description}
-              handleClick={handleImageClick}
-            />
-            <ImagePlaceHolder
-              innerImage={selectedImages.image2?.src}
-              textColor={theme.palette.yellow}
-              imageText={selectedImages.image2?.description}
-              handleClick={handleImageClick}
-            />
+            <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
+              הקשיבו ובחרו את התמונה הנכונה
+            </Typography>
+
+            {/* <img src={exerciseText} style={{ display: 'flex', width: '100%' }} /> */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '9%' }}>
+              {/* <div>
+                <Button className={classes.imageButton} onClick={() => handleImageClick}>
+                  <div className={classes.selectedImage}>
+                    <img
+                      src={selectedImages.image1?.src}
+                      alt="Left"
+                      data-image="0"
+                      style={imageStyle}
+                      onClick={handleImageClick}
+                    />
+                  </div>
+
+                </Button>
+                <div>
+                  <Typography variant="subtitle1" className={classes.descriptionTypography}>
+                    {selectedImages.image1?.description}
+                  </Typography>
+                </div>
+              </div>
+              <div>
+                <Button className={classes.imageButton} onClick={() => handleImageClick}>
+                  <div className={classes.selectedImage}>
+                    <img 
+                      src={selectedImages.image2?.src}
+                      alt="Right"
+                      data-image="1"
+                      style={imageStyle}
+                      onClick={handleImageClick}
+                      id="right"
+                    />
+                  </div>
+                </Button>
+                <Typography variant="subtitle1" className={classes.descriptionTypography}>
+                  {selectedImages.image2?.description}
+                </Typography>
+              </div> */}
+              <ImagePlaceHolder
+                innerImage={selectedImages.image1?.src}
+                textColor={theme.palette.yellow}
+                imageText={selectedImages.image1?.description}
+                handleClick={handleImageClick}
+              />
+              <ImagePlaceHolder
+                innerImage={selectedImages.image2?.src}
+                textColor={theme.palette.yellow}
+                imageText={selectedImages.image2?.description}
+                handleClick={handleImageClick}
+              />
+            </div>
+            <Grid container justifyContent="center" style={{ margin: '5%', marginLeft: '18%' }}>
+              <Grid container spacing={2} alignItems="center">
+                <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                  <IconButton color="inherit" onClick={handleNextClick}>
+                    <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+                  </IconButton>
+                </Grid>
+                <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                  <IconButton color="inherit" onClick={handleListenAgainClick}>
+                    <img src={replaySound} style={{ width: '100%', height: '100%' }} />
+                  </IconButton>
+                </Grid>
+                <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+                  <IconButton color="inherit" onClick={handleNextClick}>
+                    <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
+                  </IconButton>
+                </Grid>
+              </Grid>
+            </Grid>
+
           </div>
-          <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%' }}>
-            <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleNextClick}>
-                <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleListenAgainClick}>
-                <img src={replaySound} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleNextClick}>
-                <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-          </Grid>
         </div>
       </div>
     </div>
   );
 }
+
+export default ExercisePage;
