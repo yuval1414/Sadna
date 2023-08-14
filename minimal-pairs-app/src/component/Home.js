@@ -104,21 +104,19 @@ function Home() {
   return (
 
     <div className={classes.background} >
-      <div style={{ height: '90%' }}>
-        <div className={classes.mainMenu}>
-          <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
-          {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
-          <div className={classes.iconButton} >
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
-              <img src={helpIcon} />
-            </IconButton>
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
-              <img src={exerciseIcon} />
-            </IconButton>
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
-              <img src={gamesIcon} />
-            </IconButton>
-          </div>
+      <div className={classes.mainMenu}>
+        <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
+        {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
+        <div className={classes.iconButton} >
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
+            <img src={helpIcon} />
+          </IconButton>
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
+            <img src={exerciseIcon} />
+          </IconButton>
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
+            <img src={gamesIcon} />
+          </IconButton>
         </div>
       </div>
     </div >
