@@ -113,7 +113,7 @@ function ExerciseOptionsPage() {  // START OF THE RUN
     };
 
     const category = ["מקום חיתוך", "אופן חיתוך", "קוליות"];
-    const letters = ["ב-ק", "ת-ק", "ק-מ"];
+    const letters = ["ב-ק", "ת-ק", "ק-מ", "הכל"];
     const order = ["רגיל", "רנדומלי"];
     const voice = ["גבר", "אישה"];
 
@@ -125,7 +125,7 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                         <img src={optionsWhiteBg} className={classes.optionBg} />
                         <div id="select" className={classes.select}>
                             <MuiTypography className={classes.typography} > <InfoIcon style={{color: 'black', cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
-                            <SettingDropDown title="סוג תרגול" options={letters} />
+                            <SettingDropDown title="סוג תרגול" options={category} />
                             <MuiTypography className={classes.typography} >אותיות</MuiTypography>
                             <SettingDropDown title="אותיות" options={letters} />
                             <MuiTypography className={classes.typography} >קול</MuiTypography>
