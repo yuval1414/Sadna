@@ -1,10 +1,10 @@
 import { IconButton, Menu, MenuItem as MuiMenuItem, Toolbar as MuiToolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles"
 import { useNavigate, useLocation } from "react-router-dom";
-import MenuIcon from '@mui/icons-material/Menu';
-import VolumeUp from '@mui/icons-material/VolumeUp';
-//import MenuIcon from './../images/buttons/menuBtn.png';
-//import VolumeUp from './../images/buttons/soundBtn.png';
+//import MenuIcon from '@mui/icons-material/Menu';
+//import VolumeUp from '@mui/icons-material/VolumeUp';
+import MenuIcon from './../images/buttons/menuBlueBtn.png';
+import VolumeUp from './../images/buttons/soundBlueBtn.png';
 import { useState } from "react";
 
 const useStyles = makeStyles(() => ({
@@ -60,8 +60,8 @@ const Toolbar = () => {
             {location.pathname === PAGES.exercisePage.path && (
                 <div style={{ flexGrow: 1 }}>
                     <IconButton color="inherit" onClick={handleSoundClick}>
-                        {/* <img src={VolumeUp}/> */}
-                        <VolumeUp />
+                        <img src={VolumeUp} />
+                        {/* <VolumeUp /> */}
                     </IconButton>
 
                     <Menu
@@ -77,8 +77,8 @@ const Toolbar = () => {
                 </div>
             )}
             <IconButton color="inherit" onClick={handleMenuClick}>
-                {/* <img src={MenuIcon} /> */}
-                <MenuIcon/>
+                <img src={MenuIcon} />
+                {/* <MenuIcon/> */}
             </IconButton>
             <Menu
                 anchorEl={menuAnchorEl}

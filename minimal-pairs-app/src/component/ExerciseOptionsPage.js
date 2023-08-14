@@ -16,9 +16,7 @@ import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 import InfoIcon from '@mui/icons-material/Info';
 
 const useStyles = makeStyles((theme) => ({
-    container: {
-        position: 'relative',
-    },
+
     background: {
         position: 'fixed',
         width: '100%',
@@ -119,8 +117,6 @@ function ExerciseOptionsPage() {  // START OF THE RUN
     const voice = ["גבר", "אישה"];
 
     return (
-        <div id="container" className={classes.container}>
-            <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
                     <div className={classes.optionsWrapper}>
                         <img src={optionsWhiteBg} className={classes.optionBg} />
@@ -153,9 +149,6 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
     );
 }
 
