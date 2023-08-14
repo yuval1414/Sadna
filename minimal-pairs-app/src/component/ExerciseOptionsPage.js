@@ -2,7 +2,7 @@
 // 2ND ATTEMPT
 import React, { useState, useEffect, Component } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IconButton, MenuItem, Select, FormControl, InputLabel, Typography as MuiTypography } from '@mui/material';
+import { Typography, IconButton, MenuItem, Select, FormControl, InputLabel, Typography as MuiTypography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -11,6 +11,7 @@ import { makeStyles } from '@mui/styles';
 import { SettingDropDown } from './SettingDropDown';
 import optionsWhiteBg from './../images/pagesBg/exerciseSettingsWhiteRectangle.png';
 import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
+import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 import InfoIcon from '@mui/icons-material/Info';
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'fixed',
         width: '100%',
         height: '100%',
-        backgroundImage: `url(${exerciseOptionsPage})`,
+        backgroundImage: `url(${PageBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -124,7 +125,7 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                     <div className={classes.optionsWrapper}>
                         <img src={optionsWhiteBg} className={classes.optionBg} />
                         <div id="select" className={classes.select}>
-                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: 'black', cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
+                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: theme.palette.darkBlue, cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
                             <SettingDropDown title="סוג תרגול" options={letters} />
                             <MuiTypography className={classes.typography} >אותיות</MuiTypography>
                             <SettingDropDown title="אותיות" options={letters} />
@@ -134,12 +135,21 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                             <SettingDropDown title="סדר הופעת מילים" options={order} />
                         </div>
                     </div>
-                    <div id="iconButton">
-                        <div className={classes.iconButton} align="center"
-                            style={{ position: 'absolute', top: '75%', left: '20%', zIndex: 1 }}>
-                            <IconButton color="inherit" onClick={navigateExercise} >
-                                <img src={leftArrowBtn}></img>
-                            </IconButton>
+                    <div className={classes.iconButton} align="center"
+                        style={{ position: 'absolute', top: '20%', left: '15%', zIndex: 1 }}>
+                        <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
+                            הגדרות
+                        </Typography>
+                        <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
+                            תרגול
+                        </Typography>
+                        <div id="iconButton">
+                            <div className={classes.iconButton} align="center"
+                                style={{ position: 'absolute', top: '110%', left: '27%', zIndex: 1 }}>
+                                <IconButton color="inherit" onClick={navigateExercise} >
+                                    <img src={leftArrowBtn}></img>
+                                </IconButton>
+                            </div>
                         </div>
                     </div>
                 </div>
