@@ -60,7 +60,8 @@ const Toolbar = () => {
             {location.pathname === PAGES.exercisePage.path && (
                 <div style={{ flexGrow: 1 }}>
                     <IconButton color="inherit" onClick={handleSoundClick}>
-                        <img src={VolumeUp}/>
+                        <img src={VolumeUp} />
+                        {/* <VolumeUp /> */}
                     </IconButton>
 
                     <Menu
@@ -76,7 +77,8 @@ const Toolbar = () => {
                 </div>
             )}
             <IconButton color="inherit" onClick={handleMenuClick}>
-                <img src={MenuIcon}/>
+                <img src={MenuIcon} />
+                {/* <MenuIcon/> */}
             </IconButton>
             <Menu
                 anchorEl={menuAnchorEl}

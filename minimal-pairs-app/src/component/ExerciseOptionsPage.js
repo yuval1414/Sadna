@@ -16,9 +16,7 @@ import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 import InfoIcon from '@mui/icons-material/Info';
 
 const useStyles = makeStyles((theme) => ({
-    container: {
-        position: 'relative',
-    },
+
     background: {
         position: 'fixed',
         width: '100%',
@@ -114,19 +112,17 @@ function ExerciseOptionsPage() {  // START OF THE RUN
     };
 
     const category = ["מקום חיתוך", "אופן חיתוך", "קוליות"];
-    const letters = ["ב-ק", "ת-ק", "ק-מ"];
+    const letters = ["ב-ק", "ת-ק", "ק-מ", "הכל"];
     const order = ["רגיל", "רנדומלי"];
     const voice = ["גבר", "אישה"];
 
     return (
-        <div id="container" className={classes.container}>
-            <div id="background" className={classes.background}>
                 <div className={classes.background} align="center">
                     <div className={classes.optionsWrapper}>
                         <img src={optionsWhiteBg} className={classes.optionBg} />
                         <div id="select" className={classes.select}>
-                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: theme.palette.darkBlue, cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
-                            <SettingDropDown title="סוג תרגול" options={letters} />
+                            <MuiTypography className={classes.typography} > <InfoIcon style={{color: 'black', cursor: 'pointer'}} onClick={excInfoPageHandler} />   סוג תרגול</MuiTypography>
+                            <SettingDropDown title="סוג תרגול" options={category} />
                             <MuiTypography className={classes.typography} >אותיות</MuiTypography>
                             <SettingDropDown title="אותיות" options={letters} />
                             <MuiTypography className={classes.typography} >קול</MuiTypography>
@@ -153,9 +149,6 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
     );
 }
 
