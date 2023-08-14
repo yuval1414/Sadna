@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    zIndex: -1,
   },
   mainMenu: {
     position: 'relative',
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   iconButtonImage:{
     '&:hover': {
       filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
-      backgroundColor: 'transparent !important',
+      backgroundColor: 'transparent',
     },
   }
   }));
@@ -87,7 +88,6 @@ function Home() {
   useEffect(() => {
     const handleResize = () => {
       // Adjust the positions of the title and button when the window is resized
-      //const title = document.getElementById('title');
       const iconButton = document.getElementById('iconButton');
       // Set the positions based on the new window dimensions
       // title.style.top = '20px';
@@ -104,21 +104,19 @@ function Home() {
   return (
 
     <div className={classes.background} >
-      <div style={{ height: '90%' }}>
-        <div className={classes.mainMenu}>
-          <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
-          {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
-          <div className={classes.iconButton} >
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
-              <img src={helpIcon} />
-            </IconButton>
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
-              <img src={exerciseIcon} />
-            </IconButton>
-            <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
-              <img src={gamesIcon} />
-            </IconButton>
-          </div>
+      <div className={classes.mainMenu}>
+        <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
+        {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
+        <div className={classes.iconButton} >
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
+            <img src={helpIcon} />
+          </IconButton>
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.exerciseOptionsPage.path)} >
+            <img src={exerciseIcon} />
+          </IconButton>
+          <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.gamesOptionsPage.path)} >
+            <img src={gamesIcon} />
+          </IconButton>
         </div>
       </div>
     </div >

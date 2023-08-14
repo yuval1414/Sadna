@@ -3,7 +3,8 @@
 import React, { useEffect } from 'react';
 import { Typography, List } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import HelpPageBg from './../images/pagesBg/helpBg.png';
+import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
+import HelpBg from './../images/pagesBg/helpBgWithoutText.png';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundImage: `url(${HelpPageBg})`,
+    backgroundImage: `url(${PageBg})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -35,6 +36,17 @@ const useStyles = makeStyles((theme) => ({
     top: '21%',
     left: '45%',
     zIndex: 1,
+  },
+  mainMenu: {
+    position: 'relative',
+    width: '75%',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+  },
+  backgroundSquare: {
+    width: '100%',
+    maxHeight: '100%',
   },
 }));
 function HelpPage() {  // START OF THE RUN
@@ -56,36 +68,29 @@ function HelpPage() {  // START OF THE RUN
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []); // backgroundImage={`url(${HelpBg})`}
 
   return (
-    <div id="container" className={classes.container}>
-      <div id="background" className={classes.background}>
-        <div className={classes.background} align="center">
-          <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {/* <AppBar position="static" color="transparent"> */}
-            {/* </AppBar> */}
+    <div className={classes.background}>
+      <div className={classes.mainMenu}>
+        <center><img className={classes.backgroundSquare} src={HelpBg}></img></center>
+        <div className={classes.iconButton} >
+        <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
+          עזרה
+        </Typography>
+          <List >
+            <Typography>
+              שימוש באפליקציה:<br/><br/>
+            
+              תרגולים:<br/><br/>
 
+              משחקים:<br/><br/>
 
-            <div id="iconButton" className={classes.background}>
-              <div className={classes.iconButton} align="center">
-                <List >
-                  <Typography >
-                    שימוש באפליקציה:<br/><br/>
-                    
-                    תרגולים:<br/><br/>
-
-                    משחקים:<br/><br/>
-
-                  </Typography>
-                </List>
-              </div>
-            </div>
-          </div>
+            </Typography>
+          </List>
         </div>
       </div>
     </div>
-
   );
 }
 
