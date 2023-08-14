@@ -1,66 +1,77 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
-import {getStorage, getDownloadURL, ref as sref} from "firebase/storage";
+import { getDatabase, ref, set , get, child} from "firebase/database";
+import { getStorage, getDownloadURL, ref as sref } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBdpchf45b6z7_wEa-E3vO_fv0JuEwK1dw",
-    authDomain: "hear-me-out-785e2.firebaseapp.com",
-    projectId: "hear-me-out-785e2",
-    storageBucket: "hear-me-out-785e2.appspot.com",
-    messagingSenderId: "994012007554",
-    appId: "1:994012007554:web:35d88c91c2fcdbcd4bf89b",
-    databaseURL: "https://hear-me-out-785e2-default-rtdb.europe-west1.firebasedatabase.app",
+  apiKey: "AIzaSyBdpchf45b6z7_wEa-E3vO_fv0JuEwK1dw",
+  authDomain: "hear-me-out-785e2.firebaseapp.com",
+  projectId: "hear-me-out-785e2",
+  storageBucket: "hear-me-out-785e2.appspot.com",
+  messagingSenderId: "994012007554",
+  appId: "1:994012007554:web:35d88c91c2fcdbcd4bf89b",
+  databaseURL: "https://hear-me-out-785e2-default-rtdb.europe-west1.firebasedatabase.app",
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-// const databaseRef = ref(db, 'minimal_pairs');
+const storage = getStorage();
+const dbRef = ref(db);
 
-// function writeWordData (wordId, name , db) {
-//     const reference = ref(db, 'words/' + wordId);
-    
-//     set (reference, {
-//         word: name        
-//     });        
-// }
+function createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord) {
+  return {
+    id,
+    words: [
+      {
+        word: word1,
+        photo_paths: word1PhotoPaths,
+        man_sound_path: word1ManSoundPath,
+        woman_sound_path: word1WomanSoundPath,
+      },
+      {
+        word: word2,
+        photo_paths: word2PhotoPaths,
+        man_sound_path: word2ManSoundPath,
+        woman_sound_path: word2WomanSoundPath,
+      }
+    ],
+    sound_pair: soundPair,
+    sound_type: soundType,
+    position_in_word: positionInWord,
+  };
+}
 
-//writeWordData('Monkey', 'url');
+function writeWordData(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord) {
+    const reference = ref(db, 'words/' + soundType + '/' + id );
+    const newNode = createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord);
+    set (reference, newNode);        
+}
 
-// // Function to add a new minimal pair to the Firebase Realtime Database
-// async function addMinimalPair(pairData) {
-//     try {
-//       const newPairRef = databaseRef.push();
-  
-//       // Assign a unique ID to the pair
-//       pairData.id = newPairRef.key;
-  
-//       await newPairRef.set(pairData);
-//       console.log('New minimal pair added to the database.');
-  
-//       return newPairRef.key;
-//     } catch (error) {
-//       console.error('Error adding minimal pair:', error);
-//       return null;
-//     }
-//   }
+// writeWordData("1", "bat",
+// "bat_photo.jpg",
+// "bat_man_sound.mp3",
+// "bat_woman_sound.mp3",
+// "pat",
+// "pat_photo.jpg",
+// "pat_man_sound.mp3",
+// "pat_woman_sound.mp3",
+// "b-p",
+// "constant22",
+// "initial");
 
-// async function getAllMinimalPairs() { 
-//   try {
-//     const snapshot = await databaseRef.once('value');
-//     const minimalPairsData = snapshot.val();
-
-//     if (minimalPairsData) {
-//       return Object.values(minimalPairsData);
-//     } else {
-//       throw new Error('No minimal pairs found.');
-//     }
-//   } catch (error) {
-//     console.error('Error fetching minimal pairs:', error);
-//     return [];
-//   }
-// }
+async function getAllMinimalPairs() {  
+  try {
+    const snapshot = await get(child(dbRef, `words`));
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+    } else {
+      console.log("No data available");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // const minimalPairs = getAllMinimalPairs();
 
@@ -86,17 +97,17 @@ const db = getDatabase(app);
 //     try {
 //       const snapshot = await databaseRef.once('value');
 //       const minimalPairsData = snapshot.val();
-  
+
 //       if (minimalPairsData) {
-//         const minimalPairs = Object.values(minimalPairsData);
-  
+//         const minimalPairs = Object.values(minimalPairsData);   
+
 //          // Filter minimal pairs based on provided criteria
 //       const filteredPairs = minimalPairs.filter(pair =>
 //         (soundPair === null || pair.sound_pair === soundPair) &&
 //         (soundType === null || pair.sound_type === soundType) &&
 //         (positionInWord === null || pair.position_in_word === positionInWord)
 //       );
-  
+
 //         return filteredPairs;
 //       } else {
 //         throw new Error('No minimal pairs found.');
@@ -107,35 +118,20 @@ const db = getDatabase(app);
 //     }
 //   }
 
-  // Function to download an image from Firebase Storage
-export default async function downloadImageFromStorage(imageUrl) {
-    try {      
-        const storage = getStorage();
-        const reff = sref(storage, 'Images/flowers.jpeg');
+// Function to download an image from Firebase Storage
+async function downloadImageFromStorage(imageUrl) {
+  try {    
+    const ref = sref(storage, imageUrl);
+    const response = await getDownloadURL(ref);
+    console.log("response: " + response.toString());
 
-  
-      const response = await getDownloadURL(reff);
-      console.log(response);
-      return response;
-    } catch (error) {
-      console.error('Error downloading image:', error);
-      return null;
-    }
-    // try {
-    //     const storage = getStorage();
-    //     const url = await getDownloadURL(sRef(storage, 'Images/redFlower.jpg'));
-    //     // `url` is the download URL for 'images/stars.jpg'
-          
-    //     // Or inserted into an <img> element
-    //     const img = document.getElementById('myimg');
-    //     img.setAttribute('src', url);
+    return response;
 
-    //     return img;
-    //   } catch (error) {
-    //     // Handle any errors
-    //   }
-      
+  } catch (error) {
+    console.error('Error downloading image:', error);
+    return null;
   }
+}
 
 // // // Call the functions and log the filtered minimal pairs
 // //
@@ -151,3 +147,5 @@ export default async function downloadImageFromStorage(imageUrl) {
 // //     console.log(`No minimal pairs found with sound type ${desiredSoundType}, position ${desiredPosition}, and sound pair ${desiredSoundPair}.`);
 // //   }
 // // })();
+
+export { downloadImageFromStorage, getAllMinimalPairs };

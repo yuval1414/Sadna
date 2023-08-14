@@ -17,6 +17,7 @@ import menuBtn from './../images/buttons/menuBtn.png';
 import soundBtn from './../images/buttons/soundBtn.png';
 import ImagePlaceHolder from './ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
+import {downloadImageFromStorage, getAllMinimalPairs} from './../Firebase.js';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -54,6 +55,11 @@ const images = [
     },
   }
 ];
+
+async function getImageFromStorage() {
+  images[0].image1.src = await downloadImageFromStorage("Images/flowers.jpeg"); 
+ }
+
 let dupImages = [...images];
 const selectRandomImages = () => { // !
   if (dupImages.length === 0) {
@@ -66,7 +72,7 @@ const selectRandomImages = () => { // !
 
 const randomImages = selectRandomImages();
 
-function ExercisePage() {  // START OF THE RUN
+export default function ExercisePage() {  // START OF THE RUN
   const theme = useTheme();
   const classes = useStyles();
   const imageStyle = {
@@ -98,6 +104,9 @@ function ExercisePage() {  // START OF THE RUN
     setSelectedImages(selectRandomImages());
   };
 
+
+  getImageFromStorage();
+  getAllMinimalPairs();
   return (
     <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
@@ -142,5 +151,3 @@ function ExercisePage() {  // START OF THE RUN
     </div>
   );
 }
-
-export default ExercisePage;
