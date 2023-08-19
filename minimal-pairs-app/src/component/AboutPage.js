@@ -8,11 +8,8 @@ import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone 
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import AboutBg from './../images/pagesBg/aboutPageSquar.png';
 import { makeStyles } from '@mui/styles';
-
+import hearMeOutIcon from './../images/kids/HEARMEOUT-Icon.png';
 const useStyles = makeStyles((theme) => ({
-  container: {
-    position: 'relative',
-  },
   background: {
     position: 'fixed',
     top: 0,
@@ -33,22 +30,33 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
     zIndex: 1,
   },
-  iconButton: {
+  icon: {
     position: 'absolute',
-    top: '21%',
-    left: '45%',
+    top: '6%',
+    left: '46%',
     zIndex: 1,
+    //display:'inline', 
+    height: '114px', 
+    width: '114px',
   },
   mainMenu: {
-    position: 'relative',
+    position: 'absolute',
     width: '75%',
     left: '50%',
     top: '45%',
     transform: 'translate(-50%, -50%)',
+    textAlign: 'right',
   },
   backgroundSquare: {
     width: '100%',
     maxHeight: '100%',
+  },
+  typography: {
+    position: 'absolute',
+    top: '21%',
+    left: '45%',
+    zIndex: 1,
+   
   },
 }));
 function AboutPage() {  // START OF THE RUN
@@ -74,22 +82,20 @@ function AboutPage() {  // START OF THE RUN
 
   return (
     <div className={classes.background}>
+       <img src={hearMeOutIcon} className={classes.icon} />
       <div className={classes.mainMenu}>
         <center><img className={classes.backgroundSquare} src={AboutBg}></img></center>
-        <div className={classes.iconButton} >
-        <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-          אודות
+        <div className={classes.typography} >
+          <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
+            אודות
+          </Typography>
+          <Typography>
+            על האפליקציה:<br /><br />
+
+            רקע:<br /><br />
+
+            המפתחות:<br /><br />
         </Typography>
-          <List >
-            <Typography>
-              על האפליקציה:<br/><br/>
-            
-              רקע:<br/><br/>
-
-              המפתחות:<br/><br/>
-
-            </Typography>
-          </List>
         </div>
       </div>
     </div>

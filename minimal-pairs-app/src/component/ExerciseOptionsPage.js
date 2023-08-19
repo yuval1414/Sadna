@@ -2,7 +2,7 @@
 // 2ND ATTEMPT
 import React, { useState, useEffect, Component } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Typography, IconButton, MenuItem, Select, FormControl, InputLabel, Typography as MuiTypography } from '@mui/material';
+import { Typography, IconButton, MenuItem, Select, FormControl, InputLabel, selectClasses } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -15,6 +15,8 @@ import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
 import InfoIcon from '@mui/icons-material/Info';
 import InfoDialog from './InfoDialog';
+import { FunctionsRounded } from '@mui/icons-material';
+import { manWomanOptions, options, placeInWord, voice } from './utils/options';
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -66,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
         right: '10%',
     },
 }));
+function getAllUsersChoices(option) {
+    console.log(option);
+}
 
 function ExerciseOptionsPage() {  // START OF THE RUN
     const classes = useStyles();
@@ -99,53 +104,47 @@ function ExerciseOptionsPage() {  // START OF THE RUN
     //const [graphicsQuality, setGraphicsQuality] = useState('medium');
     //const [language, setLanguage] = useState('en');
 
-    const handleLetterChoice = (event) => {
-        setLettersChoice(event.target.value);
+    const [categoryState, setCategoryState] = useState(options[0]);
+    const [lettersState, setLetteresState] = useState(options[0].letterOptions[0]);
+    const [orderState, setOrderState] = useState(placeInWord.all);
+    const [voiceState, setVoiceState] = useState(voice.man);
+
+    const handleChangeCategory = (value) => {
+        setCategoryState(value);
+        setLetteresState(value.letterOptions[0]);
+        setOrderState(placeInWord.all);
     };
 
-    const excInfoPageHandler = (event) => {
-        //open or close the 'info excercise page';
-        console.log("open or close the 'info excercise page'");
+    const handleChangelLetters = (value) => {
+        setLetteresState(value);
+        setOrderState(placeInWord.all);
     };
-
-    const category = ["מקום חיתוך", "אופן חיתוך", "קוליות"];
-    const letters = ["ב-ק", "ת-ק", "ק-מ", "הכל"];
-    const order = ["רגיל", "רנדומלי"];
-    const voice = ["גבר", "אישה"];
 
     return (
-        <body>
-            <div className={classes.background} align="center">
-                <img src={optionsWhiteBg} className={classes.optionBg} />
-                <div id="select" className={classes.select}>
-                    <MuiTypography className={classes.typography} > 
-                    <InfoDialog> <InfoIcon style={{ color: theme.palette.darkBlue, cursor: 'pointer' }} />  </InfoDialog>
-                        סוג תרגול</MuiTypography>
-                    <SettingDropDown title="סוג תרגול" options={category} />
-                    <MuiTypography className={classes.typography} >אותיות</MuiTypography>
-                    <SettingDropDown title="אותיות" options={letters} />
-                    <MuiTypography className={classes.typography} >קול</MuiTypography>
-                    <SettingDropDown title="קול" options={voice} />
-                    <MuiTypography className={classes.typography} >סדר הופעת מילים</MuiTypography>
-                    <SettingDropDown title="סדר הופעת מילים" options={order} />
-                </div>
+        <div className={classes.background} align="center">
+            <img src={optionsWhiteBg} className={classes.optionBg} />
+            <div id="select" className={classes.select}>
+                <SettingDropDown title={<><InfoDialog />סוג תרגול</>} value={categoryState} options={options} updateState={handleChangeCategory} />
+                <SettingDropDown title="אותיות" options={categoryState.letterOptions} value={lettersState} updateState={handleChangelLetters}/>
+                <SettingDropDown title="סדר הופעת מילים" options={lettersState.placeInWordOptions} value={orderState} updateState={setOrderState} />
+                <SettingDropDown title="קול"  value={voiceState} options={manWomanOptions} updateState={setVoiceState} />
+            </div>
+            <div className={classes.iconButton} align="center"
+                style={{ position: 'absolute', top: '27%', left: '15%', zIndex: 1 }}>
+                <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
+                    הגדרות
+                </Typography>
+                <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
+                    תרגול
+                </Typography>
                 <div className={classes.iconButton} align="center"
-                    style={{ position: 'absolute', top: '27%', left: '15%', zIndex: 1 }}>
-                    <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
-                        הגדרות
-                    </Typography>
-                    <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
-                        תרגול
-                    </Typography>
-                    <div className={classes.iconButton} align="center"
-                    >
-                        <IconButton color="inherit" onClick={navigateExercise} >
-                            <img src={leftArrowBtn}></img>
-                        </IconButton>
-                    </div>
+                >
+                    <IconButton color="inherit" onClick={navigateExercise} >
+                        <img src={leftArrowBtn}></img>
+                    </IconButton>
                 </div>
             </div>
-        </body>
+        </div>
     );
 }
 

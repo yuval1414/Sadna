@@ -55,8 +55,8 @@ export function InfoDialog() {
     };
 
     return (
-        <div style={{display: 'inline'}} onClick={handleClickOpen} >
-           
+        <div style={{display: 'inline'}}>
+            <InfoIcon style={{ color: theme.palette.darkBlue, cursor: 'pointer' }} onClick={handleClickOpen} />
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
