@@ -43,22 +43,10 @@ function createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, wo
 }
 
 function writeWordData(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord) {
-    const reference = ref(db, 'words/' + soundType + '/' + id );
-    const newNode = createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord);
-    set (reference, newNode);        
+  const reference = ref(db, 'words/' + soundType + '/' + id );
+  const newNode = createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord);
+  set (reference, newNode);        
 }
-
-// writeWordData("1", "bat",
-// "bat_photo.jpg",
-// "bat_man_sound.mp3",
-// "bat_woman_sound.mp3",
-// "pat",
-// "pat_photo.jpg",
-// "pat_man_sound.mp3",
-// "pat_woman_sound.mp3",
-// "b-p",
-// "constant22",
-// "initial");
 
 async function getAllMinimalPairs() {  
   try {
@@ -127,11 +115,13 @@ async function downloadImageFromStorage(imageUrl) {
 
     return response;
 
-  } catch (error) {
+  } catch (error) { 
     console.error('Error downloading image:', error);
     return null;
   }
 }
+
+
 
 // // // Call the functions and log the filtered minimal pairs
 // //
@@ -147,5 +137,98 @@ async function downloadImageFromStorage(imageUrl) {
 // //     console.log(`No minimal pairs found with sound type ${desiredSoundType}, position ${desiredPosition}, and sound pair ${desiredSoundPair}.`);
 // //   }
 // // })();
+
+async function queryNodesByCriteria(sound_type, position_in_word, sound_pair) {
+  try {
+      let child = sound_pair;
+      let childFilter;
+      let pathName =   sound_type;    
+      let nodesQuery;
+
+      if (sound_pair !== null) {
+        pathName += '/' + sound_pair;
+        child = sound_type;
+        childFilter = sound_pair;
+
+        if (position_in_word !== null) {      
+          pathName += '/' + position_in_word;
+          child = sound_pair;
+          childFilter = position_in_word;
+        }
+        
+        nodesQuery = query(ref(db, 'words/'+ pathName), orderByChild(child), equalTo(childFilter)); 
+      }
+      else {
+        //let nodesQuery = ref(db, 'words/'+ pathName);
+        nodesQuery = query(ref(db, 'words/'+ pathName), orderByChild('sound_type'));  
+      }
+       
+    const snapshot = await get(nodesQuery);
+    const nodes = [];
+
+    snapshot.forEach((childSnapshot) => {
+      nodes.push(childSnapshot.val());
+    });
+
+    return nodes;
+  } catch (error) {
+    console.error('Error querying nodes:', error);
+    return null;
+  }
+}
+
+async function createNodesAndUpload() {
+  const filePath = 'words.xlsx'; // Replace with the actual file path  
+    
+  try {
+    const rows = await readXlsxFile(filePath);
+    rows.shift(); // Remove header row
+
+    for (let row of rows) {
+      const [id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord] = row;
+
+      const node = {
+        id,
+        words: [
+          {
+            word: word1,
+            photo_paths: word1PhotoPaths,
+            man_sound_path: word1ManSoundPath,
+            woman_sound_path: word1WomanSoundPath,
+          },
+          {
+            word: word2,
+            photo_paths: word2PhotoPaths,
+            man_sound_path: word2ManSoundPath,
+            woman_sound_path: word2WomanSoundPath,
+          }
+        ],
+        sound_pair: soundPair,
+        sound_type: soundType,
+        position_in_word: positionInWord,
+      };
+
+      console.log('Node:', node);      
+      set (ref(db, 'words/' + soundType + '/' + soundPair + '/' + positionInWord + '/' + id), node);   
+    }
+  } catch (error) {
+    console.error('Error reading Excel file:', error);
+  }
+}
+
+// // Example usage
+// const sound_type = 'manner'; 
+// const position_in_word = null; 
+// const sound_pair = "ת,ט-צ";     
+
+// queryNodesByCriteria(sound_type, position_in_word, sound_pair)
+//   .then((nodes) => {
+//     if (nodes) {
+//       console.log('Nodes matching criteria:', nodes);
+//     } else {
+//       console.log('Query failed or no nodes found.');
+//     }
+//   });
+
 
 export { downloadImageFromStorage, getAllMinimalPairs };
