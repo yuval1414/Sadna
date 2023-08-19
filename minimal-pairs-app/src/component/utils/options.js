@@ -1,15 +1,15 @@
 
-export const voice = {
+export const voiceOptions = {
     man: { label: "גבר" },
     woman: { label: "אישה" },
 };
 
 export const manWomanOptions = [
-    voice.man,
-    voice.woman,
+    voiceOptions.man,
+    voiceOptions.woman,
 ];
 
-export const placeInWord = {
+export const placeInWordOp = {
     end: { label: "סוף" },
     middle: { label: "אמצע" },
     start: { label: "התחלה" },
@@ -23,19 +23,19 @@ export const options = [
             {
                 label: "הכל",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
-                    placeInWord.end
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
                 ],
             },
             {
                 label: "מ-נ",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
-                    placeInWord.end
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
                 ],
             },
         ],
@@ -46,18 +46,18 @@ export const options = [
             {
                 label: "הכל",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
-                    placeInWord.end
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
                 ],
             },
             {
                 label: "ת,ט-צ",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
                 ],
             },
         ],
@@ -68,19 +68,19 @@ export const options = [
             {
                 label: "הכל",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
-                    placeInWord.end
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
                 ],
             },
             {
                 label: "כ,ק-ג",
                 placeInWordOptions: [
-                    placeInWord.all,
-                    placeInWord.start,
-                    placeInWord.middle,
-                    placeInWord.end
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
                 ],
             },
         ],

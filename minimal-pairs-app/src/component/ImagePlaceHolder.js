@@ -33,15 +33,16 @@ function ImagePlaceHolder({
   textColor,
   imageText,
   handleClick,
+  borderColor,
 }) {
   const classes = useStyles();
 
   return (
     <Button disableRipple className={classes.imageButton} onClick={handleClick} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <img src={imgWhiteBg} style={{ width: '80%',  position: 'absolute' }}></img>
+      <img src={imgWhiteBg} style={{ width: '80%',  position: 'absolute', filter: borderColor ? `drop-shadow(2px 4px 6px ${borderColor})` : undefined }}></img>
       <img
         src={innerImage}
-        alt="Right"
+        alt={imageText}
         data-image="1"
         className={classes.imageStyle}
       />
