@@ -18,6 +18,8 @@ import ImagePlaceHolder from './ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
 import { downloadImageFromStorage, fff, getAllMinimalPairs } from './../Firebase.js';
 import { green } from '@mui/material/colors';
+import Confetti from 'react-confetti';
+import { Visibility } from '@mui/icons-material';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -59,6 +61,8 @@ export default function ExercisePage() {
   const [voice, setVoice] = useState(null);
   const [borderColorImg, setBorderColorImg] = useState([null, null]);
   const [imgSelected, setImgSelected] = useState(null);
+  const [confetti, setConfetti] = useState(false);
+
   useEffect(() => {
     const wordsJSON = fff(location.state.category, location.state.letters, location.state.placeInWord);
     setWords(wordsJSON.map((i) => i.words));
@@ -91,6 +95,11 @@ export default function ExercisePage() {
     }
   }, [words]);
 
+  useEffect(() => {
+    confetti && setTimeout(() => {
+      setConfetti(false);
+    }, 3000);
+  }, [confetti]);
 
   function handleImageClick(id) {
     if (imgSelected === null) {
@@ -100,6 +109,9 @@ export default function ExercisePage() {
           colors[id] = "green";
           return [...colors];
         })
+        setTimeout(() => {
+          setConfetti(true);
+        }, 0);
         console.log('Good job!');
       } else {
         setImgSelected(false);
@@ -113,7 +125,7 @@ export default function ExercisePage() {
             colors[id] = "";
             return [...colors];
           })
-          }, 2000);
+        }, 2000);
         console.log('Try again');
 
       }
@@ -147,10 +159,12 @@ export default function ExercisePage() {
   };
   //getImageFromStorage();
   //getAllMinimalPairs();
+
   return (
     <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-        <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '90%', width: '80%' }}>
+        {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
+        <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
 
           <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
             הקשיבו ובחרו את התמונה הנכונה
@@ -173,7 +187,7 @@ export default function ExercisePage() {
                 /></>
             )}
           </div>
-          <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%' }}>
+          <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%' }}>
             <Grid item xs={4}>
               <IconButton color="inherit" onClick={handleNextClick}>
                 <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
@@ -182,7 +196,6 @@ export default function ExercisePage() {
             <Grid item xs={4}>
               <IconButton color="inherit" onClick={handleListenClick}>
                 <img src={replaySound} style={{ width: '100%', height: '100%' }} />
-                {/* <embed src={images[currentIndex].primaryImg.ManVoice} loop="false" autostart="true" width="2" height="0" /> */}
               </IconButton>
             </Grid>
             <Grid item xs={4}>
