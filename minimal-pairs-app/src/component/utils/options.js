@@ -30,12 +30,91 @@ export const options = [
                 ],
             },
             {
+                label: "ש-ס",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ש-ף",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end
+                ],
+            },
+           
+            {
+                label: "ס-ף",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "פ-ת,ט",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                ],
+            },
+            {
+                label: "ת,ט-ק,כ",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ג-ד",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
                 label: "מ-נ",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
                     placeInWordOp.middle,
                     placeInWordOp.end
+                ],
+            },
+            {
+                label: "ר-ב,ו",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "פ-ק,כ",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                ],
+            },
+            {
+                label: "ח-ף",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end,
+                ],
+            },
+            {
+                label: "ס-ח",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.middle,
                 ],
             },
         ],
@@ -60,6 +139,15 @@ export const options = [
                     placeInWordOp.middle,
                 ],
             },
+            {
+                label: "ס-צ",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
         ],
     },
     {
@@ -75,10 +163,44 @@ export const options = [
                 ],
             },
             {
+                label: "ס-ז",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ב-פ",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                ],
+            },
+            {
+                label: "ט,ת-ד",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
                 label: "כ,ק-ג",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ו-ף",
+                placeInWordOptions: [
+                    placeInWordOp.all,
                     placeInWordOp.middle,
                     placeInWordOp.end
                 ],
