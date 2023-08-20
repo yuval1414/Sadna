@@ -101,8 +101,8 @@ function ExerciseOptionsPage() {
             <img src={optionsWhiteBg} className={classes.optionBg} alt="optionsWhiteBg" />
             <div id="select" className={classes.select}>
                 <SettingDropDown title={<><InfoDialog />סוג תרגול</>} value={category} options={options} updateState={handleChangeCategory} />
-                <SettingDropDown title="אותיות" options={category.letterOptions} value={letters} updateState={handleChangelLetters} />
-                <SettingDropDown title="סדר הופעת מילים" options={letters.placeInWordOptions} value={placeInWord} updateState={setPlaceInWord} />
+                <SettingDropDown title="זוג צלילים" options={category.letterOptions} value={letters} updateState={handleChangelLetters} />
+                <SettingDropDown title="מיקום במילה" options={letters.placeInWordOptions} value={placeInWord} updateState={setPlaceInWord} />
                 <SettingDropDown title="קול" value={voice} options={manWomanOptions} updateState={setVoice} />
             </div>
             <div className={classes.iconButton} align="center"

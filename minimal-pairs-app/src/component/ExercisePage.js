@@ -37,9 +37,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-// async function getImageFromStorage() {
-//   images[0].image1.src = await downloadImageFromStorage("Images/flowers.jpeg"); 
-//  }
+function playAudio(voice) {
+  let audio = new Audio(voice);
+  if (audio) {
+    audio.play();
+  }
+  console.log(voice);
+}
+
+function getImageFromStorage(path) {
+  return downloadImageFromStorage(path);
+}
 
 
 export default function ExercisePage() {
@@ -48,70 +56,95 @@ export default function ExercisePage() {
   const [words, setWords] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState(null);
+  const [voice, setVoice] = useState(null);
   const [borderColorImg, setBorderColorImg] = useState([null, null]);
-
+  const [imgSelected, setImgSelected] = useState(null);
   useEffect(() => {
     const wordsJSON = fff(location.state.category, location.state.letters, location.state.placeInWord);
     setWords(wordsJSON.map((i) => i.words));
-
+    setVoice(location.state.voice);
   }, []);
 
   useEffect(() => {
-    setImages(words?.map(w => {
-      const primaryId = Math.round(Math.random())
-      return {
-        image1: {
-          src: w[0].photo_paths, description: w[0].word
-        },
-        image2: {
-          src: w[1].photo_paths, description: w[1].word
-        },
-        primaryImg: {
-          primaryId,
-          ManVoice: w[primaryId].man_sound_path,
-          WomanVoice: w[primaryId].woman_sound_path,
+    const getImageData = async () => {
+      const imagesData = await Promise.all(words?.map(async (w) => {
+        const primaryId = Math.round(Math.random())
+        return {
+          image1: {
+            src: await getImageFromStorage(w[0].photo_paths), description: w[0].word
+          },
+          image2: {
+            src: w[1].photo_paths, description: w[1].word
+          },
+          primaryImg: {
+            primaryId,
+            ManVoice: w[primaryId].man_sound_path,
+            WomanVoice: w[primaryId].woman_sound_path,
+          }
         }
       }
+      ))
+      setImages(imagesData);
     }
-    ));
+    if (words) {
+      getImageData();
+    }
   }, [words]);
 
+
   function handleImageClick(id) {
-    if (id === images[currentIndex].primaryImg.primaryId) {
-      setBorderColorImg((colors) => {
-        colors[id] = "green";
-        return [...colors];
-      })
-      console.log('Good job!');
-    } else {
-      setBorderColorImg((colors) => {
-        colors[id] = "red";
-        return [...colors];
-      })
-      console.log('Try again');
+    if (imgSelected === null) {
+      if (id === images[currentIndex].primaryImg.primaryId) {
+        setImgSelected(true);
+        setBorderColorImg((colors) => {
+          colors[id] = "green";
+          return [...colors];
+        })
+        console.log('Good job!');
+      } else {
+        setImgSelected(false);
+        setBorderColorImg((colors) => {
+          colors[id] = "red";
+          return [...colors];
+        })
+        setTimeout(() => {
+          setImgSelected(null);
+          setBorderColorImg((colors) => {
+            colors[id] = "";
+            return [...colors];
+          })
+          }, 2000);
+        console.log('Try again');
+
+      }
     }
+
   };
 
   const handleListenClick = () => {
     //TODO:
     //make sound for man /woman
     console.log('listen to man in path: ' + images[currentIndex]?.primaryImg.ManVoice);
+    playAudio(voice === 'גבר' ? images[currentIndex]?.primaryImg.ManVoice : images[currentIndex]?.primaryImg.WomanVoice);
   };
 
   const handleNextClick = () => {
     if (currentIndex !== words.length - 1) {
+      setImgSelected(null);
       setBorderColorImg([null, null]);
       setCurrentIndex((i) => i + 1);
+      playAudio(voice === 'גבר' ? images[currentIndex + 1]?.primaryImg.ManVoice : images[currentIndex + 1]?.primaryImg.WomanVoice);
     }
     //end of words
   };
   const handlePreviousClick = () => {
     if (currentIndex !== 0) {
+      setImgSelected(null);
       setBorderColorImg([null, null]);
       setCurrentIndex((i) => i - 1);
+      playAudio(voice === 'גבר' ? images[currentIndex - 1]?.primaryImg.ManVoice : images[currentIndex - 1]?.primaryImg.WomanVoice);
     }
   };
-
   //getImageFromStorage();
   //getAllMinimalPairs();
   return (
@@ -149,6 +182,7 @@ export default function ExercisePage() {
             <Grid item xs={4}>
               <IconButton color="inherit" onClick={handleListenClick}>
                 <img src={replaySound} style={{ width: '100%', height: '100%' }} />
+                {/* <embed src={images[currentIndex].primaryImg.ManVoice} loop="false" autostart="true" width="2" height="0" /> */}
               </IconButton>
             </Grid>
             <Grid item xs={4}>
