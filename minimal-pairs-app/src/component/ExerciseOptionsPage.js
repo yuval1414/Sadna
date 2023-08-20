@@ -1,22 +1,14 @@
-
-// 2ND ATTEMPT
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Typography, IconButton, MenuItem, Select, FormControl, InputLabel, selectClasses } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
 import { makeStyles } from '@mui/styles';
 import { SettingDropDown } from './SettingDropDown';
 import optionsWhiteBg from './../images/pagesBg/exerciseSettingsWhiteRectangle.png';
-import exerciseOptionsPage from './../images/pagesBg/exerciseSettingsPage.png';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
-import InfoIcon from '@mui/icons-material/Info';
 import InfoDialog from './InfoDialog';
-import { FunctionsRounded } from '@mui/icons-material';
-import { manWomanOptions, options, placeInWord, voice } from './utils/options';
+import { manWomanOptions, options, placeInWordOp, voiceOptions } from './utils/options';
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -68,71 +60,55 @@ const useStyles = makeStyles((theme) => ({
         right: '10%',
     },
 }));
-function getAllUsersChoices(option) {
-    console.log(option);
-}
 
-function ExerciseOptionsPage() {  // START OF THE RUN
+
+function ExerciseOptionsPage() {
     const classes = useStyles();
     const theme = useTheme();
 
-    useEffect(() => {
-        const handleResize = () => {
-            // Adjust the positions of the title and button when the window is resized
-            const title = document.getElementById('title');
-            const iconButton = document.getElementById('iconButton');
-            // Set the positions based on the new window dimensions
-            // title.style.top = '20px';
-            // title.style.left = '20px';
-        };
-        window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
     //---------------NAVIGATE-------------------
     const navigate = useNavigate();
     const navigateExercise = () => {
-        navigate('/ExercisePage');
+        navigate('/ExercisePage', {
+            state: {
+                category: category.label,
+                letters: letters.label,
+                placeInWord: placeInWord.label,
+                voice: voice.label
+            }
+        });
     };
 
     //---------------HANDLERS-------------------
-
-    const [lettersChoice, setLettersChoice] = useState(null);
-    //const [graphicsQuality, setGraphicsQuality] = useState('medium');
-    //const [language, setLanguage] = useState('en');
-
-    const [categoryState, setCategoryState] = useState(options[0]);
-    const [lettersState, setLetteresState] = useState(options[0].letterOptions[0]);
-    const [orderState, setOrderState] = useState(placeInWord.all);
-    const [voiceState, setVoiceState] = useState(voice.man);
+    const [category, setCategory] = useState(options[0]);
+    const [letters, setLetteres] = useState(options[0].letterOptions[0]);
+    const [placeInWord, setPlaceInWord] = useState(placeInWordOp.all);
+    const [voice, setVoice] = useState(voiceOptions.man);
 
     const handleChangeCategory = (value) => {
-        setCategoryState(value);
-        setLetteresState(value.letterOptions[0]);
-        setOrderState(placeInWord.all);
+        setCategory(value);
+        setLetteres(value.letterOptions[0]);
+        setPlaceInWord(placeInWordOp.all);
     };
 
     const handleChangelLetters = (value) => {
-        setLetteresState(value);
-        setOrderState(placeInWord.all);
+        setLetteres(value);
+        setPlaceInWord(placeInWordOp.all);
     };
 
     return (
         <div className={classes.background} align="center">
-            <img src={optionsWhiteBg} className={classes.optionBg} />
+            <img src={optionsWhiteBg} className={classes.optionBg} alt="optionsWhiteBg" />
             <div id="select" className={classes.select}>
-                <SettingDropDown title={<><InfoDialog />סוג תרגול</>} value={categoryState} options={options} updateState={handleChangeCategory} />
-                <SettingDropDown title="אותיות" options={categoryState.letterOptions} value={lettersState} updateState={handleChangelLetters}/>
-                <SettingDropDown title="סדר הופעת מילים" options={lettersState.placeInWordOptions} value={orderState} updateState={setOrderState} />
-                <SettingDropDown title="קול"  value={voiceState} options={manWomanOptions} updateState={setVoiceState} />
+                <SettingDropDown title={<><InfoDialog />סוג תרגול</>} value={category} options={options} updateState={handleChangeCategory} />
+                <SettingDropDown title="זוג צלילים" options={category.letterOptions} value={letters} updateState={handleChangelLetters} />
+                <SettingDropDown title="מיקום במילה" options={letters.placeInWordOptions} value={placeInWord} updateState={setPlaceInWord} />
+                <SettingDropDown title="קול" value={voice} options={manWomanOptions} updateState={setVoice} />
             </div>
             <div className={classes.iconButton} align="center"
                 style={{ position: 'absolute', top: '27%', left: '15%', zIndex: 1 }}>
                 <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
-                    הגדרות
+                    התחלת
                 </Typography>
                 <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
                     תרגול
@@ -140,7 +116,7 @@ function ExerciseOptionsPage() {  // START OF THE RUN
                 <div className={classes.iconButton} align="center"
                 >
                     <IconButton color="inherit" onClick={navigateExercise} >
-                        <img src={leftArrowBtn}></img>
+                        <img src={leftArrowBtn} alt='leftArrowBtn'></img>
                     </IconButton>
                 </div>
             </div>
