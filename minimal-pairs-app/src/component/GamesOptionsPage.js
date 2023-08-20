@@ -72,7 +72,7 @@ function GamesOptionsPage() {  // START OF THE RUN
 
   const navigate = useNavigate();
   const navigateToGame = (gameName) => {
-    alert(`loading ${gameName} game...`);
+    //alert(`loading ${gameName} game...`);
     navigate(`/${gameName}`);//('/GamePage');//(`/${gameName}`);
   };
 
