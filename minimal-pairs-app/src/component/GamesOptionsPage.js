@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
@@ -65,6 +66,16 @@ function GamesOptionsPage() {  // START OF THE RUN
     };
   }, []);
 
+  function loadTicTacToeGame(event) {
+    navigateToGame('TicTacToeGame');
+  };
+
+  const navigate = useNavigate();
+  const navigateToGame = (gameName) => {
+    //alert(`loading ${gameName} game...`);
+    navigate(`/${gameName}`);//('/GamePage');//(`/${gameName}`);
+  };
+
   return (
     <div id="background" className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
       <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
@@ -102,7 +113,7 @@ function GamesOptionsPage() {  // START OF THE RUN
           innerImage={gameTicTacToe}
           textColor={theme.palette.darkBlue}
           imageText={"איקס עיגול"}
-        //handleClick={}
+          handleClick={loadTicTacToeGame}
         />
         <ImagePlaceHolder
           innerImage={gameRexy}
