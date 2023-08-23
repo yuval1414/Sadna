@@ -1,10 +1,8 @@
-
-// 2ND ATTEMPT
 import React, { useEffect } from 'react';
-import { Typography, List } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
-import HelpBg from './../images/pagesBg/helpBgWithoutText.png';
+import PageBg from './../../images/pagesBg/gameBg.png';
+//import HelpBg from './../images/pagesBg/helpBgWithoutText.png';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,14 +21,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     zIndex: -1,
   },
-  title: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-    color: '#fff',
-    fontSize: 24,
-    zIndex: 1,
-  },
+//   title: { //fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}
+//     position: 'absolute',
+//     top: 20,
+//     left: 20,
+//     fontSize: '250%',
+//     color: '#fff',
+//     fontSize: 24,
+//     zIndex: 1,
+//   },
   iconButton: {
     position: 'absolute',
     top: '21%',
@@ -49,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
 }));
-function HelpPage() {  // START OF THE RUN
+function GamePage() {  // START OF THE RUN
   const classes = useStyles();
   const theme = useTheme();
 
@@ -71,27 +70,18 @@ function HelpPage() {  // START OF THE RUN
   }, []);
 
   return (
-    <div className={classes.background}>
-      <div className={classes.mainMenu}>
-        <center><img className={classes.backgroundSquare} src={HelpBg}></img></center>
-        <div className={classes.iconButton} >
-        <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-          עזרה
+    <div className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
+        <Typography marginTop={"2%"} fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
+            שם המשחק
         </Typography>
-          <List >
-            <Typography>
-              שימוש באפליקציה:<br/><br/>
+        <div className={classes.mainMenu}>
+        {/* <center><img className={classes.backgroundSquare} src={HelpBg}></img></center> */}
+            <div className={classes.iconButton} >
             
-              תרגולים:<br/><br/>
-
-              משחקים:<br/><br/>
-
-            </Typography>
-          </List>
+            </div>
         </div>
-      </div>
     </div>
   );
 }
 
-export default HelpPage;
+export default GamePage;

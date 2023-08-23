@@ -69,10 +69,10 @@ const Toolbar = () => {
                         open={Boolean(soundAnchorEl)}
                         onClose={handleSoundClose}
                     >
-                        <MuiMenuItem onClick={handleSoundClose} >Man</MuiMenuItem>
-                        <MuiMenuItem onClick={handleSoundClose}>Woman</MuiMenuItem>
-                        <MuiMenuItem onClick={handleSoundClose}>Both</MuiMenuItem>
-                        <MuiMenuItem onClick={handleSoundClose}>No sound</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose} >גבר</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose}>אישה</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose}>ביחד</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose}>ללא שמע</MuiMenuItem>
                     </Menu>
                 </div>
             )}
