@@ -7,9 +7,10 @@ import imgRedBg from './../images/buttons/imgRedBg.png';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
+    
     '&:hover': {
       filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
-      backgroundColor: 'transparent !important',
+      backgroundColor: 'transparent',
     }
   },
   imageStyle: {
@@ -33,19 +34,20 @@ function ImagePlaceHolder({
   textColor,
   imageText,
   handleClick,
+  borderColor,
 }) {
   const classes = useStyles();
 
   return (
-    <Button disableRipple className={classes.imageButton} onClick={handleClick} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <img src={imgWhiteBg} style={{ width: '80%',  position: 'absolute' }}></img>
+    <Button disableRipple className={classes.imageButton} onClick={handleClick} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',  height: '90%', width: '100%' }}>
+      <img src={imgWhiteBg} style={{ width: '80%',  position: 'absolute', filter: borderColor ? `drop-shadow(2px 4px 6px ${borderColor})` : undefined }}></img>
       <img
         src={innerImage}
-        alt="Right"
+        alt={imageText}
         data-image="1"
         className={classes.imageStyle}
       />
-      <Typography color={textColor} style={{ marginTop: '-30px', fontSize: '200%', fontWeight: 'bold' ,position: 'absolute', bottom: 10}}>
+      <Typography color={textColor} style={{ fontSize: '200%', fontWeight: 'bold' ,position: 'absolute', bottom: 10}}>
         {imageText}
       </Typography>
     </Button>
