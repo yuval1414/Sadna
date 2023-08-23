@@ -150,13 +150,15 @@ function fff(category, letters, placeInWord) {
           "man_sound_path": "https://firebasestorage.googleapis.com/v0/b/hear-me-out-785e2.appspot.com/o/Sounds%2FMan%2F%D7%A6%D7%91.wav?alt=media&token=9d92c53c-2cb1-4335-83a8-b524f8547522",
           "photo_paths": "https://firebasestorage.googleapis.com/v0/b/hear-me-out-785e2.appspot.com/o/Images%2Fflowers.jpeg?alt=media&token=20843e0c-8889-4c77-b20b-d9f0a09dce4d",
           "woman_sound_path": ".",
-          "word": "צב"
+          "word": "צב",
+          "sound": "TS"
         },
         {
           "man_sound_path": "https://firebasestorage.googleapis.com/v0/b/hear-me-out-785e2.appspot.com/o/Sounds%2FMan%2F%D7%AA%D7%95.wav?alt=media&token=029b4d50-271f-4a4b-8e7d-e6fc096c724a",
           "photo_paths": "https://firebasestorage.googleapis.com/v0/b/hear-me-out-785e2.appspot.com/o/Images%2Fredflower.jpg?alt=media&token=abd2b0ea-b111-401c-95b2-c8a39fc513a5",
           "woman_sound_path": ".",
-          "word": "תו"
+          "word": "תו",
+          "sound": "T"
         }
       ]
     },

@@ -61,9 +61,7 @@ const Toolbar = () => {
                 <div style={{ flexGrow: 1 }}>
                     <IconButton color="inherit" onClick={handleSoundClick}>
                         <img src={VolumeUp} />
-                        {/* <VolumeUp /> */}
                     </IconButton>
-
                     <Menu
                         anchorEl={soundAnchorEl}
                         open={Boolean(soundAnchorEl)}
@@ -71,14 +69,13 @@ const Toolbar = () => {
                     >
                         <MuiMenuItem onClick={handleSoundClose} >Man</MuiMenuItem>
                         <MuiMenuItem onClick={handleSoundClose}>Woman</MuiMenuItem>
-                        <MuiMenuItem onClick={handleSoundClose}>Both</MuiMenuItem>
-                        <MuiMenuItem onClick={handleSoundClose}>No sound</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose} disabled={true}>Both</MuiMenuItem>
+                        <MuiMenuItem onClick={handleSoundClose} disabled={true}>No sound</MuiMenuItem>
                     </Menu>
                 </div>
             )}
             <IconButton color="inherit" onClick={handleMenuClick}>
                 <img src={MenuIcon} />
-                {/* <MenuIcon/> */}
             </IconButton>
             <Menu
                 anchorEl={menuAnchorEl}

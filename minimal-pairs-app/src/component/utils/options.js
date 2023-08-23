@@ -45,12 +45,18 @@ export const options = [
                     placeInWordOp.end
                 ],
             },
-           
             {
                 label: "ס-ף",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.end
+                ],
+            },
+            {
+                label: "ס-ח",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.middle,
                 ],
             },
             {
@@ -110,13 +116,7 @@ export const options = [
                     placeInWordOp.end,
                 ],
             },
-            {
-                label: "ס-ח",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.middle,
-                ],
-            },
+            
         ],
     },
     {

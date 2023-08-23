@@ -75,10 +75,10 @@ export default function ExercisePage() {
         const primaryId = Math.round(Math.random())
         return {
           image1: {
-            src: await getImageFromStorage(w[0].photo_paths), description: w[0].word
+            src: await getImageFromStorage(w[0].photo_paths), description: `${w[0].word} ${w[0].sound}`
           },
           image2: {
-            src: w[1].photo_paths, description: w[1].word
+            src: w[1].photo_paths, description: `${w[1].word} ${w[1].sound}`
           },
           primaryImg: {
             primaryId,
