@@ -3,8 +3,6 @@
 import React, { useEffect } from 'react';
 import { Typography, List } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Next from '@mui/icons-material/ArrowBackTwoTone'; // ArrowBackIosTwoTone // ArrowBackTwoTone
-//import AboutPageBg from './../images/pagesBg/projectBackgroundWithoutTextClean.png';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import AboutBg from './../images/pagesBg/aboutPageSquar.png';
 import { makeStyles } from '@mui/styles';
@@ -35,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     top: '6%',
     left: '46%',
     zIndex: 1,
-    //display:'inline', 
     height: '114px', 
     width: '114px',
   },
@@ -59,22 +56,17 @@ const useStyles = makeStyles((theme) => ({
    
   },
 }));
-function AboutPage() {  // START OF THE RUN
+function AboutPage() {
   const classes = useStyles();
   const theme = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
-      // Adjust the positions of the title and button when the window is resized
       const title = document.getElementById('title');
       const iconButton = document.getElementById('iconButton');
-      // Set the positions based on the new window dimensions
-      // title.style.top = '20px';
-      // title.style.left = '20px';
     };
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };

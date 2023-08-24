@@ -1,9 +1,6 @@
 import { Typography, Button, } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-
 import imgWhiteBg from './../images/buttons/imgBg.png';
-import imgGreenBg from './../images/buttons/imgGreenBg.png';
-import imgRedBg from './../images/buttons/imgRedBg.png';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -21,7 +18,6 @@ const useStyles = makeStyles(() => ({
   descriptionTypography: {
     display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
     WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
-    //'-webkit-text-stroke: 1px font-size: x-large -webkit-text-stroke-color: rgb(36 71 88)'
   },
   selectedImage: {
     backgroundImage: `url(${imgWhiteBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
@@ -47,7 +43,7 @@ function ImagePlaceHolder({
         data-image="1"
         className={classes.imageStyle}
       />
-      <Typography color={textColor} style={{ fontSize: '200%', fontWeight: 'bold' ,position: 'absolute', bottom: 10}}>
+      <Typography color={textColor} style={{ fontSize: '300%', fontWeight: 'bold' ,position: 'absolute', bottom: 9}}>
         {imageText}
       </Typography>
     </Button>

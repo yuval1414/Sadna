@@ -36,23 +36,6 @@ const useStyles = makeStyles((theme) => ({
   backgroundSquare: {
     width: '100%',
     maxHeight: '100%',
-
-
-    // position: 'absolute',
-    // display: 'flex',
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    // justifyContent: 'flex-end',
-    // top: '15%',
-    // left: '15%',
-    // width: '70%',
-    // height: '70%',
-    // scale: '120%',
-    // backgroundImage: `url(${homePageSquare})`,
-    // backgroundSize: '100%',
-    // backgroundPosition: 'center',
-    // backgroundRepeat: 'no-repeat',
-    // justifyContent: 'flex-end',
   },
   title: {
     position: 'absolute',
@@ -87,15 +70,9 @@ function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      // Adjust the positions of the title and button when the window is resized
       const iconButton = document.getElementById('iconButton');
-      // Set the positions based on the new window dimensions
-      // title.style.top = '20px';
-      // title.style.left = '20px';
     };
     window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -106,7 +83,6 @@ function Home() {
     <div className={classes.background} >
       <div className={classes.mainMenu}>
         <center><img className={classes.backgroundSquare} src={homePageSquare}></img></center>
-        {/* <div id="backgroundSquare" className={classes.backgroundSquare}></div> */}
         <div className={classes.iconButton} >
           <IconButton className={classes.iconButtonImage} id="iconButton" onClick={() => navigate(PAGES.helpPage.path)} >
             <img src={helpIcon} />

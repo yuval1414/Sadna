@@ -34,7 +34,7 @@ async function getWordsFromDB(soundType, positionInWord, soundPair) {
     if (soundPair != "הכל") {
       nodes = nodes.filter(item => item.sound_pair == soundPair);
     }
-
+    console.log("end of first filter");
     if (positionInWord != "הכל"){
       nodes = nodes.filter(item => item.position_in_word == positionInWord);
     }
@@ -268,4 +268,4 @@ function fff(category, letters, placeInWord) {
 //   });
 
 
-export { downloadImageFromStorage, fff };
+export { downloadImageFromStorage, fff, getWordsFromDB };

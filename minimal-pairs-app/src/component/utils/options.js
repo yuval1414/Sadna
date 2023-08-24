@@ -121,6 +121,7 @@ export const options = [
     },
     {
         label: "אופן חיתוך",
+        value: "אופן",
         letterOptions: [
             {
                 label: "הכל",

@@ -71,7 +71,7 @@ function ExerciseOptionsPage() {
     const navigateExercise = () => {
         navigate('/ExercisePage', {
             state: {
-                category: category.label,
+                category: category.value,
                 letters: letters.label,
                 placeInWord: placeInWord.label,
                 voice: voice.label

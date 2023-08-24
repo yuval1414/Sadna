@@ -2,9 +2,6 @@ import { MenuItem, Select, FormControl, InputLabel, Typography } from '@mui/mate
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { makeStyles } from '@mui/styles';
 import { useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { Expand, Label, Padding } from '@mui/icons-material';
-import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
     inputLabel: {
@@ -22,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '20px',
     },
 }));
-
-
-
 
 export const SettingDropDown = ({ title, options, updateState, value }) => {
     const classes = useStyles();
@@ -56,7 +50,6 @@ export const SettingDropDown = ({ title, options, updateState, value }) => {
                         borderRadius: '50px',
                         fontSize: 'larger'
                     }}
-
                 >
                     {options.map((option) => <MenuItem style={{ justifyContent: 'center' }} value={option}
                         onClick={() => handleChoice(option)}>{option.label}</MenuItem>)}

@@ -1,25 +1,17 @@
 
-// 2ND ATTEMPT
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
-import { Typography, AppBar, Toolbar, IconButton, Menu, MenuItem, Grid, colors } from '@mui/material';
+import { Typography, IconButton, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-//import { Menu as MenuIcon, VolumeUp } from '@material-ui/icons';
 import replaySound from './../images/buttons/replaySoundBtn.png';
-import Drum from './../images/wordImages/drum.png';
-import Monkey from './../images/wordImages/monkey.png';
-import Rakefet from './../images/wordImages/cyclamen.png';
-import Train from './../images/wordImages/train.png';
 import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
 import imgBg from './../images/buttons/imgBg.png';
 import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import ImagePlaceHolder from './ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
-import { downloadImageFromStorage, fff, getAllMinimalPairs } from './../Firebase.js';
-import { green } from '@mui/material/colors';
+import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from './../Firebase.js';
 import Confetti from 'react-confetti';
-import { Visibility } from '@mui/icons-material';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -62,11 +54,19 @@ export default function ExercisePage() {
   const [borderColorImg, setBorderColorImg] = useState([null, null]);
   const [imgSelected, setImgSelected] = useState(null);
   const [confetti, setConfetti] = useState(false);
+  const [enteringPageAudio, setEnteringPageAudio] = useState(true);
 
   useEffect(() => {
-    const wordsJSON = fff(location.state.category, location.state.letters, location.state.placeInWord);
-    setWords(wordsJSON.map((i) => i.words));
-    setVoice(location.state.voice);
+    const getFromDB = async () => {
+      console.log(`${location.state.category}, ${location.state.placeInWord}, ${location.state.letters}`);
+      const wordsJSON = await getWordsFromDB(location.state.category, location.state.placeInWord, location.state.letters);
+      //fff(location.state.category, location.state.letters, location.state.placeInWord);
+      setWords(wordsJSON.map((i) => i.words));
+      setVoice(location.state.voice);
+    }
+
+    getFromDB();
+
   }, []);
 
   useEffect(() => {
@@ -75,10 +75,10 @@ export default function ExercisePage() {
         const primaryId = Math.round(Math.random())
         return {
           image1: {
-            src: await getImageFromStorage(w[0].photo_paths), description: `${w[0].word} ${w[0].sound}`
+            src: await getImageFromStorage(w[0].photo_paths), description: `${w[0].word} ${w[0].word1_sound}`
           },
           image2: {
-            src: w[1].photo_paths, description: `${w[1].word} ${w[1].sound}`
+            src: w[1].photo_paths, description: `${w[1].word} ${w[1].word2_sound}`
           },
           primaryImg: {
             primaryId,
@@ -94,6 +94,21 @@ export default function ExercisePage() {
       getImageData();
     }
   }, [words]);
+
+  useEffect(() => {
+    const playWordAudio = async () => {
+      await Promise.all(images);
+      if ((currentIndex === 0) && enteringPageAudio && (images !== null)) {
+        handleListenClick();
+        setEnteringPageAudio(false);
+      }
+      console.log(voice);
+    }
+    if (images) {
+      playWordAudio();
+      
+    }
+  }, [images]);
 
   useEffect(() => {
     confetti && setTimeout(() => {
@@ -136,7 +151,7 @@ export default function ExercisePage() {
   const handleListenClick = () => {
     //TODO:
     //make sound for man /woman
-    console.log('listen to man in path: ' + images[currentIndex]?.primaryImg.ManVoice);
+    console.log('listen to word');
     playAudio(voice === 'גבר' ? images[currentIndex]?.primaryImg.ManVoice : images[currentIndex]?.primaryImg.WomanVoice);
   };
 
@@ -157,8 +172,6 @@ export default function ExercisePage() {
       playAudio(voice === 'גבר' ? images[currentIndex - 1]?.primaryImg.ManVoice : images[currentIndex - 1]?.primaryImg.WomanVoice);
     }
   };
-  //getImageFromStorage();
-  //getAllMinimalPairs();
 
   return (
     <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>

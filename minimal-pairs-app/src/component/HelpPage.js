@@ -1,5 +1,3 @@
-
-// 2ND ATTEMPT
 import React, { useEffect } from 'react';
 import { Typography, List } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -49,22 +47,16 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
 }));
-function HelpPage() {  // START OF THE RUN
+function HelpPage() {
   const classes = useStyles();
   const theme = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
-      // Adjust the positions of the title and button when the window is resized
       const title = document.getElementById('title');
       const iconButton = document.getElementById('iconButton');
-      // Set the positions based on the new window dimensions
-      // title.style.top = '20px';
-      // title.style.left = '20px';
     };
     window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -85,7 +77,6 @@ function HelpPage() {  // START OF THE RUN
               תרגולים:<br/><br/>
 
               משחקים:<br/><br/>
-
             </Typography>
           </List>
         </div>
