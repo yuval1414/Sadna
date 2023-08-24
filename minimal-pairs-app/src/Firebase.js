@@ -54,7 +54,7 @@ async function getWordsFromDB(soundType, positionInWord, soundPair) {
 //     const rows = await readXlsxFile(filePath);
 
 //     for (let row of rows) {
-//       const [id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord] = row;
+//       const [id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word1Sound, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, word2Sound, soundPair, soundType, positionInWord] = row;
 
 //       const node = {
 //         id : id,
@@ -64,12 +64,14 @@ async function getWordsFromDB(soundType, positionInWord, soundPair) {
 //             photo_paths: word1PhotoPaths,
 //             man_sound_path: word1ManSoundPath,
 //             woman_sound_path: word1WomanSoundPath,
+//             word1_sound: word1Sound,
 //           },
 //           {
 //             word: word2,
 //             photo_paths: word2PhotoPaths,
 //             man_sound_path: word2ManSoundPath,
 //             woman_sound_path: word2WomanSoundPath,
+//             word2_sound: word2Sound,
 //           }
 //         ],
 //         sound_pair: soundPair,
@@ -100,7 +102,7 @@ async function downloadImageFromStorage(imageUrl) {
   }
 }
 
-// function createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord) {
+// function createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word1Sound, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, word2Sound, soundPair, soundType, positionInWord) {
 //   return {
 //     id,
 //     words: [
@@ -109,12 +111,14 @@ async function downloadImageFromStorage(imageUrl) {
 //         photo_paths: word1PhotoPaths,
 //         man_sound_path: word1ManSoundPath,
 //         woman_sound_path: word1WomanSoundPath,
+//         word1_sound: word1Sound,
 //       },
 //       {
 //         word: word2,
 //         photo_paths: word2PhotoPaths,
 //         man_sound_path: word2ManSoundPath,
 //         woman_sound_path: word2WomanSoundPath,
+//         word2_sound: word2Sound,
 //       }
 //     ],
 //     sound_pair: soundPair,
@@ -123,9 +127,9 @@ async function downloadImageFromStorage(imageUrl) {
 //   };
 // }
 
-// function writeWordData(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord) {
+// function writeWordData(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word1Sound, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, word2Sound, soundPair, soundType, positionInWord) {
 //   const reference = ref(db, 'words/' + soundType + '/' + id);
-//   const newNode = createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, soundPair, soundType, positionInWord);
+//   const newNode = createMinimalPairNode(id, word1, word1PhotoPaths, word1ManSoundPath, word1WomanSoundPath, word1Sound, word2, word2PhotoPaths, word2ManSoundPath, word2WomanSoundPath, word2Sound, soundPair, soundType, positionInWord);
 //   set(reference, newNode);
 // }
 
