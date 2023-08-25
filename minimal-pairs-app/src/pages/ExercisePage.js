@@ -12,6 +12,8 @@ import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
 import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
+import { Opacity } from '@mui/icons-material';
+import { randomReaction } from '../component/utils/Reaction';
 
 const useStyles = makeStyles(() => ({
   imageButton: {
@@ -91,7 +93,7 @@ export default function ExercisePage() {
       setImages(imagesData);
     }
     if (words) {
-     
+
       getImageData();
     }
   }, [words]);
@@ -110,7 +112,7 @@ export default function ExercisePage() {
         handleListenClick();
       }
     }
-      playWordAudio();
+    playWordAudio();
   };
 
   function handleImageClick(id) {
@@ -124,6 +126,7 @@ export default function ExercisePage() {
         setTimeout(() => {
           setConfetti(true);
         }, 0);
+        playAudio(randomReaction(true));
         console.log('Good job!');
       } else {
         setImgSelected(false);
@@ -138,6 +141,7 @@ export default function ExercisePage() {
             return [...colors];
           })
         }, 2000);
+        playAudio(randomReaction(false));
         console.log('Try again');
 
       }
@@ -208,7 +212,7 @@ export default function ExercisePage() {
           </div>
           <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%' }}>
             <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleNextClick}>
+              <IconButton color="inherit" onClick={handleNextClick} disabled={currentIndex === images?.length - 1} style={{ filter: currentIndex === images?.length - 1 ? "opacity(0)" : undefined }}>
                 <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
               </IconButton>
             </Grid>
@@ -218,7 +222,7 @@ export default function ExercisePage() {
               </IconButton>
             </Grid>
             <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handlePreviousClick}>
+              <IconButton color="inherit" onClick={handlePreviousClick} disabled={currentIndex === 0} style={{ filter: currentIndex === 0 ? "opacity(0)" : undefined }}>
                 <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
               </IconButton>
             </Grid>
