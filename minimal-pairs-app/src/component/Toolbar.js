@@ -23,15 +23,16 @@ export const PAGES = {
     aboutPage: { path: '/AboutPage', label: 'אודות' },
 };
 
+const Toolbar = () => {
 const MenuItem = ({ page }) => {
     const navigate = useNavigate();
     const location = useLocation();
     return (
-        <MuiMenuItem disabled={location.pathname === page.path} onClick={() => navigate(page.path)} style={{ justifyContent: 'center' }}>{page.label}</MuiMenuItem>
+        <MuiMenuItem disabled={location.pathname === page.path} onClick={() => {navigate(page.path); handleMenuClose();}}
+             style={{ justifyContent: 'center' }}>{page.label}</MuiMenuItem>
     );
 };
 
-const Toolbar = () => {
     const location = useLocation();
     const classes = useStyles();
     const [menuAnchorEl, setMenuAnchorEl] = useState(null);
