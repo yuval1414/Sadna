@@ -15,7 +15,7 @@ import GamesOptionsPage from './component/GamesOptionsPage';
 import ExerciseOptionsPage from './component/ExerciseOptionsPage';
 import HelpPage from './component/HelpPage';
 import AboutPage from './component/AboutPage';
-import GamePage from './component/Games/GamePage';
+import GameOptionsPage from './component/GamesOptionsPage';
 import TicTacToeGame from './component/Games/TicTacToe/Game';
 import Toolbar from './component/Toolbar';
 //import Contact from './component/Contact';
@@ -39,7 +39,7 @@ export default function App() {
           <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} />
           <Route path="/HelpPage" element={<HelpPage />} />
           <Route path="/AboutPage" element={<AboutPage />} />
-          <Route path="/GamePage" element={<GamePage />} />
+          <Route path="/GameOptionsPage" element={<GameOptionsPage />} />
           <Route path="/TicTacToeGame" element={<TicTacToeGame />} />
         </Routes>
       </Router>
