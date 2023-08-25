@@ -7,7 +7,7 @@ import gamesIcon from './../images/buttons/gamesBtn.png';
 import exerciseIcon from './../images/buttons/exercisesBtn.png';
 import helpIcon from './../images/buttons/helpBtn.png';
 import { makeStyles } from '@mui/styles';
-import { PAGES } from './Toolbar';
+import { PAGES } from '../component/Toolbar';
 
 const useStyles = makeStyles((theme) => ({
   container: {

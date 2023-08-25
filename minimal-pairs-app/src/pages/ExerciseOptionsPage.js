@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Typography, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
-import { SettingDropDown } from './SettingDropDown';
+import { SettingDropDown } from '../component/SettingDropDown';
 import optionsWhiteBg from './../images/pagesBg/exerciseSettingsWhiteRectangle.png';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import leftArrowBtn from './../images/buttons/leftArrowBtn.png';
-import InfoDialog from './InfoDialog';
-import { manWomanOptions, options, placeInWordOp, voiceOptions } from './utils/options';
+import InfoDialog from '../component/InfoDialog';
+import { manWomanOptions, options, placeInWordOp, voiceOptions } from '../component/utils/options';
 
 const useStyles = makeStyles((theme) => ({
     background: {

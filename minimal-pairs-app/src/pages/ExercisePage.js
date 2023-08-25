@@ -8,9 +8,9 @@ import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
 import imgBg from './../images/buttons/imgBg.png';
 import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
-import ImagePlaceHolder from './ImagePlaceHolder';
+import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import { makeStyles } from '@mui/styles';
-import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from './../Firebase.js';
+import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
 
 const useStyles = makeStyles(() => ({
