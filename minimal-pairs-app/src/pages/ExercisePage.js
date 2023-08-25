@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
-import { Typography, IconButton, Grid } from '@mui/material';
+import { Typography, IconButton, Grid, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import replaySound from './../images/buttons/replaySoundBtn.png';
 import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
@@ -36,7 +36,6 @@ function playAudio(voice) {
   if (audio) {
     audio.play();
   }
-  console.log(voice);
 }
 
 function getImageFromStorage(path) {
@@ -55,6 +54,7 @@ export default function ExercisePage() {
   const [imgSelected, setImgSelected] = useState(null);
   const [confetti, setConfetti] = useState(false);
   const [enteringPageAudio, setEnteringPageAudio] = useState(true);
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const getFromDB = async () => {
@@ -72,13 +72,13 @@ export default function ExercisePage() {
   useEffect(() => {
     const getImageData = async () => {
       const imagesData = await Promise.all(words?.map(async (w) => {
-        const primaryId = Math.round(Math.random())
+        const primaryId = Math.round(Math.random());
         return {
-          image1: {
-            src: await getImageFromStorage(w[0].photo_paths), description: `${w[0].word} ${w[0].word1_sound}`
+          image0: {
+            id: 0, src: await getImageFromStorage(w[0].photo_paths), description: `${w[0].word} ${w[0].word1_sound}`
           },
-          image2: {
-            src: w[1].photo_paths, description: `${w[1].word} ${w[1].word2_sound}`
+          image1: {
+            id: 1, src: w[1].photo_paths, description: `${w[1].word} ${w[1].word2_sound}`
           },
           primaryImg: {
             primaryId,
@@ -91,30 +91,27 @@ export default function ExercisePage() {
       setImages(imagesData);
     }
     if (words) {
+     
       getImageData();
     }
   }, [words]);
-
-  useEffect(() => {
-    const playWordAudio = async () => {
-      await Promise.all(images);
-      if ((currentIndex === 0) && enteringPageAudio && (images !== null)) {
-        handleListenClick();
-        setEnteringPageAudio(false);
-      }
-      console.log(voice);
-    }
-    if (images) {
-      playWordAudio();
-      
-    }
-  }, [images]);
 
   useEffect(() => {
     confetti && setTimeout(() => {
       setConfetti(false);
     }, 3000);
   }, [confetti]);
+
+  const handleStartExercise = () => {
+    setShowPopup(false);
+    const playWordAudio = async () => {
+      await Promise.all(images);
+      if ((currentIndex === 0) && (images !== null)) {
+        handleListenClick();
+      }
+    }
+      playWordAudio();
+  };
 
   function handleImageClick(id) {
     if (imgSelected === null) {
@@ -149,9 +146,6 @@ export default function ExercisePage() {
   };
 
   const handleListenClick = () => {
-    //TODO:
-    //make sound for man /woman
-    console.log('listen to word');
     playAudio(voice === 'גבר' ? images[currentIndex]?.primaryImg.ManVoice : images[currentIndex]?.primaryImg.WomanVoice);
   };
 
@@ -176,6 +170,18 @@ export default function ExercisePage() {
   return (
     <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
+        {showPopup && (
+          <div className="overlay" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
+            <div className="popup" style={{ backgroundColor: theme.palette.white, border: '2px solid #ccc', padding: '20px', textAlign: 'center', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' }}>
+              <Typography variant="h4" gutterBottom>
+                תרגול זוגות מינימלים
+              </Typography>
+              <Button variant="contained" style={{ backgroundColor: theme.palette.darkBlue, width: "90px" }} onClick={() => handleStartExercise()}>
+                התחל
+              </Button>
+            </div>
+          </div>
+        )}
         {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
         <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
 
@@ -185,17 +191,17 @@ export default function ExercisePage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', justifyContent: 'center', height: '100%', width: '70%' }}>
             {(images) && (
               <><ImagePlaceHolder
-                innerImage={images[currentIndex]?.image1?.src}
+                innerImage={images[currentIndex]?.image0?.src}
                 textColor={theme.palette.yellow}
-                imageText={images[currentIndex]?.image1?.description}
-                handleClick={() => handleImageClick(0)}
+                imageText={images[currentIndex]?.image0?.description}
+                handleClick={() => handleImageClick(images[currentIndex]?.image0.id)}
                 borderColor={borderColorImg[0]}
               />
                 <ImagePlaceHolder
-                  innerImage={images[currentIndex]?.image2?.src}
+                  innerImage={images[currentIndex]?.image1?.src}
                   textColor={theme.palette.yellow}
-                  imageText={images[currentIndex]?.image2?.description}
-                  handleClick={() => handleImageClick(1)}
+                  imageText={images[currentIndex]?.image1?.description}
+                  handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
                   borderColor={borderColorImg[1]}
                 /></>
             )}

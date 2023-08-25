@@ -1,9 +1,17 @@
-import React, { useEffect } from 'react';
-import { Typography, List } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Typography, List, IconButton, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import HelpBg from './../images/pagesBg/helpBgWithoutText.png';
+import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
+import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import { makeStyles } from '@mui/styles';
+
+const helpSections = [
+  "מעבר בין המסכים השונים יתבצע דרך כפתור התפריט הממוקם בראש כל מסך מצד ימין.\n  בכל שלב ניתן לעבור למסך אחר דרך כפתור זה.  ",
+  "תרגול: על הילד לזהות...",
+  "בכניסה לעמוד יש לבחור...",
+];
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -47,9 +55,11 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
 }));
+
 function HelpPage() {
   const classes = useStyles();
   const theme = useTheme();
+  const [currentSection, setCurrentSection] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -62,14 +72,26 @@ function HelpPage() {
     };
   }, []);
 
+  const goToNextSection = () => {
+    if (currentSection < helpSections.length - 1) {
+      setCurrentSection(currentSection + 1);
+    }
+  };
+
+  const goToPreviousSection = () => {
+    if (currentSection > 0) {
+      setCurrentSection(currentSection - 1);
+    }
+  };
+
   return (
     <div className={classes.background}>
       <div className={classes.mainMenu}>
         <center><img className={classes.backgroundSquare} src={HelpBg}></img></center>
         <div className={classes.iconButton} >
-        <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-          עזרה
-        </Typography>
+          <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
+            עזרה
+          </Typography>
           <List >
             <Typography>
               שימוש באפליקציה:<br/><br/>
@@ -79,6 +101,19 @@ function HelpPage() {
               משחקים:<br/><br/>
             </Typography>
           </List>
+          {/* <div>{helpSections[currentSection]}</div>
+          <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%' }}>
+            <Grid item xs={4}>
+              <IconButton color="inherit" onClick={goToNextSection}>
+                <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+              </IconButton>
+            </Grid>
+            <Grid item xs={4}>
+              <IconButton color="inherit" onClick={goToPreviousSection}>
+                <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
+              </IconButton>
+            </Grid>
+          </Grid> */}
         </div>
       </div>
     </div>
