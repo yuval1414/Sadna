@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
-import ImagePlaceHolder from './ImagePlaceHolder';
+import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import gamePuzzle from './../images/buttons/game_puzzle.png';
 import gameHitTheMole from './../images/buttons/game_hitTheMole.png';
 import gameMemoryGame from './../images/buttons/game_memoryGame.png';
