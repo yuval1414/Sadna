@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {styled, Button, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Typography, } from '@mui/material'
+import { styled, Button, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Typography, } from '@mui/material'
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 import InfoIcon from '@mui/icons-material/Info';
@@ -31,7 +31,7 @@ function BootstrapDialogTitle(props) {
                         color: (theme) => theme.palette.grey[500],
                     }}
                 >
-                    <CloseIcon/>
+                    <CloseIcon />
                 </IconButton>
             ) : null}
         </DialogTitle>
@@ -54,34 +54,30 @@ export function InfoDialog() {
     };
 
     return (
-        <div style={{display: 'inline'}}>
+        <div style={{ display: 'inline' }}>
             <InfoIcon style={{ color: theme.palette.darkBlue, cursor: 'pointer' }} onClick={handleClickOpen} />
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} style= {{textAlign: 'right'}}>
-                    סוגי תרגול
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} style={{ textAlign: 'right' }}>
+                    בחירת  תרגול
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
-                    <Typography gutterBottom style= {{textAlign: 'right'}}>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
+                    <Typography gutterBottom style={{ textAlign: 'right' }}>
+                        ראשית יש לבחור את סוג התרגול <br />
+                        .לאחר מכן את זוג הצלילים שרוצים לעבוד עליהם<br />
                     </Typography>
-                    <Typography gutterBottom style= {{textAlign: 'right'}}>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    <Typography gutterBottom style={{ textAlign: 'right' }}>
+                        .ניתן לבחור מיקום במילה עליה רוצים לעבוד, או לתרגל את כל המילים בזוג האותיות הנבחר
                     </Typography>
-                    <Typography gutterBottom style= {{textAlign: 'right'}}>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-                        magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor fringilla.
+                    <Typography gutterBottom style={{ textAlign: 'right' }}>
+                        .ניתן לבחור את הקול בו יושמעו המילים
                     </Typography>
                 </DialogContent>
-                <DialogActions style= {{justifyContent: 'flex-start'}}>
-                    <Button autoFocus onClick={handleClose} style= {{fontSize:'x-large',  textAlign: 'left'}}>
+                <DialogActions style={{ justifyContent: 'flex-start' }}>
+                    <Button autoFocus onClick={handleClose} style={{ fontSize: 'x-large', textAlign: 'left' }}>
                         אישור
                     </Button>
                 </DialogActions>
