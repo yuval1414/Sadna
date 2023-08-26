@@ -123,10 +123,10 @@ export default function ExercisePage() {
           colors[id] = "green";
           return [...colors];
         })
+        playAudio(randomReaction(true));
         setTimeout(() => {
           setConfetti(true);
         }, 0);
-        playAudio(randomReaction(true));
         console.log('Good job!');
       } else {
         setImgSelected(false);

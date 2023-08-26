@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
-
+import AssistantURL from './fonts/Assistant-Regular.ttf';
+import AssistantRegularURL from './fonts/Assistant-Regular.woff';
+import AssistantRegular2URL from './fonts/Assistant-Regular.woff2';
 const theme = createTheme({
   palette: {
     black: '#000000',
@@ -11,7 +13,7 @@ const theme = createTheme({
     lightBlue: '#C2E3F3',
   },
   typography: {
-    fontFamily: 'Assistant',
+    fontFamily: 'Assistant, Calibri, Arial'
   },
   overrides: {
     MuiCssBaseline: {
@@ -19,13 +21,19 @@ const theme = createTheme({
         '@font-face': [
           {
             fontFamily: 'Assistant',
-            src: `url('./fonts/Assistant-Regular.ttf') format('truetype')`, // TTF format
+            src: `url(${AssistantURL}) format('truetype')`, // TTF format
             fontWeight: 'normal',
             fontStyle: 'normal',
           },
           {
-            fontFamily: 'YourPreferredFontFamily',
-            src: `url('./fonts/Assistant-Regular.woff') format('woff')`, // WOFF format
+            fontFamily: 'Assistant',
+            src: `url(${AssistantRegularURL}) format('woff')`, // WOFF format
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+          },
+          {
+            fontFamily: 'Assistant',
+            src: `url(${AssistantRegular2URL}) format('woff2')`, // WOFF format
             fontWeight: 'normal',
             fontStyle: 'normal',
           },
