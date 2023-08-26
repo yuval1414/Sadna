@@ -173,6 +173,22 @@ export const options = [
                 ],
             },
             {
+                label: "ו-ף",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ח-ר",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
                 label: "ב-פ",
                 placeInWordOptions: [
                     placeInWordOp.all,
@@ -198,14 +214,7 @@ export const options = [
                     placeInWordOp.end
                 ],
             },
-            {
-                label: "ו-ף",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
+            
         ],
     },
 ];
