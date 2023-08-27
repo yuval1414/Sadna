@@ -114,7 +114,7 @@ function HelpPage() {
               <IconButton onClick={goToPreviousSection}
                           disabled={currentSection === 0}
                           style={{
-                            opacity: currentSection === 0 ? 0.7 : 1, // Adjust opacity for disabled state
+                            opacity: currentSection === 0 ? 0.5 : 1, // Adjust opacity for disabled state
                             pointerEvents: currentSection === 0 ? 'none' : 'auto', // Disable pointer events
               }}>
                 <img src={prevBtn} style={{ width: '100%', height: '100%' }} alt="Previous" />
@@ -122,7 +122,7 @@ function HelpPage() {
               <IconButton onClick={goToNextSection}
                           disabled={currentSection === sections.length - 1}
                           style={{
-                            opacity: currentSection === sections.length - 1 ? 0.7 : 1, // Adjust opacity for disabled state
+                            opacity: currentSection === sections.length - 1 ? 0.5 : 1, // Adjust opacity for disabled state
                             pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto', // Disable pointer events
               }}>
                 <img src={nextBtn} style={{ width: '100%', height: '100%' }} alt="Next" />

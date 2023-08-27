@@ -212,17 +212,23 @@ export default function ExercisePage() {
           </div>
           <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%' }}>
             <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleNextClick} disabled={currentIndex === images?.length - 1} style={{ filter: currentIndex === images?.length - 1 ? "opacity(0)" : undefined }}>
+              <IconButton onClick={handleNextClick} style={{
+                opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
+                pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
+              }}>
                 <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
               </IconButton>
             </Grid>
             <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handleListenClick}>
+              <IconButton onClick={handleListenClick}>
                 <img src={replaySound} style={{ width: '100%', height: '100%' }} />
               </IconButton>
             </Grid>
             <Grid item xs={4}>
-              <IconButton color="inherit" onClick={handlePreviousClick} disabled={currentIndex === 0} style={{ filter: currentIndex === 0 ? "opacity(0)" : undefined }}>
+              <IconButton onClick={handlePreviousClick} style={{
+                opacity: currentIndex === 0 ? 0.5 : 1,
+                pointerEvents: currentIndex === 0 ? 'none' : 'auto',
+              }}>
                 <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
               </IconButton>
             </Grid>
