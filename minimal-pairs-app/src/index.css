@@ -16,3 +16,7 @@ code {
   user-select: none;
   -webkit-user-select: none;
 }
+
+img {
+  -webkit-user-drag: none;
+}
