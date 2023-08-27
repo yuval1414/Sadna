@@ -55,7 +55,7 @@ function ExerciseOptionsPage() {
             state: {
                 category: category.value,
                 letters: letters.label,
-                placeInWord: placeInWord.label,
+                placeInWord: placeInWord.value,
                 voice: voice.label
             }
         });
