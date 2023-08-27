@@ -11,55 +11,37 @@ import InfoDialog from '../component/InfoDialog';
 import { manWomanOptions, options, placeInWordOp, voiceOptions } from '../component/utils/options';
 
 const useStyles = makeStyles((theme) => ({
-    background: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        backgroundImage: `url(${PageBg})`,
-        backgroundSize: 'cover',
+    root: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundImage: `url(${PageBg})`,
+      backgroundSize: 'cover',
+    },
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: '180px',
+      position: 'relative',
+    },
+    select: {        
+        margin: '0 auto', 
+        padding: '20px',
+        background: `url(${optionsWhiteBg})`,
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        zIndex: -1,
-    },
-    title: {
-        position: 'absolute',
-        top: 20,
-        left: 20,
-        color: '#fff',
-        fontSize: 24,
-        zIndex: 1,
+        textAlign: 'center', 
     },
     iconButton: {
-        position: 'absolute',
-        top: '230px',
-        left: '27%',
-        zIndex: 1,
+      textAlign: 'center',
+      '& img': {
+        width: '80px',
+      },
     },
-    select: {
-        position: 'absolute',
-        top: '7%',
-        paddingRight: '148px',
-        right: '10%',
-        zIndex: 4,
-        display: 'flex',
-        flexDirection: 'column',
-        align: 'center',
-    },
-    typography: {
-        fontSize: 'xx-large', fontWeight: 'bold', color: 'coral',
-        alignItems: 'flex-end', justifyContent: 'flex-end',
-        paddingTop: '20px',
-    },
-    optionBg: {
-        height: '550px',
-        width: '500px',
-        display: 'flex',
-        paddingRight: '100px',
-        top: '7%',
-        position: 'absolute',
-        right: '10%',
-    },
-}));
+  }));
 
 
 function ExerciseOptionsPage() {
@@ -97,31 +79,50 @@ function ExerciseOptionsPage() {
     };
 
     return (
-        <div className={classes.background} align="center">
-            <img src={optionsWhiteBg} className={classes.optionBg} alt="optionsWhiteBg" />
-            <div id="select" className={classes.select}>
-                <SettingDropDown title={<><InfoDialog />סוג תרגול</>} value={category} options={options} updateState={handleChangeCategory} />
-                <SettingDropDown title="זוג צלילים" options={category.letterOptions} value={letters} updateState={handleChangelLetters} />
-                <SettingDropDown title="מיקום במילה" options={letters.placeInWordOptions} value={placeInWord} updateState={setPlaceInWord} />
-                <SettingDropDown title="קול" value={voice} options={manWomanOptions} updateState={setVoice} />
-            </div>
-            <div className={classes.iconButton} align="center"
-                style={{ position: 'absolute', top: '27%', left: '15%', zIndex: 1 }}>
-                <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
-                    התחלת
-                </Typography>
-                <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
-                    תרגול
-                </Typography>
-                <div className={classes.iconButton} align="center"
-                >
-                    <IconButton color="inherit" onClick={navigateExercise} >
-                        <img src={leftArrowBtn} alt='leftArrowBtn'></img>
-                    </IconButton>
-                </div>
-            </div>
+    <div className={classes.root}>
+      <div className={classes.container}>
+        <div className={classes.iconButton}>
+          <Typography fontSize={'600%'} fontWeight="bold" color={theme.palette.darkBlue}>
+            התחלת
+          </Typography>
+          <Typography style={{ marginTop: '-15%' }} fontSize={'600%'} fontWeight="bold" color={theme.palette.redOrange}>
+            תרגול
+          </Typography>
+          <div className={classes.iconButton} style={{ marginTop: '8%' }}>
+            <IconButton color="inherit" onClick={navigateExercise}>
+              <img src={leftArrowBtn} alt='leftArrowBtn'></img>
+            </IconButton>
+          </div>
         </div>
-    );
+        <div id="select" className={classes.select}>
+          <SettingDropDown
+            title={<><InfoDialog />סוג תרגול</>}
+            value={category}
+            options={options}
+            updateState={handleChangeCategory}
+          />
+          <SettingDropDown
+            title="זוג צלילים"
+            options={category.letterOptions}
+            value={letters}
+            updateState={handleChangelLetters}
+          />
+          <SettingDropDown
+            title="מיקום במילה"
+            options={letters.placeInWordOptions}
+            value={placeInWord}
+            updateState={setPlaceInWord}
+          />
+          <SettingDropDown
+            title="קול"
+            value={voice}
+            options={manWomanOptions}
+            updateState={setVoice}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default ExerciseOptionsPage;
