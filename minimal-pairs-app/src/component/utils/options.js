@@ -10,10 +10,10 @@ export const manWomanOptions = [
 ];
 
 export const placeInWordOp = {
-    end: { label: "סוף" },
-    middle: { label: "אמצע" },
-    start: { label: "התחלה" },
-    all: { label: "הכל" },
+    end: { label: "סוף", value: "end" },
+    middle: { label: "אמצע", value: "middle" },
+    start: { label: "התחלה", value: "start" },
+    all: { label: "הכל", value: "הכל" },
 };
 
 export const options = [

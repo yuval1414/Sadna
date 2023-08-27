@@ -14,8 +14,8 @@ function AboutPage() {
     <>
       <div style={{ padding: '10px', marginTop: '70px' }}>
         <Typography fontSize={'110%'}>
-        אנחנו - עמית ארליך, מיה בן שטח ויובל הוכמן, סטודנטיות בשנה שלישית למדעי המחשב<br/>
-        באקדמית ת"א-יפו, שמחות לשתף באפליקציה המיוחדת שבנינו<br/><br/>
+          אנחנו - עמית ארליך, מיה בן שטח ויובל הוכמן, סטודנטיות בשנה שלישית למדעי המחשב<br />
+          באקדמית ת"א-יפו, שמחות לשתף באפליקציה המיוחדת שבנינו<br /><br />
         </Typography>
       </div>
       <div style={{ padding: '40px' }}></div>
@@ -23,11 +23,11 @@ function AboutPage() {
     <>
       <div style={{ padding: '5px' }}>
         <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
-        הרעיון שהביא לחיים את האפליקציה
+          הרעיון שהביא לחיים את האפליקציה
         </Typography>
         <Typography fontSize={'110%'}>
-        מדובר בכלי המטרתו לסייע לקלינאי תקשורת באימוני שמיעה מיוחדים,<br/>
-        מותאמים לילדים בגילאי 5 עד 7, שעברו השתלת שתל השבלול עקב חירשות או לקות שמיעה חמורה. למושתל שבלול יש צורך באימוני שמיעה בכדי לרכוש את היכולת להבחין בין חלקי המילה ע"י שמיעה וזאת כדי שיוכל לקלוט, ללמוד ולהבין את השפה ואת משמעות המילים.
+          מדובר בכלי המטרתו לסייע לקלינאי תקשורת באימוני שמיעה מיוחדים,<br />
+          מותאמים לילדים בגילאי 5 עד 7, שעברו השתלת שתל השבלול עקב חירשות או לקות שמיעה חמורה. למושתל שבלול יש צורך באימוני שמיעה בכדי לרכוש את היכולת להבחין בין חלקי המילה ע"י שמיעה וזאת כדי שיוכל לקלוט, ללמוד ולהבין את השפה ואת משמעות המילים.
         </Typography>
       </div>
       <div style={{ padding: '49px' }}></div>
@@ -35,15 +35,15 @@ function AboutPage() {
     <>
       <div style={{ padding: '5px' }}>
         <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
-        משימתנו: שדרוג אימוני שמיעה בעזרת כלי טכנולוגי
+          משימתנו: שדרוג אימוני שמיעה בעזרת כלי טכנולוגי
         </Typography>
         <Typography fontSize={'110%'}>
-        יצרנו פתרון טכנולוגי לאימון ההבחנה של הילדים בין חלקי המילה באמצעות השמיעה.<br/>
+          יצרנו פתרון טכנולוגי לאימון ההבחנה של הילדים בין חלקי המילה באמצעות השמיעה.<br />
         </Typography>
         <div style={{ padding: '12px' }}>
           <Typography fontSize={'110%'}>
-          האפליקציה כוללת תרגולים אטרקטיביים כאשר כל אחד מוגדר לפי סוג תרגול, קוליות, רשימת הגיים וקול הקראה. על הילדים לזהות מילה אחת מתוך שתיים שנבדלות בתכונה אקוסטית אחת. נוסף לכך, האפליקציה כוללת משחקי חיזוק על מנת למשוך את הילדים להמשיך לתרגל ולתגמל
-אותם על הלמידה.
+            האפליקציה כוללת תרגולים אטרקטיביים כאשר כל אחד מוגדר לפי סוג תרגול, קוליות, רשימת הגיים וקול הקראה. על הילדים לזהות מילה אחת מתוך שתיים שנבדלות בתכונה אקוסטית אחת. נוסף לכך, האפליקציה כוללת משחקי חיזוק על מנת למשוך את הילדים להמשיך לתרגל ולתגמל
+            אותם על הלמידה.
           </Typography>
         </div>
       </div>
@@ -52,28 +52,28 @@ function AboutPage() {
     <>
       <div style={{ padding: '5px' }}>
         <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
-        הפרויקט שנוצר משיתוף פעולה מיוחד
+          הפרויקט שנוצר משיתוף פעולה מיוחד
         </Typography>
         <Typography fontSize={'110%'}>
-        בראש ובראשונה, הכרת תודה ענקית לקלינאית התקשורת ברטי בן-ישי שהייתה חלק
-          </Typography>
+          בראש ובראשונה, הכרת תודה ענקית לקלינאית התקשורת ברטי בן-ישי שהייתה חלק
+        </Typography>
         <Typography fontSize={'110%'}>
-        בלתי נפרד מהפרויקט. תודה ללילך פאר ולכל קלינאי התקשורת שענו על כל שאלה והכווינו במהלך הפיתוח.
-תודה לגיא דוד תרם את קולו והפריח חיים באפליקציה.
-          </Typography>
-          <div style={{ padding: '12px' }}>
-            <Typography fontSize={'110%'}>
+          בלתי נפרד מהפרויקט. תודה ללילך פאר ולכל קלינאי התקשורת שענו על כל שאלה והכווינו במהלך הפיתוח.
+          תודה לגיא דוד תרם את קולו והפריח חיים באפליקציה.
+        </Typography>
+        <div style={{ padding: '12px' }}>
+          <Typography fontSize={'110%'}>
             תודה לכולם על הנתינה הרבה, הזמן והמאמץ שהושקע על הפרויקט.
-            </Typography>
-          </div>
+          </Typography>
         </div>
+      </div>
       <div style={{ padding: '37px' }}></div>
     </>,
     <>
       <div style={{ padding: '10px', marginTop: '70px' }}>
         <Typography fontSize={'110%'}>
-        אנו גאות להציע את האפליקציה שלנו ככלי ייחודי, מתקדם וטכנולוגי לקלינאי תקשורת והילדים. אנו מתרגשות לחשוף את המוצר לעולם ומזמינות אתכם להיות חלק מהחוויה של אימון שמיעתי משודרג!
-<br/><br/>
+          אנו גאות להציע את האפליקציה שלנו ככלי ייחודי, מתקדם וטכנולוגי לקלינאי תקשורת והילדים. אנו מתרגשות לחשוף את המוצר לעולם ומזמינות אתכם להיות חלק מהחוויה של אימון שמיעתי משודרג!
+          <br /><br />
         </Typography>
       </div>
       <div style={{ padding: '40px' }}></div>
@@ -93,10 +93,10 @@ function AboutPage() {
   };
 
   return (
-    <div className="App" style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
+    <div className="App" style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       height: '100vh',
       position: 'absolute',
       width: '100%',
@@ -107,13 +107,13 @@ function AboutPage() {
       zIndex: -1,
       direction: 'rtl',
     }}>
-      <div className="board-container" style={{ 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <div className="board-container" style={{
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         width: '90%', // Adjust the width of the container
         maxWidth: '1000px', // Set a maximum width
-        maxHeight: '500px', 
+        maxHeight: '500px',
         margin: '0 auto', // Center horizontally
         padding: '20px',
         backgroundImage: `url(${AboutBg})`,
@@ -123,42 +123,43 @@ function AboutPage() {
         zIndex: -1,
         textAlign: 'center', // Center align the text
       }}>
-          <div className="board-container" style={{ 
-            padding: '20px',
-            maxHeight: '400px',
-            maxWidth: '700px',
-            margin: '0 auto',
+        <div className="board-container" style={{
+          padding: '20px',
+          maxHeight: '400px',
+          maxWidth: '700px',
+          margin: '0 auto',
+        }}>
+          <Typography fontSize={'400%'} fontWeight="bold" color={theme.palette.darkBlue}>
+            אודות
+          </Typography>
+          {sections[currentSection]}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '80px',
+            position: 'relative',
+            left: 0,
+            right: 0,
           }}>
-            <Typography fontSize={'400%'} fontWeight="bold" color={theme.palette.darkBlue}>
-              אודות
-            </Typography>
-            {sections[currentSection]}
-            <div style={{ display: 'flex',
-                          justifyContent: 'center',
-                          gap: '80px',
-                          position: 'relative',
-                          left: 0,
-                          right: 0,
-                          }}>
-              <IconButton onClick={goToPreviousSection}
-                          disabled={currentSection === 0}
-                          style={{
-                            opacity: currentSection === 0 ? 0.5 : 1, 
-                            pointerEvents: currentSection === 0 ? 'none' : 'auto', 
+            <IconButton onClick={goToPreviousSection}
+              disabled={currentSection === 0}
+              style={{
+                opacity: currentSection === 0 ? 0.5 : 1,
+                pointerEvents: currentSection === 0 ? 'none' : 'auto',
               }}>
-                <img src={prevBtn} style={{ width: '100%', height: '100%' }} alt="Previous" />
-              </IconButton>
-              <IconButton onClick={goToNextSection}
-                          disabled={currentSection === sections.length - 1}
-                          style={{
-                            opacity: currentSection === sections.length - 1 ? 0.5 : 1, 
-                            pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto',
+              <img src={prevBtn} style={{ width: '100%', height: '100%' }} alt="Previous" />
+            </IconButton>
+            <IconButton onClick={goToNextSection}
+              disabled={currentSection === sections.length - 1}
+              style={{
+                opacity: currentSection === sections.length - 1 ? 0.5 : 1,
+                pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto',
               }}>
-                <img src={nextBtn} style={{ width: '100%', height: '100%' }} alt="Next" />
-              </IconButton>
-            </div>
+              <img src={nextBtn} style={{ width: '100%', height: '100%' }} alt="Next" />
+            </IconButton>
           </div>
         </div>
+      </div>
     </div>
   );
 }
