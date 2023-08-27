@@ -1,97 +1,165 @@
-
-// 2ND ATTEMPT
-import React, { useEffect } from 'react';
-import { Typography, List } from '@mui/material';
+import React, { useState } from 'react';
+import { Typography, IconButton, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import AboutBg from './../images/pagesBg/aboutPageSquar.png';
-import { makeStyles } from '@mui/styles';
-import hearMeOutIcon from './../images/kids/HEARMEOUT-Icon.png';
-const useStyles = makeStyles((theme) => ({
-  background: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundImage: `url(${PageBg})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    zIndex: -1,
-  },
-  title: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-    color: '#fff',
-    fontSize: 24,
-    zIndex: 1,
-  },
-  icon: {
-    position: 'absolute',
-    top: '6%',
-    left: '46%',
-    zIndex: 1,
-    height: '114px', 
-    width: '114px',
-  },
-  mainMenu: {
-    position: 'absolute',
-    width: '75%',
-    left: '50%',
-    top: '45%',
-    transform: 'translate(-50%, -50%)',
-    textAlign: 'right',
-  },
-  backgroundSquare: {
-    width: '100%',
-    maxHeight: '100%',
-  },
-  typography: {
-    position: 'absolute',
-    top: '21%',
-    left: '45%',
-    zIndex: 1,
-   
-  },
-}));
+import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
+import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
+
 function AboutPage() {
-  const classes = useStyles();
   const theme = useTheme();
+  const [currentSection, setCurrentSection] = useState(0);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const title = document.getElementById('title');
-      const iconButton = document.getElementById('iconButton');
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <div className={classes.background}>
-       <img src={hearMeOutIcon} className={classes.icon} />
-      <div className={classes.mainMenu}>
-        <center><img className={classes.backgroundSquare} src={AboutBg}></img></center>
-        <div className={classes.typography} >
-          <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-            אודות
-          </Typography>
-          <Typography>
-            על האפליקציה:<br /><br />
-
-            רקע:<br /><br />
-
-            המפתחות:<br /><br />
+  const sections = [
+    <>
+      <div style={{ padding: '10px', marginTop: '70px' }}>
+        <Typography fontSize={'110%'}>
+        אנחנו - עמית ארליך, מיה בן שטח ויובל הוכמן, סטודנטיות בשנה שלישית למדעי המחשב<br/>
+        באקדמית ת"א-יפו, שמחות לשתף באפליקציה המיוחדת שבנינו<br/><br/>
         </Typography>
+      </div>
+      <div style={{ padding: '40px' }}></div>
+    </>,
+    <>
+      <div style={{ padding: '5px' }}>
+        <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
+        הרעיון שהביא לחיים את האפליקציה
+        </Typography>
+        <Typography fontSize={'110%'}>
+        מדובר בכלי המטרתו לסייע לקלינאי תקשורת באימוני שמיעה מיוחדים,<br/>
+        מותאמים לילדים בגילאי 5 עד 7, שעברו השתלת שתל השבלול עקב חירשות או לקות שמיעה חמורה. למושתל שבלול יש צורך באימוני שמיעה בכדי לרכוש את היכולת להבחין בין חלקי המילה ע"י שמיעה וזאת כדי שיוכל לקלוט, ללמוד ולהבין את השפה ואת משמעות המילים.
+        </Typography>
+      </div>
+      <div style={{ padding: '49px' }}></div>
+    </>,
+    <>
+      <div style={{ padding: '5px' }}>
+        <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
+        משימתנו: שדרוג אימוני שמיעה בעזרת כלי טכנולוגי
+        </Typography>
+        <Typography fontSize={'110%'}>
+        יצרנו פתרון טכנולוגי לאימון ההבחנה של הילדים בין חלקי המילה באמצעות השמיעה.<br/>
+        </Typography>
+        <div style={{ padding: '12px' }}>
+          <Typography fontSize={'110%'}>
+          האפליקציה כוללת תרגולים אטרקטיביים כאשר כל אחד מוגדר לפי סוג תרגול, קוליות, רשימת הגיים וקול הקראה. על הילדים לזהות מילה אחת מתוך שתיים שנבדלות בתכונה אקוסטית אחת. נוסף לכך, האפליקציה כוללת משחקי חיזוק על מנת למשוך את הילדים להמשיך לתרגל ולתגמל
+אותם על הלמידה.
+          </Typography>
         </div>
       </div>
-    </div>
+      <div style={{ padding: '23.5px' }}></div>
+    </>,
+    <>
+      <div style={{ padding: '5px' }}>
+        <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
+        הפרויקט שנוצר משיתוף פעולה מיוחד
+        </Typography>
+        <Typography fontSize={'110%'}>
+        בראש ובראשונה, הכרת תודה ענקית לקלינאית התקשורת ברטי בן-ישי שהייתה חלק
+          </Typography>
+        <Typography fontSize={'110%'}>
+        בלתי נפרד מהפרויקט. תודה ללילך פאר ולכל קלינאי התקשורת שענו על כל שאלה והכווינו במהלך הפיתוח.
+תודה לגיא דוד תרם את קולו והפריח חיים באפליקציה.
+          </Typography>
+          <div style={{ padding: '12px' }}>
+            <Typography fontSize={'110%'}>
+            תודה לכולם על הנתינה הרבה, הזמן והמאמץ שהושקע על הפרויקט.
+            </Typography>
+          </div>
+        </div>
+      <div style={{ padding: '37px' }}></div>
+    </>,
+    <>
+      <div style={{ padding: '10px', marginTop: '70px' }}>
+        <Typography fontSize={'110%'}>
+        אנו גאות להציע את האפליקציה שלנו ככלי ייחודי, מתקדם וטכנולוגי לקלינאי תקשורת והילדים. אנו מתרגשות לחשוף את המוצר לעולם ומזמינות אתכם להיות חלק מהחוויה של אימון שמיעתי משודרג!
+<br/><br/>
+        </Typography>
+      </div>
+      <div style={{ padding: '40px' }}></div>
+    </>,
+  ];
 
+  const goToNextSection = () => {
+    if (currentSection < sections.length - 1) {
+      setCurrentSection(currentSection + 1);
+    }
+  };
+
+  const goToPreviousSection = () => {
+    if (currentSection > 0) {
+      setCurrentSection(currentSection - 1);
+    }
+  };
+
+  return (
+    <div className="App" style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh',
+      position: 'absolute',
+      width: '100%',
+      backgroundImage: `url(${PageBg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      zIndex: -1,
+      direction: 'rtl',
+    }}>
+      <div className="board-container" style={{ 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        width: '90%', // Adjust the width of the container
+        maxWidth: '1000px', // Set a maximum width
+        maxHeight: '500px', 
+        margin: '0 auto', // Center horizontally
+        padding: '20px',
+        backgroundImage: `url(${AboutBg})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        zIndex: -1,
+        textAlign: 'center', // Center align the text
+      }}>
+          <div className="board-container" style={{ 
+            padding: '20px',
+            maxHeight: '400px',
+            maxWidth: '700px',
+            margin: '0 auto',
+          }}>
+            <Typography fontSize={'400%'} fontWeight="bold" color={theme.palette.darkBlue}>
+              אודות
+            </Typography>
+            {sections[currentSection]}
+            <div style={{ display: 'flex',
+                          justifyContent: 'center',
+                          gap: '80px',
+                          position: 'relative',
+                          left: 0,
+                          right: 0,
+                          }}>
+              <IconButton onClick={goToPreviousSection}
+                          disabled={currentSection === 0}
+                          style={{
+                            opacity: currentSection === 0 ? 0.5 : 1, 
+                            pointerEvents: currentSection === 0 ? 'none' : 'auto', 
+              }}>
+                <img src={prevBtn} style={{ width: '100%', height: '100%' }} alt="Previous" />
+              </IconButton>
+              <IconButton onClick={goToNextSection}
+                          disabled={currentSection === sections.length - 1}
+                          style={{
+                            opacity: currentSection === sections.length - 1 ? 0.5 : 1, 
+                            pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto',
+              }}>
+                <img src={nextBtn} style={{ width: '100%', height: '100%' }} alt="Next" />
+              </IconButton>
+            </div>
+          </div>
+        </div>
+    </div>
   );
 }
 
