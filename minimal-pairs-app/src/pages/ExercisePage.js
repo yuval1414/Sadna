@@ -5,32 +5,30 @@ import { Typography, IconButton, Grid, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import replaySound from './../images/buttons/replaySoundBtn.png';
 import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
-import imgBg from './../images/buttons/imgBg.png';
 import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import ImagePlaceHolder from '../component/ImagePlaceHolder';
-import { makeStyles } from '@mui/styles';
 import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
-import { Opacity } from '@mui/icons-material';
 import { randomReaction } from '../component/utils/Reaction';
+//import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles(() => ({
-  imageButton: {
-    '&:hover': {
-      filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
-      backgroundColor: 'transparent !important',
-    }
-  },
-  descriptionTypography: {
-    display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
-    WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
-  },
-  selectedImage: {
-    backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
-    width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center'
-  }
-}));
+// const useStyles = makeStyles(() => ({
+  // imageButton: {
+  //   '&:hover': {
+  //     filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
+  //     backgroundColor: 'transparent !important',
+  //   }
+  // },
+  // descriptionTypography: {
+  //   display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
+  //   WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
+  // },
+  // selectedImage: {
+  //   backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
+  //   width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center'
+  // }
+// }));
 
 
 function playAudio(voice) {
@@ -188,11 +186,10 @@ export default function ExercisePage() {
         )}
         {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
         <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
-
-          <Typography fontSize={'170%'} fontWeight="bold" color={theme.palette.darkBlue}>
+          <Typography fontSize={'350%'} color={theme.palette.darkBlue}>
             הקשיבו ובחרו את התמונה הנכונה
           </Typography>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', justifyContent: 'center', height: '100%', width: '70%' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '30px',justifyContent: 'center', height: '50%', width: '70%' }}>
             {(images) && (
               <><ImagePlaceHolder
                 innerImage={images[currentIndex]?.image0?.src}
@@ -200,6 +197,7 @@ export default function ExercisePage() {
                 imageText={images[currentIndex]?.image0?.description}
                 handleClick={() => handleImageClick(images[currentIndex]?.image0.id)}
                 borderColor={borderColorImg[0]}
+                isInExercise={true}
               />
                 <ImagePlaceHolder
                   innerImage={images[currentIndex]?.image1?.src}
@@ -207,6 +205,7 @@ export default function ExercisePage() {
                   imageText={images[currentIndex]?.image1?.description}
                   handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
                   borderColor={borderColorImg[1]}
+                  isInExercise={true}
                 /></>
             )}
           </div>
@@ -237,4 +236,76 @@ export default function ExercisePage() {
       </div>
     </div>
   );
+
+  // return (
+  //   <div className="board-container" style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+  //     <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
+  //       {showPopup && (
+  //         <div className="overlay" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
+  //           <div className="popup" style={{ backgroundColor: theme.palette.white, border: '2px solid #ccc', padding: '20px', textAlign: 'center', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' }}>
+  //             <Typography variant="h4" gutterBottom>
+  //               תרגול זוגות מינימלים
+  //             </Typography>
+  //             <Button variant="contained" style={{ backgroundColor: theme.palette.darkBlue, width: "90px" }} onClick={() => handleStartExercise()}>
+  //               התחל
+  //             </Button>
+  //           </div>
+  //         </div>
+  //       )}
+  //       {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
+  //       <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
+  //         <Typography fontSize={'350%'} color={theme.palette.darkBlue}>
+  //           הקשיבו ובחרו את התמונה הנכונה
+  //         </Typography>
+  //         <div style={{ display: 'flex', justifyContent: 'center', gap: '80px', height: '50%', width: '100%' }}>
+  //           {(images) && (
+  //             <>
+  //               <ImagePlaceHolder
+  //                 innerImage={images[currentIndex]?.image0?.src}
+  //                 textColor={theme.palette.yellow}
+  //                 imageText={images[currentIndex]?.image0?.description}
+  //                 handleClick={() => handleImageClick(images[currentIndex]?.image0.id)}
+  //                 borderColor={borderColorImg[0]}
+  //                 isInExercise={true}
+  //               />
+  //               <ImagePlaceHolder
+  //                 innerImage={images[currentIndex]?.image1?.src}
+  //                 textColor={theme.palette.yellow}
+  //                 imageText={images[currentIndex]?.image1?.description}
+  //                 handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
+  //                 borderColor={borderColorImg[1]}
+  //                 isInExercise={true}
+  //               />
+  //             </>
+  //           )}
+  //         </div>
+  //         <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%', marginTop: '125px' }}>
+  //           <Grid item xs={4}>
+  //             <IconButton onClick={handleNextClick} style={{
+  //               right: '190px',
+  //               opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
+  //               pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
+  //             }}>
+  //               <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+  //             </IconButton>
+  //           </Grid>
+  //           <Grid item xs={4}>
+  //             <IconButton onClick={handleListenClick}>
+  //               <img src={replaySound} style={{ width: '100%', height: '100%' }} />
+  //             </IconButton>
+  //           </Grid>
+  //           <Grid item xs={4}>
+  //             <IconButton onClick={handlePreviousClick} style={{
+  //               left: '190px',
+  //               opacity: currentIndex === 0 ? 0.5 : 1,
+  //               pointerEvents: currentIndex === 0 ? 'none' : 'auto',
+  //             }}>
+  //               <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
+  //             </IconButton>
+  //           </Grid>
+  //         </Grid>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 }
