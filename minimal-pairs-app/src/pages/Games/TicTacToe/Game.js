@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Button, Grid, Paper, Typography } from '@mui/material';
 import PageBg from './../../../images/pagesBg/skyAndCloudsBg.png';
-import xImage from './../../../images/games/Ximg.png'; //'./x.png';
-import oImage from './../../../images/games/Oimg.png'; //'./o.png';
+import xImage from './../../../images/games/Ximg.png';
+import oImage from './../../../images/games/Oimg.png';
   
 const TicTacToeGame = () => {
     const theme = useTheme();
@@ -48,7 +48,7 @@ const TicTacToeGame = () => {
             className="square"
             variant="outlined"
             onClick={() => handleClick(index)}
-            style={{ width: '80px', height: '80px', fontSize: '24px', backgroundColor: theme.palette.white }}
+            style={{ width: '120px', height: '120px', fontSize: '24px', backgroundColor: theme.palette.white }}
             disabled={isComputerTurn}
         >
             {board[index] === 'X' ? (
@@ -109,10 +109,10 @@ const TicTacToeGame = () => {
                 </div>
             )}
             <div className="board-container">
-                <Typography variant="h4" gutterBottom>
+                <Typography fontWeight="bold" variant="h3" color={theme.palette.darkBlue} gutterBottom>
                     איקס עיגול
                 </Typography>
-                <Typography variant="subtitle1" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                     {gameStatus}
                 </Typography>
                 <Paper elevation={3} style={{ padding: '10px' ,backgroundColor: theme.palette.darkBlue }}>
