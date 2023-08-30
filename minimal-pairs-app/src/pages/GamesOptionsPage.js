@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import gamesOptionsPage from './../images/pagesBg/gamesBg.png';
+import gamesOptionsPage from './../images/pagesBg/gamesWithoutKidBg.jpg';
 import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import gamePuzzle from './../images/buttons/game_puzzle.png';
 import gameHitTheMole from './../images/buttons/game_hitTheMole.png';
@@ -69,11 +69,32 @@ function GamesOptionsPage() {
   };
 
   return (
-    <div id="background" className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
+    <div className="App" style={{ 
+      display: 'flex', 
+      flexDirection: 'column',
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh',
+      position: 'absolute',
+      width: '100%',
+      backgroundImage: `url(${gamesOptionsPage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      zIndex: -1,
+      direction: 'rtl',
+    }}>
+      <Typography fontSize={'420%'} fontWeight="bold" color={theme.palette.darkBlue} style={{ marginTop: '-40px' }}>
         משחקים
       </Typography>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', columnGap: '5px', rowGap: '20px', justifyContent: 'center', height: '85%', width: '85%' }}>
+      <div className="board-container" style={{ 
+        justifyContent: 'center', 
+        display: 'grid', 
+        gridTemplateColumns: '1fr 1fr 1fr', 
+        alignItems: 'center', 
+        maxHeight: '600px', 
+        textAlign: 'center',
+      }}>
         <ImagePlaceHolder
           innerImage={gamePuzzle}
           textColor={theme.palette.darkBlue}
