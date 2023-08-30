@@ -68,49 +68,7 @@ function GamesOptionsPage() {
     navigate(`/${gameName}`);
   };
 
-  // return (
-  //   <div id="background" className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
-  //     <Typography fontSize={'250%'} fontWeight="bold" color={theme.palette.darkBlue}>
-  //       משחקים
-  //     </Typography>
-  //     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', columnGap: '5px', rowGap: '20px', justifyContent: 'center', height: '85%', width: '85%' }}>
-  //       <ImagePlaceHolder
-  //         innerImage={gamePuzzle}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"פאזל"}
-  //       />
-  //       <ImagePlaceHolder
-  //         innerImage={gameHitTheMole}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"הכה בחפרפרת"}
-  //       />
-  //       <ImagePlaceHolder
-  //         innerImage={gameMemoryGame}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"משחק הזיכרון"}
-  //       />
-  //       <ImagePlaceHolder
-  //         innerImage={gameSnakeAndLadders}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"סולמות ונחשים"}
-  //       />
-  //       <ImagePlaceHolder
-  //         innerImage={gameTicTacToe}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"איקס עיגול"}
-  //         handleClick={loadTicTacToeGame}
-  //       />
-  //       <ImagePlaceHolder
-  //         innerImage={gameRexy}
-  //         textColor={theme.palette.darkBlue}
-  //         imageText={"טפלו ברקסי"}
-  //       />
-  //     </div>
-  //   </div>
-  // );
-
   return (
-    // <div id="background" className={classes.background} align="center" style={{ maxWidth: '100%', flexDirection: 'column', alignItems: 'center' }}>
     <div className="App" style={{ 
       display: 'flex', 
       flexDirection: 'column',
@@ -133,14 +91,9 @@ function GamesOptionsPage() {
         justifyContent: 'center', 
         display: 'grid', 
         gridTemplateColumns: '1fr 1fr 1fr', 
-        //gridTemplateRows: '1fr 1fr',
         alignItems: 'center', 
-        //maxWidth: '400px',
         maxHeight: '600px', 
         textAlign: 'center',
-        //margin: '0 auto', 
-        //padding: '20px',
-        //gridColumnGap: '-100px',
       }}>
         <ImagePlaceHolder
           innerImage={gamePuzzle}

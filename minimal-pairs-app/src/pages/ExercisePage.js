@@ -11,25 +11,6 @@ import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
 import { randomReaction } from '../component/utils/Reaction';
-//import { makeStyles } from '@mui/styles';
-
-// const useStyles = makeStyles(() => ({
-  // imageButton: {
-  //   '&:hover': {
-  //     filter: 'drop-shadow(0px 0px 16px #68859A) brightness(1.1)',
-  //     backgroundColor: 'transparent !important',
-  //   }
-  // },
-  // descriptionTypography: {
-  //   display: 'flex', justifyContent: 'center', width: '100%', marginRight: '50%', scale: '160%',
-  //   WebkitTextStroke: '1px', fontSize: 'x-large', WebkitTextStrokeColor: 'rgb(36 71 88)',
-  // },
-  // selectedImage: {
-  //   backgroundImage: `url(${imgBg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
-  //   width: '330px', height: '330px', display: 'flex', alignItems: 'center', justifyContent: 'center'
-  // }
-// }));
-
 
 function playAudio(voice) {
   let audio = new Audio(voice);
@@ -41,7 +22,6 @@ function playAudio(voice) {
 function getImageFromStorage(path) {
   return downloadImageFromStorage(path);
 }
-
 
 export default function ExercisePage() {
   const location = useLocation();
