@@ -226,14 +226,14 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    //marginTop: '10px', // Fixed spacing of 5px
     textAlign: 'center',
     position: 'absolute',
+    bottom: -15,
+    //marginTop: '10px', // Fixed spacing of 5px
     //top: '100%',
-    bottom: 0,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '100%',
+    //left: '50%',
+    //transform: 'translateX(-50%)',
+    //width: '100%',
   },
   text: {
     //fontSize: '30px', // Set the font size as desired
@@ -252,7 +252,7 @@ function ImagePlaceHolder({
   const classes = useStyles();
 
   return (
-    <div className={classes.container} style={{ height: isInExercise ? '390px' : '320px' }}>
+    <div className={classes.container} style={{ height: isInExercise ? '390px' : '260px' }}>
       <Button
         disableRipple
         className={classes.imageButton}
@@ -269,7 +269,7 @@ function ImagePlaceHolder({
           src={imgWhiteBg}
           alt="Background"
           style={{
-            width: isInExercise ? '100%' : '80%',
+            width: isInExercise ? '100%' : '75%',
             position: 'absolute',
             filter: borderColor
               ? `drop-shadow(2px 4px 6px ${borderColor})`
