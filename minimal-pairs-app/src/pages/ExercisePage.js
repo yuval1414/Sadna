@@ -170,28 +170,49 @@ export default function ExercisePage() {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-        {showPopup && (
-          <div className="overlay" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
-            <div className="popup" style={{ backgroundColor: theme.palette.white, border: '2px solid #ccc', padding: '20px', textAlign: 'center', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' }}>
-              <Typography variant="h4" gutterBottom>
-                תרגול זוגות מינימלים
-              </Typography>
-              <Button variant="contained" style={{ backgroundColor: theme.palette.darkBlue, width: "90px" }} onClick={() => handleStartExercise()}>
-                התחל
-              </Button>
-            </div>
+    <div className="App" style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh',
+      position: 'absolute',
+      width: '100%',
+      backgroundImage: `url(${exercisePage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      zIndex: -1,
+      direction: 'rtl',
+    }}>
+      {showPopup && (
+        <div className="overlay" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
+          <div className="popup" style={{ backgroundColor: theme.palette.white, border: '2px solid #ccc', padding: '20px', textAlign: 'center', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' }}>
+            <Typography variant="h4" gutterBottom>
+              תרגול זוגות מינימלים
+            </Typography>
+            <Button variant="contained" style={{ backgroundColor: theme.palette.darkBlue, width: "90px" }} onClick={() => handleStartExercise()}>
+              התחל
+            </Button>
           </div>
-        )}
-        {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
-        <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
-          <Typography fontSize={'350%'} color={theme.palette.darkBlue}>
-            הקשיבו ובחרו את התמונה הנכונה
-          </Typography>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridColumnGap: '30px',justifyContent: 'center', height: '50%', width: '70%' }}>
-            {(images) && (
-              <><ImagePlaceHolder
+        </div>
+      )}
+      {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
+      <div className="board-container" style={{ 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        maxWidth: '1000px',
+        maxHeight: '700px', 
+        margin: '0 auto', 
+        padding: '20px',
+        textAlign: 'center',
+      }}>
+        <Typography fontSize={'350%'} color={theme.palette.darkBlue}>
+          הקשיבו ובחרו את התמונה הנכונה
+        </Typography>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '80px', height: '50%', width: '100%' }}>
+          {(images) && (
+            <>
+              <ImagePlaceHolder
                 innerImage={images[currentIndex]?.image0?.src}
                 textColor={theme.palette.yellow}
                 imageText={images[currentIndex]?.image0?.description}
@@ -199,113 +220,43 @@ export default function ExercisePage() {
                 borderColor={borderColorImg[0]}
                 isInExercise={true}
               />
-                <ImagePlaceHolder
-                  innerImage={images[currentIndex]?.image1?.src}
-                  textColor={theme.palette.yellow}
-                  imageText={images[currentIndex]?.image1?.description}
-                  handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
-                  borderColor={borderColorImg[1]}
-                  isInExercise={true}
-                /></>
-            )}
-          </div>
-          <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%' }}>
-            <Grid item xs={4}>
-              <IconButton onClick={handleNextClick} style={{
-                opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
-                pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
-              }}>
-                <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton onClick={handleListenClick}>
-                <img src={replaySound} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton onClick={handlePreviousClick} style={{
-                opacity: currentIndex === 0 ? 0.5 : 1,
-                pointerEvents: currentIndex === 0 ? 'none' : 'auto',
-              }}>
-                <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
-              </IconButton>
-            </Grid>
-          </Grid>
+              <ImagePlaceHolder
+                innerImage={images[currentIndex]?.image1?.src}
+                textColor={theme.palette.yellow}
+                imageText={images[currentIndex]?.image1?.description}
+                handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
+                borderColor={borderColorImg[1]}
+                isInExercise={true}
+              />
+            </>
+          )}
         </div>
+        <Grid container justifyContent='center' style={{ textAlign: 'center', marginTop: '40px' }}>
+          <Grid item xs={4}>
+            <IconButton onClick={handlePreviousClick} style={{
+              left: '130px',
+              opacity: currentIndex === 0 ? 0.5 : 1,
+              pointerEvents: currentIndex === 0 ? 'none' : 'auto',
+            }}>
+              <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={handleListenClick}>
+              <img src={replaySound} style={{ width: '100%', height: '100%' }} />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={handleNextClick} style={{
+              right: '130px',
+              opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
+              pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
+            }}>
+              <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+            </IconButton>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
-
-  // return (
-  //   <div className="board-container" style={{ backgroundImage: `url(${exercisePage})`, height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-  //     <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-  //       {showPopup && (
-  //         <div className="overlay" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
-  //           <div className="popup" style={{ backgroundColor: theme.palette.white, border: '2px solid #ccc', padding: '20px', textAlign: 'center', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' }}>
-  //             <Typography variant="h4" gutterBottom>
-  //               תרגול זוגות מינימלים
-  //             </Typography>
-  //             <Button variant="contained" style={{ backgroundColor: theme.palette.darkBlue, width: "90px" }} onClick={() => handleStartExercise()}>
-  //               התחל
-  //             </Button>
-  //           </div>
-  //         </div>
-  //       )}
-  //       {confetti && <Confetti tweenDuration={10000} gravity={0.45} />}
-  //       <div style={{ marginTop: '30px', maxWidth: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '85%', width: '80%' }}>
-  //         <Typography fontSize={'350%'} color={theme.palette.darkBlue}>
-  //           הקשיבו ובחרו את התמונה הנכונה
-  //         </Typography>
-  //         <div style={{ display: 'flex', justifyContent: 'center', gap: '80px', height: '50%', width: '100%' }}>
-  //           {(images) && (
-  //             <>
-  //               <ImagePlaceHolder
-  //                 innerImage={images[currentIndex]?.image0?.src}
-  //                 textColor={theme.palette.yellow}
-  //                 imageText={images[currentIndex]?.image0?.description}
-  //                 handleClick={() => handleImageClick(images[currentIndex]?.image0.id)}
-  //                 borderColor={borderColorImg[0]}
-  //                 isInExercise={true}
-  //               />
-  //               <ImagePlaceHolder
-  //                 innerImage={images[currentIndex]?.image1?.src}
-  //                 textColor={theme.palette.yellow}
-  //                 imageText={images[currentIndex]?.image1?.description}
-  //                 handleClick={() => handleImageClick(images[currentIndex]?.image1.id)}
-  //                 borderColor={borderColorImg[1]}
-  //                 isInExercise={true}
-  //               />
-  //             </>
-  //           )}
-  //         </div>
-  //         <Grid container justifyContent='center' style={{ textAlign: 'center', width: '50%', height: '20%', marginTop: '125px' }}>
-  //           <Grid item xs={4}>
-  //             <IconButton onClick={handleNextClick} style={{
-  //               right: '190px',
-  //               opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
-  //               pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
-  //             }}>
-  //               <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
-  //             </IconButton>
-  //           </Grid>
-  //           <Grid item xs={4}>
-  //             <IconButton onClick={handleListenClick}>
-  //               <img src={replaySound} style={{ width: '100%', height: '100%' }} />
-  //             </IconButton>
-  //           </Grid>
-  //           <Grid item xs={4}>
-  //             <IconButton onClick={handlePreviousClick} style={{
-  //               left: '190px',
-  //               opacity: currentIndex === 0 ? 0.5 : 1,
-  //               pointerEvents: currentIndex === 0 ? 'none' : 'auto',
-  //             }}>
-  //               <img src={prevBtn} style={{ width: '100%', height: '100%' }} />
-  //             </IconButton>
-  //           </Grid>
-  //         </Grid>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 }
