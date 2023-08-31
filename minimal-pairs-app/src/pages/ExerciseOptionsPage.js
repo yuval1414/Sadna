@@ -106,6 +106,7 @@ function ExerciseOptionsPage() {
             options={category.letterOptions}
             value={letters}
             updateState={handleChangelLetters}
+            includeEngSounds={true}
           />
           <SettingDropDown
             title="מיקום במילה"

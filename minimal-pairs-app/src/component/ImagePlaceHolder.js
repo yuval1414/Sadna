@@ -79,7 +79,7 @@ function ImagePlaceHolder({
       </Button>
       
       <div className={classes.textContainer}>
-          <Typography color={textColor} fontSize={isInExercise ? '40px' : '30px'} className={classes.text}>
+          <Typography color={textColor} fontSize={isInExercise ? '50px' : '30px'} className={classes.text}>
             {imageText}
           </Typography>
         </div>
