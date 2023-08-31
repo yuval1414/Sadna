@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const SettingDropDown = ({ title, options, updateState, value, includeEngSounds }) => {
+export const SettingDropDown = ({ title, options, updateState, value }) => {
     const classes = useStyles();
     const theme = useTheme();
     const handleChoice = (choice) => {
         updateState(choice);
-    };    
+    };
 
     return (
         <>
@@ -52,7 +52,7 @@ export const SettingDropDown = ({ title, options, updateState, value, includeEng
                     }}
                 >
                     {options.map((option) => <MenuItem style={{ justifyContent: 'center' }} value={option}
-                        onClick={() => handleChoice(option)}>{includeEngSounds ? `${option.label} ${option.sounds}` : option.label}</MenuItem>)}
+                        onClick={() => handleChoice(option)}>{option.label}</MenuItem>)}
 
                 </Select>
             </FormControl>
