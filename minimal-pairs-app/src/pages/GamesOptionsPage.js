@@ -96,9 +96,9 @@ function GamesOptionsPage() {
         textAlign: 'center',
       }}>
         <ImagePlaceHolder
-          innerImage={gamePuzzle}
+          innerImage={gameMemoryGame}
           textColor={theme.palette.darkBlue}
-          imageText={"פאזל"}
+          imageText={"משחק הזיכרון"}
         />
         <ImagePlaceHolder
           innerImage={gameHitTheMole}
@@ -106,14 +106,14 @@ function GamesOptionsPage() {
           imageText={"הכה בחפרפרת"}
         />
         <ImagePlaceHolder
-          innerImage={gameMemoryGame}
+          innerImage={gamePuzzle}
           textColor={theme.palette.darkBlue}
-          imageText={"משחק הזיכרון"}
+          imageText={"פאזל"}
         />
         <ImagePlaceHolder
-          innerImage={gameSnakeAndLadders}
+          innerImage={gameRexy}
           textColor={theme.palette.darkBlue}
-          imageText={"סולמות ונחשים"}
+          imageText={"טפלו ברקסי"}
         />
         <ImagePlaceHolder
           innerImage={gameTicTacToe}
@@ -122,9 +122,9 @@ function GamesOptionsPage() {
           handleClick={loadTicTacToeGame}
         />
         <ImagePlaceHolder
-          innerImage={gameRexy}
+          innerImage={gameSnakeAndLadders}
           textColor={theme.palette.darkBlue}
-          imageText={"טפלו ברקסי"}
+          imageText={"סולמות ונחשים"}
         />
       </div>
     </div>
