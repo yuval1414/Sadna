@@ -84,17 +84,17 @@ function HelpPage() {
         justifyContent: 'center', 
         alignItems: 'center', 
         height: '100vh',
-        width: '90%', // Adjust the width of the container
-        maxWidth: '1000px', // Set a maximum width
+        width: '90%', 
+        maxWidth: '1000px',
         maxHeight: '500px', 
-        margin: '0 auto', // Center horizontally
+        margin: '0 auto', 
         padding: '20px',
         backgroundImage: `url(${HelpBg})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         zIndex: -1,
-        textAlign: 'center', // Center align the text
+        textAlign: 'center',
       }}>
           <div className="board-container" style={{ 
             padding: '20px',
@@ -114,16 +114,16 @@ function HelpPage() {
               <IconButton onClick={goToPreviousSection}
                           disabled={currentSection === 0}
                           style={{
-                            opacity: currentSection === 0 ? 0.5 : 1, // Adjust opacity for disabled state
-                            pointerEvents: currentSection === 0 ? 'none' : 'auto', // Disable pointer events
+                            opacity: currentSection === 0 ? 0.5 : 1,
+                            pointerEvents: currentSection === 0 ? 'none' : 'auto', 
               }}>
                 <img src={prevBtn} style={{ width: '100%', height: '100%' }} alt="Previous" />
               </IconButton>
               <IconButton onClick={goToNextSection}
                           disabled={currentSection === sections.length - 1}
                           style={{
-                            opacity: currentSection === sections.length - 1 ? 0.5 : 1, // Adjust opacity for disabled state
-                            pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto', // Disable pointer events
+                            opacity: currentSection === sections.length - 1 ? 0.5 : 1, 
+                            pointerEvents: currentSection === sections.length - 1 ? 'none' : 'auto', 
               }}>
                 <img src={nextBtn} style={{ width: '100%', height: '100%' }} alt="Next" />
               </IconButton>
