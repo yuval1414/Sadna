@@ -63,18 +63,18 @@ function ExerciseOptionsPage() {
 
     //---------------HANDLERS-------------------
     const [category, setCategory] = useState(options[0]);
-    const [letters, setLetters] = useState(options[0].letterOptions[0]);
+    const [letters, setLetteres] = useState(options[0].letterOptions[0]);
     const [placeInWord, setPlaceInWord] = useState(placeInWordOp.all);
     const [voice, setVoice] = useState(voiceOptions.man);
 
     const handleChangeCategory = (value) => {
         setCategory(value);
-        setLetters(value.letterOptions[0]);
+        setLetteres(value.letterOptions[0]);
         setPlaceInWord(placeInWordOp.all);
     };
 
     const handleChangelLetters = (value) => {
-        setLetters(value);
+        setLetteres(value);
         setPlaceInWord(placeInWordOp.all);
     };
 
@@ -106,7 +106,6 @@ function ExerciseOptionsPage() {
             options={category.letterOptions}
             value={letters}
             updateState={handleChangelLetters}
-            includeEngSounds={true}
           />
           <SettingDropDown
             title="מיקום במילה"

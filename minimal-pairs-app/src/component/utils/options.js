@@ -21,8 +21,7 @@ export const options = [
         label: "מקום חיתוך",
         letterOptions: [
             {
-                label: "הכל",   
-                sounds: "",
+                label: "הכל",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -32,7 +31,6 @@ export const options = [
             },
             {
                 label: "ש-ס",
-                sounds: "S-SH",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -42,7 +40,6 @@ export const options = [
             },
             {
                 label: "ש-ף",
-                sounds: "F-SH",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.end
@@ -50,7 +47,6 @@ export const options = [
             },
             {
                 label: "ס-ף",
-                sounds: "F-S",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.end
@@ -58,7 +54,6 @@ export const options = [
             },
             {
                 label: "ס-ח",
-                sounds: "X-S",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.middle,
@@ -66,7 +61,6 @@ export const options = [
             },
             {
                 label: "פ-ת,ט",
-                sounds: "T-P",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -74,7 +68,6 @@ export const options = [
             },
             {
                 label: "ת,ט-ק,כ",
-                sounds: "K-T",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -84,7 +77,6 @@ export const options = [
             },
             {
                 label: "ג-ד",
-                sounds: "D-G",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -94,7 +86,6 @@ export const options = [
             },
             {
                 label: "מ-נ",
-                sounds: "N-M",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -104,7 +95,6 @@ export const options = [
             },
             {
                 label: "ר-ב,ו",
-                sounds: "V-R",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -114,7 +104,6 @@ export const options = [
             },
             {
                 label: "פ-ק,כ",
-                sounds: "K-P",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -122,18 +111,9 @@ export const options = [
             },
             {
                 label: "ח-ף",
-                sounds: "F-X",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.end,
-                ],
-            },
-            {
-                label: "ש-ח",
-                sounds: "X-SH",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
                 ],
             },
             
@@ -145,7 +125,6 @@ export const options = [
         letterOptions: [
             {
                 label: "הכל",
-                sounds: "",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -155,7 +134,6 @@ export const options = [
             },
             {
                 label: "ת,ט-צ",
-                sounds: "TS-T",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -164,7 +142,6 @@ export const options = [
             },
             {
                 label: "ס-צ",
-                sounds: "TS-S",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -179,7 +156,6 @@ export const options = [
         letterOptions: [
             {
                 label: "הכל",
-                sounds: "",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -189,7 +165,6 @@ export const options = [
             },
             {
                 label: "ס-ז",
-                sounds: "Z-S",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -199,7 +174,6 @@ export const options = [
             },
             {
                 label: "ו-ף",
-                sounds: "F-V",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.middle,
@@ -208,7 +182,6 @@ export const options = [
             },
             {
                 label: "ח-ר",
-                sounds: "R-X",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.middle,
@@ -217,7 +190,6 @@ export const options = [
             },
             {
                 label: "ב-פ",
-                sounds: "F-B",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -226,7 +198,6 @@ export const options = [
             },
             {
                 label: "ט,ת-ד",
-                sounds: "D-T",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -236,7 +207,6 @@ export const options = [
             },
             {
                 label: "כ,ק-ג",
-                sounds: "G-K",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
