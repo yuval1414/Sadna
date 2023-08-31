@@ -56,7 +56,7 @@ const MenuItem = ({ page }) => {
 
     return (
         <MuiToolbar className={classes.toolbar} variant="dense">
-            {location.pathname === PAGES.exercisePage.path && (
+            {/* {location.pathname === PAGES.exercisePage.path && (
                 <div style={{ flexGrow: 1 }}>
                     <IconButton color="inherit" onClick={handleSoundClick}>
                         <img src={VolumeUp} />
@@ -72,7 +72,7 @@ const MenuItem = ({ page }) => {
                         <MuiMenuItem onClick={handleSoundClose} disabled={true}>ללא שמע</MuiMenuItem>
                     </Menu>
                 </div>
-            )}
+            )} */}
             <IconButton color="inherit" onClick={handleMenuClick}>
                 <img src={MenuIcon} />
             </IconButton>
