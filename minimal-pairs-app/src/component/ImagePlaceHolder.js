@@ -42,6 +42,7 @@ function ImagePlaceHolder({
   handleClick,
   borderColor,
   isInExercise,
+  externalImage,
 }) {
   const classes = useStyles();
 
@@ -58,9 +59,10 @@ function ImagePlaceHolder({
           height: '90%',
           width: '100%',
         }}
+        disabled={externalImage != null}
       >
         <img
-          src={imgWhiteBg}
+          src={ externalImage == null ? imgWhiteBg : externalImage}
           alt="Background"
           style={{
             width: isInExercise ? '100%' : '75%',
@@ -70,16 +72,18 @@ function ImagePlaceHolder({
               : undefined,
           }}
         />
-        <img
-          src={innerImage}
-          alt={imageText}
-          data-image="1"
-          className={classes.imageStyle}
-        />
+        { externalImage == null && (
+          <img
+            src={innerImage}
+            alt={imageText}
+            data-image="1"
+            className={classes.imageStyle}
+          /> 
+        )}
       </Button>
       
       <div className={classes.textContainer}>
-          <Typography color={textColor} fontSize={isInExercise ? '50px' : '30px'} className={classes.text}>
+          <Typography color={textColor} fontSize={isInExercise ? '50px' : '30px'} style={{ opacity: externalImage == null ? 1 : 0.8 }} className={classes.text}>
             {imageText}
           </Typography>
         </div>

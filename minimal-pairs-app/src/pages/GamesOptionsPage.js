@@ -4,12 +4,12 @@ import { Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import gamesOptionsPage from './../images/pagesBg/gamesWithoutKidBg.jpg';
 import ImagePlaceHolder from '../component/ImagePlaceHolder';
-import gamePuzzle from './../images/buttons/game_puzzle.png';
-import gameHitTheMole from './../images/buttons/game_hitTheMole.png';
-import gameMemoryGame from './../images/buttons/game_memoryGame.png';
-import gameSnakeAndLadders from './../images/buttons/game_snakeAndLadders.png';
-import gameTicTacToe from './../images/buttons/game_ticTacToe.png';
-import gameRexy from './../images/buttons/game_rexy.png';
+import gameTicTacToe from './../images/games/game_ticTacToe.png';
+import gamePuzzle from './../images/games/game_puzzleUnavailable.png';
+import gameHitTheMole from './../images/games/game_hitTheMoleUnavailable.png';
+import gameMemoryGame from './../images/games/game_memoryGameUnavailable.png';
+import gameSnakeAndLadders from './../images/games/game_snakeAndLaddersUnavailable.png';
+import gameRexy from './../images/games/game_rexyUnavailable.png';
 
 import { makeStyles } from '@mui/styles';
 
@@ -96,22 +96,22 @@ function GamesOptionsPage() {
         textAlign: 'center',
       }}>
         <ImagePlaceHolder
-          innerImage={gameMemoryGame}
+          externalImage={gameMemoryGame}
           textColor={theme.palette.darkBlue}
           imageText={"משחק הזיכרון"}
         />
         <ImagePlaceHolder
-          innerImage={gameHitTheMole}
+          externalImage={gameHitTheMole}
           textColor={theme.palette.darkBlue}
           imageText={"הכה בחפרפרת"}
         />
         <ImagePlaceHolder
-          innerImage={gamePuzzle}
+          externalImage={gamePuzzle}
           textColor={theme.palette.darkBlue}
           imageText={"פאזל"}
         />
         <ImagePlaceHolder
-          innerImage={gameRexy}
+          externalImage={gameRexy}
           textColor={theme.palette.darkBlue}
           imageText={"טפלו ברקסי"}
         />
@@ -122,7 +122,7 @@ function GamesOptionsPage() {
           handleClick={loadTicTacToeGame}
         />
         <ImagePlaceHolder
-          innerImage={gameSnakeAndLadders}
+          externalImage={gameSnakeAndLadders}
           textColor={theme.palette.darkBlue}
           imageText={"סולמות ונחשים"}
         />
