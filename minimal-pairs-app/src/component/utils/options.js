@@ -172,6 +172,25 @@ export const options = [
                     placeInWordOp.end
                 ],
             },
+            {
+                label: "ק,כ-ח",
+                sounds: "X-K",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,                    
+                ],
+            },
+            {
+                label: "נ-ל",
+                sounds: "L-N",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
         ],
     },
     {
@@ -207,10 +226,11 @@ export const options = [
                 ],
             },
             {
-                label: "ח-ר",
-                sounds: "R-X",
+                label: "ר-ח",
+                sounds: "X-R",
                 placeInWordOptions: [
                     placeInWordOp.all,
+                    placeInWordOp.start,
                     placeInWordOp.middle,
                     placeInWordOp.end
                 ],
