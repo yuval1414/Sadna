@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import { Typography, IconButton, Grid, Button } from '@mui/material';
@@ -7,10 +6,12 @@ import replaySound from './../images/buttons/replaySoundBtn.png';
 import exercisePage from './../images/pagesBg/exercisePageWithoutText.png';
 import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
+import returnSettingsBtn from './../images/buttons/leftArrowBtn.png';
 import ImagePlaceHolder from '../component/ImagePlaceHolder';
 import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
 import { randomReaction } from '../component/utils/Reaction';
+import { useNavigate } from 'react-router-dom';
 
 function playAudio(voice) {
   let audio = new Audio(voice);
@@ -44,7 +45,6 @@ export default function ExercisePage() {
       setWords(wordsJSON.map((i) => i.words));
       setVoice(location.state.voice);
     }
-
     getFromDB();
 
   }, []);
@@ -71,7 +71,6 @@ export default function ExercisePage() {
       setImages(imagesData);
     }
     if (words) {
-
       getImageData();
     }
   }, [words]);
@@ -124,7 +123,6 @@ export default function ExercisePage() {
 
       }
     }
-
   };
 
   const handleListenClick = () => {
@@ -147,6 +145,11 @@ export default function ExercisePage() {
       setCurrentIndex((i) => i - 1);
       playAudio(voice === 'גבר' ? images[currentIndex - 1]?.primaryImg.ManVoice : images[currentIndex - 1]?.primaryImg.WomanVoice);
     }
+  };
+
+  const navigate = useNavigate();
+  const navigateBackToSetting = () => {
+    navigate("/ExerciseOptionsPage");
   };
 
   return (
@@ -226,15 +229,22 @@ export default function ExercisePage() {
               <img src={replaySound} style={{ width: '100%', height: '100%' }} />
             </IconButton>
           </Grid>
-          <Grid item xs={4}>
-            <IconButton onClick={handleNextClick} style={{
-              right: '130px',
-              opacity: currentIndex === images?.length - 1 ? 0.5 : 1,
-              pointerEvents: currentIndex === images?.length - 1 ? 'none' : 'auto',
-            }}>
-              <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
-            </IconButton>
-          </Grid>
+          { currentIndex === images?.length - 1 ? 
+            (<Grid item xs={4}>
+              <IconButton onClick={navigateBackToSetting} style={{
+                right: '130px',
+              }}>
+                <img src={returnSettingsBtn} style={{ width: '80px', height: '100%' }} />
+              </IconButton>
+            </Grid>) :
+            (<Grid item xs={4}>
+              <IconButton onClick={handleNextClick} style={{
+                right: '130px',
+              }}>
+                <img src={nextBtn} style={{ width: '100%', height: '100%' }} />
+              </IconButton>
+            </Grid>)
+          }
         </Grid>
       </div>
     </div>
