@@ -19,6 +19,7 @@ export const placeInWordOp = {
 export const options = [
     {
         label: "מקום חיתוך",
+        value: "מקום חיתוך",
         letterOptions: [
             {
                 label: "הכל",   
@@ -141,7 +142,7 @@ export const options = [
     },
     {
         label: "אופן חיתוך",
-        value: "אופן",
+        value: "אופן חיתוך",
         letterOptions: [
             {
                 label: "הכל",
@@ -195,6 +196,7 @@ export const options = [
     },
     {
         label: "קוליות",
+        value: "קוליות",
         letterOptions: [
             {
                 label: "הכל",
