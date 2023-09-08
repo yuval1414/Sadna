@@ -8,7 +8,7 @@ import nextBtn from './../images/buttons/leftArrowBlueBtn.png';
 import prevBtn from './../images/buttons/rightArrowBlueBtn.png';
 import returnSettingsBtn from './../images/buttons/leftArrowBtn.png';
 import ImagePlaceHolder from '../component/ImagePlaceHolder';
-import { downloadImageFromStorage, fff, getAllMinimalPairs, getWordsFromDB } from '../Firebase.js';
+import { downloadImageFromStorage, getWordsFromDB } from '../Firebase.js';
 import Confetti from 'react-confetti';
 import { randomReaction } from '../component/utils/Reaction';
 import { useNavigate } from 'react-router-dom';
@@ -34,14 +34,12 @@ export default function ExercisePage() {
   const [borderColorImg, setBorderColorImg] = useState([null, null]);
   const [imgSelected, setImgSelected] = useState(null);
   const [confetti, setConfetti] = useState(false);
-  const [enteringPageAudio, setEnteringPageAudio] = useState(true);
   const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const getFromDB = async () => {
       console.log(`${location.state.category}, ${location.state.placeInWord}, ${location.state.letters}`);
       const wordsJSON = await getWordsFromDB(location.state.category, location.state.placeInWord, location.state.letters);
-      //fff(location.state.category, location.state.letters, location.state.placeInWord);
       setWords(wordsJSON.map((i) => i.words));
       setVoice(location.state.voice);
     }

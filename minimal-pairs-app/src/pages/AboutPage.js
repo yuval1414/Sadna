@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, IconButton, Grid } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PageBg from './../images/pagesBg/skyAndCloudsBg.png';
 import AboutBg from './../images/pagesBg/aboutPageSquar.png';

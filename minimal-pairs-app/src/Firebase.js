@@ -29,11 +29,11 @@ async function getWordsFromDB(soundType, positionInWord, soundPair) {
       nodes.push(childSnapshot.val());
     });
 
-    if (soundPair != "הכל") {
-      nodes = nodes.filter(item => item.sound_pair == soundPair);
+    if (soundPair !== "הכל") {
+      nodes = nodes.filter(item => item.sound_pair === soundPair);
     }
-    if (positionInWord != "הכל"){
-      nodes = nodes.filter(item => item.position_in_word == positionInWord);
+    if (positionInWord !== "הכל"){
+      nodes = nodes.filter(item => item.position_in_word === positionInWord);
     }
     
     return nodes;
