@@ -98,7 +98,8 @@ export default function ExercisePage() {
           colors[id] = "green";
           return [...colors];
         })
-        playAudio(randomReaction(true));
+        console.log("voice to send: " + voice);
+        playAudio(randomReaction(true, voice)); ///!!!!!!!!!!!!
         setTimeout(() => {
           setConfetti(true);
         }, 0);
@@ -116,7 +117,7 @@ export default function ExercisePage() {
             return [...colors];
           })
         }, 2000);
-        playAudio(randomReaction(false));
+        playAudio(randomReaction(false, voice)); //!!!!!!!!
         console.log('Try again');
 
       }
