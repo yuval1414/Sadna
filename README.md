@@ -29,9 +29,12 @@ The main branch is *Dev*, the latest code is in there.
   },
   
 # More Project Materials:
+More materials can be found in google drive in this link: https://drive.google.com/drive/folders/1dJxOQ0HPxAB22s8o5mh1lMmPB_aYHzNa?usp=drive_link
 - A video of speech-therapist working with little girl, using our app
 - Project presentation
 - Project poster
 - Project summary
 - Project status (from first semester)
 - Framework for the project, roughly how the application will look and work
+
+You are welcome to contact us by phone or WhatsApp for questions if there is a problem :)
