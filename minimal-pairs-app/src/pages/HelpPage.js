@@ -40,17 +40,17 @@ function HelpPage() {
       </div>
       <div style={{ padding: '10.5px' }}></div>
     </>,
-    <>
-      <div style={{ padding: '5px' }}>
-        <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
-          משחקים:
-        </Typography>
-        <Typography fontSize={'110%'}>
-          בעמוד המשחקים, לחיצה על המשחק הרצוי תפעיל אותו בעמוד חדש.
-        </Typography>
-      </div>
-      <div style={{ padding: '88.5px' }}></div>
-    </>,
+    // <>
+    //   <div style={{ padding: '5px' }}>
+    //     <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
+    //       משחקים:
+    //     </Typography>
+    //     <Typography fontSize={'110%'}>
+    //       בעמוד המשחקים, לחיצה על המשחק הרצוי תפעיל אותו בעמוד חדש.
+    //     </Typography>
+    //   </div>
+    //   <div style={{ padding: '88.5px' }}></div>
+    // </>,
   ];
 
   const goToNextSection = () => {

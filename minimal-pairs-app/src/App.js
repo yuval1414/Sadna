@@ -27,7 +27,7 @@ export default function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/ExerciseOptionsPage" element={<ExerciseOptionsPage />} />
           <Route path="/ExercisePage" element={<ExercisePage />} />
-          <Route path="/GamesOptionsPage" element={<GamesOptionsPage />} />
+          <Route path="/GamesOptionsPage" element={<TicTacToeGame />} />
           <Route path="/HelpPage" element={<HelpPage />} />
           <Route path="/AboutPage" element={<AboutPage />} />
           <Route path="/TicTacToeGame" element={<TicTacToeGame />} />

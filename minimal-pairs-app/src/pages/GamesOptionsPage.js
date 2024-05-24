@@ -85,7 +85,7 @@ function GamesOptionsPage() {
       direction: 'rtl',
     }}>
       <Typography fontSize={'420%'} fontWeight="bold" color={theme.palette.darkBlue} style={{ marginTop: '-40px' }}>
-        משחקים
+        משחק
       </Typography>
       <div className="board-container" style={{ 
         justifyContent: 'center', 

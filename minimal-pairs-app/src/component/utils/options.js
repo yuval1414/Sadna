@@ -16,130 +16,7 @@ export const placeInWordOp = {
     all: { label: "הכל", value: "הכל" },
 };
 
-export const options = [
-    {
-        label: "מקום חיתוך",
-        value: "מקום חיתוך",
-        letterOptions: [
-            {
-                label: "הכל",   
-                sounds: "",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ש-ס",
-                sounds: "S-SH",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ש-ף",
-                sounds: "F-SH",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ס-ף",
-                sounds: "F-S",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ס-ח",
-                sounds: "X-S",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.middle,
-                ],
-            },
-            {
-                label: "פ-ת,ט",
-                sounds: "T-P",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                ],
-            },
-            {
-                label: "ת,ט-ק,כ",
-                sounds: "K-T",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ג-ד",
-                sounds: "D-G",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "מ-נ",
-                sounds: "N-M",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "ר-ב,ו",
-                sounds: "V-R",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                    placeInWordOp.middle,
-                    placeInWordOp.end
-                ],
-            },
-            {
-                label: "פ-ק,כ",
-                sounds: "K-P",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                ],
-            },
-            {
-                label: "ח-ף",
-                sounds: "F-X",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.end,
-                ],
-            },
-            {
-                label: "ש-ח",
-                sounds: "X-SH",
-                placeInWordOptions: [
-                    placeInWordOp.all,
-                    placeInWordOp.start,
-                ],
-            },
-            
-        ],
-    },
+export const options = [    
     {
         label: "אופן חיתוך",
         value: "אופן חיתוך",
@@ -156,7 +33,7 @@ export const options = [
             },
             {
                 label: "ת,ט-צ",
-                sounds: "TS-T",
+                sounds: "ts-t",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -165,7 +42,7 @@ export const options = [
             },
             {
                 label: "ס-צ",
-                sounds: "TS-S",
+                sounds: "ts-s",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -175,7 +52,7 @@ export const options = [
             },
             {
                 label: "ק,כ-ח",
-                sounds: "X-K",
+                sounds: "x-k",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -184,7 +61,7 @@ export const options = [
             },
             {
                 label: "נ-ל",
-                sounds: "L-N",
+                sounds: "l-m",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -210,7 +87,7 @@ export const options = [
             },
             {
                 label: "ס-ז",
-                sounds: "Z-S",
+                sounds: "z-s",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -220,7 +97,7 @@ export const options = [
             },
             {
                 label: "ו-ף",
-                sounds: "F-V",
+                sounds: "f-v",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.middle,
@@ -229,7 +106,7 @@ export const options = [
             },
             {
                 label: "ר-ח",
-                sounds: "X-R",
+                sounds: "x-r",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -239,7 +116,7 @@ export const options = [
             },
             {
                 label: "ב-פ",
-                sounds: "F-B",
+                sounds: "p-b",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -248,7 +125,7 @@ export const options = [
             },
             {
                 label: "ט,ת-ד",
-                sounds: "D-T",
+                sounds: "d-t",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -258,7 +135,7 @@ export const options = [
             },
             {
                 label: "כ,ק-ג",
-                sounds: "G-K",
+                sounds: "g-k",
                 placeInWordOptions: [
                     placeInWordOp.all,
                     placeInWordOp.start,
@@ -269,4 +146,127 @@ export const options = [
             
         ],
     },
+    {
+        label: "מקום חיתוך",
+        value: "מקום חיתוך",
+        letterOptions: [
+            {
+                label: "הכל",   
+                sounds: "",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ש-ס",
+                sounds: "s-sh",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ש-ף",
+                sounds: "f-sh",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ס-ף",
+                sounds: "f-s",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ס-ח",
+                sounds: "x-s",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.middle,
+                ],
+            },
+            {
+                label: "פ-ת,ט",
+                sounds: "t-p",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                ],
+            },
+            {
+                label: "ת,ט-ק,כ",
+                sounds: "k-t",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ג-ד",
+                sounds: "d-g",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "מ-נ",
+                sounds: "n-m",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "ר-ב,ו",
+                sounds: "v-r",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                    placeInWordOp.middle,
+                    placeInWordOp.end
+                ],
+            },
+            {
+                label: "פ-ק,כ",
+                sounds: "k-p",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                ],
+            },
+            {
+                label: "ח-ף",
+                sounds: "f-x",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.end,
+                ],
+            },
+            {
+                label: "ש-ח",
+                sounds: "x-sh",
+                placeInWordOptions: [
+                    placeInWordOp.all,
+                    placeInWordOp.start,
+                ],
+            },
+            
+        ],
+    }
 ];

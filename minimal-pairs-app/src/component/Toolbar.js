@@ -18,7 +18,7 @@ export const PAGES = {
     home: { path: '/', label: 'ראשי' },
     exerciseOptionsPage: { path: '/ExerciseOptionsPage', label: 'תרגול' },
     exercisePage: { path: '/ExercisePage' },
-    gamesOptionsPage: { path: '/GamesOptionsPage', label: 'משחקים' },
+    gamesOptionsPage: { path: '/GamesOptionsPage', label: 'משחק' },
     helpPage: { path: '/HelpPage', label: 'עזרה' },
     aboutPage: { path: '/AboutPage', label: 'אודות' },
 };

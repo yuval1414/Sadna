@@ -15,8 +15,13 @@ function AboutPage() {
       <div style={{ padding: '10px', marginTop: '70px' }}>
         <Typography fontSize={'110%'}>
           אנחנו - עמית ארליך, מיה בן שטח ויובל הוכמן, סטודנטיות בשנה שלישית למדעי המחשב<br />
-          באקדמית ת"א-יפו, שמחות לשתף באפליקציה המיוחדת שבנינו<br /><br />
+          באקדמית ת"א-יפו, שמחות לשתף באפליקציה המיוחדת שבנינו.<br /><br />
         </Typography>
+        <div style={{ padding: '12px' }}>
+          <Typography fontSize={'110%'}>
+          בהנחייתה של ברטי בן ישי, קלינאית תקשורת במיח"א וב"שמע" חיפה.<br />
+          </Typography>
+        </div>  
       </div>
       <div style={{ padding: '40px' }}></div>
     </>,
@@ -53,13 +58,12 @@ function AboutPage() {
       <div style={{ padding: '5px' }}>
         <Typography fontSize={'150%'} fontWeight="bold" color={theme.palette.darkBlue}>
           הפרויקט שנוצר משיתוף פעולה מיוחד
+        </Typography>        
+        <Typography fontSize={'110%'}>
+          תודה ללילך שדה, לילך פאר ולכל קלינאי התקשורת שענו על כל שאלה והכווינו במהלך הפיתוח.
         </Typography>
         <Typography fontSize={'110%'}>
-          בראש ובראשונה, הכרת תודה ענקית לקלינאית התקשורת ברטי בן-ישי שהייתה חלק
-        </Typography>
-        <Typography fontSize={'110%'}>
-          בלתי נפרד מהפרויקט. תודה ללילך שדה, לילך פאר ולכל קלינאי התקשורת שענו על כל שאלה והכווינו במהלך הפיתוח.
-          תודה לגיא דוד וקרן אור שץ שתרמו את קולם והפריחו חיים באפליקציה.
+          תודה לגיא דוד וקרן אור שץ שתרמו את קולם והפיחו חיים באפליקציה.
         </Typography>
         <div style={{ padding: '12px' }}>
           <Typography fontSize={'110%'}>
